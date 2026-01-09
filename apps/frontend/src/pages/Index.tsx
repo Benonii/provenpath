@@ -1,6 +1,6 @@
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
+    <div className="flex-1 bg-white flex items-center justify-center">
       <div className="text-center">
         <h1 className="text-4xl font-bold text-black mb-8">
           Edit Pages/Index.tsx
