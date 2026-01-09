@@ -7,6 +7,7 @@ import {
   createRootRouteWithContext, 
 } from '@tanstack/react-router'
 import { Toaster } from '@/components/ui/sonner'
+import Header from '@/components/header'
 
 import appCss from '../styles.css?url'
 
@@ -42,6 +43,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <Header />
         {children}
         <TanStackDevtools
           config={{
