@@ -46,10 +46,7 @@ const Header: React.FC = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-      {/* Dark overlay for visibility on light backgrounds */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-      
+    <header className="fixed top-6 left-6 right-6 z-50 bg-transparent">
       <div className="relative flex items-center justify-between px-8 py-6">
         {/* Logo */}
         <Link to="/" className="flex items-center z-50">
