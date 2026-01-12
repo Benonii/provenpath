@@ -1,8 +1,10 @@
 import React from 'react'
 import Hero from '@/components/sections/hero'
 import AboutUs from '@/components/sections/about'
+import Library from '@/components/sections/library'
 import Services from '@/components/sections/services'
 import Clarity from '@/components/sections/clarity'
+import Contact from '@/components/sections/contact'
 
 const Index: React.FC = () => {
   return (
@@ -15,6 +17,8 @@ const Index: React.FC = () => {
       </div>
       <Clarity />
       <Services />
+      <Library />
+      <Contact />
     </div>
   )
 }

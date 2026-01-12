@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/suspicious/noUnknownAtRules: Biome doesn't recognize tailwindcss directives*/
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;700&display=swap');
 
 @font-face {
   font-family: 'Euclid Circular B';
@@ -204,6 +205,7 @@
   /* New Fonts */
   --font-northlane: "northlane", sans-serif;
   --font-euclid: "Euclid Circular B", sans-serif;
+  --font-lato: "Lato", sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: var(--radius);
