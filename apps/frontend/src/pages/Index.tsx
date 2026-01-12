@@ -1,10 +1,20 @@
 import React from 'react'
 import Hero from '@/components/sections/hero'
+import AboutUs from '@/components/sections/about'
+import Services from '@/components/sections/services'
+import Clarity from '@/components/sections/clarity'
 
 const Index: React.FC = () => {
   return (
-    <div className="p-6 bg-white">
-      <Hero />
+    <div className="bg-white">
+      <div className="p-6">
+        <Hero />
+      </div>
+      <div className="p-6 pt-0">
+        <AboutUs />
+      </div>
+      <Clarity />
+      <Services />
     </div>
   )
 }
