@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import { ArrowUpRight } from 'lucide-react'
 import carousel1 from '@/assets/carousel_1.png'
 import carousel2 from '@/assets/carousel_2.png'
@@ -79,15 +80,15 @@ const AboutUs: React.FC = () => {
               delivered by distinguished professionals on various societal topics.
             </p>
             
-            <button 
-              type="button"
-              className="group border border-[#00696F] text-[#00696F] hover:bg-[#00696F] hover:text-white transition-all duration-300 rounded-full pl-6 pr-2 py-2 flex items-center gap-3 font-medium"
+            <Link 
+              to="/about"
+              className="group border border-[#00696F] text-[#00696F] hover:bg-[#00696F] hover:text-white transition-all duration-300 rounded-full pl-6 pr-2 py-2 flex items-center gap-3 font-medium w-fit"
             >
               Learn More About us
               <div className="bg-transparent group-hover:bg-white/20 rounded-full p-1 transition-colors">
                 <ArrowUpRight className="w-4 h-4" />
               </div>
-            </button>
+            </Link>
           </div>
 
           {/* Spacer for grid on desktop */}

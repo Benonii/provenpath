@@ -1,7 +1,8 @@
 import React from 'react'
 import AboutHero from '@/components/sections/about-hero'
-import AboutUs from '@/components/sections/about'
 import WhoWeAre from '@/components/sections/who-we-are'
+import MVV from '@/components/sections/mvv'
+import OurTeam from '@/components/sections/our-team'
 
 const About: React.FC = () => {
   return (
@@ -10,6 +11,8 @@ const About: React.FC = () => {
         <AboutHero />
       </div>
       <WhoWeAre />
+      <MVV />
+      <OurTeam />
     </div>
   )
 }
