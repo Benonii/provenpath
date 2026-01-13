@@ -18,7 +18,7 @@ const Index: React.FC = () => {
       <Clarity />
       <Services />
       <Library />
-      <Contact />
+      <Contact variant="light" />
     </div>
   )
 }
