@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import clarityBg from '@/assets/clarity_bg.png'
 import { fadeIn, staggerContainer } from '@/lib/animations'
+import { BookCallDialogTrigger } from '../BookCallDialog'
 
 const Clarity: React.FC = () => {
   return (
@@ -52,15 +53,16 @@ const Clarity: React.FC = () => {
             Whether you're navigating life decisions or exploring your entrepreneurial ideas, ProvenPath is here to guide you. Schedule a one-on-one session and start moving forward with confidence.
           </motion.p>
           
-          <motion.button 
-            variants={fadeIn('up', 0.4)}
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.95 }}
-            type="button"
-            className="bg-[#00848D] text-white px-8 md:px-9 lg:px-10 py-3 md:py-3.5 lg:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-[#006e75] transition-all duration-300 shadow-[0_20px_50px_rgba(0,132,141,0.4)] hover:shadow-[0_25px_60px_rgba(0,132,141,0.5)]"
-          >
-            Book Your Consultation
-          </motion.button>
+          <motion.div variants={fadeIn('up', 0.4)}>
+            <BookCallDialogTrigger>
+              <button 
+                type="button"
+                className="bg-[#00848D] text-white px-8 md:px-9 lg:px-10 py-3 md:py-3.5 lg:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-[#006e75] transition-all duration-300 shadow-[0_20px_50px_rgba(0,132,141,0.4)] hover:shadow-[0_25px_60px_rgba(0,132,141,0.5)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              >
+                Book Your Consultation
+              </button>
+            </BookCallDialogTrigger>
+          </motion.div>
         </motion.div>
       </div>
     </section>

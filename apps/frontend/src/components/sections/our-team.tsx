@@ -23,7 +23,7 @@ const OurTeam: FC = () => {
   ]
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-gradient-to-b from-white via-gray-300 to-white">
       <div className="container mx-auto px-4 md:px-8">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useRouterState } from '@tanstack/react-router'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 
@@ -7,6 +8,10 @@ interface SmoothScrollProps {
 }
 
 const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
+  const lenisRef = useRef<Lenis | null>(null)
+  const router = useRouterState()
+  const pathname = router.location.pathname
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 2.2,
@@ -15,6 +20,8 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
       wheelMultiplier: 1.1, // Slightly more responsive start
       touchMultiplier: 2,
     })
+
+    lenisRef.current = lenis
 
     function raf(time: number) {
       lenis.raf(time)
@@ -31,6 +38,13 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
       document.documentElement.classList.remove('lenis')
     }
   }, [])
+
+  // Scroll to top when pathname changes
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true })
+    }
+  }, [pathname])
 
   return <>{children}</>
 }

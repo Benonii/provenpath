@@ -34,7 +34,7 @@ const MVV: React.FC = () => {
               <motion.div 
                 variants={fadeIn('right', 0)}
                 whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
-                className="bg-transparent p-8 rounded-[2rem] border border-gray-200 shadow-sm"
+                className="bg-transparent p-8 rounded-lg border border-gray-200"
               >
                 <h3 className="text-2xl font-bold text-[#00848D] mb-4">Mission</h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
@@ -45,7 +45,7 @@ const MVV: React.FC = () => {
               <motion.div 
                 variants={fadeIn('right', 0.1)}
                 whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
-                className="bg-transparent p-8 rounded-[2rem] border border-gray-200 shadow-sm"
+                className="bg-transparent p-8 rounded-lg border border-gray-200"
               >
                 <h3 className="text-2xl font-bold text-[#00848D] mb-4">Vision</h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
@@ -57,7 +57,7 @@ const MVV: React.FC = () => {
             {/* Values Section */}
             <motion.div 
               variants={fadeIn('right', 0.2)}
-              className="bg-transparent p-10 rounded-[2.5rem] border border-gray-200 shadow-sm"
+              className="bg-transparent p-10 rounded-lg border border-gray-300"
             >
               <h3 className="text-3xl font-bold text-[#00848D] mb-8">Values</h3>
               <motion.div 
@@ -69,7 +69,7 @@ const MVV: React.FC = () => {
                     key={index} 
                     variants={scaleIn(index * 0.05)}
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 105, 111, 0.05)' }}
-                    className="bg-transparent p-5 rounded-2xl flex items-center gap-4 border border-gray-100 shadow-sm"
+                    className="bg-transparent p-5 rounded-2xl flex items-center gap-4 border border-accent/20 hover:border-none"
                   >
                     <Sparkles className="w-4 h-4" />
                     <span className=" text-gray-600 font-semibold text-base">{value}</span>

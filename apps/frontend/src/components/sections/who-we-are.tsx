@@ -58,7 +58,7 @@ const WhoWeAre: React.FC = () => {
   const offset3 = (scrollY * 0.15) % loopWidth
 
   return (
-    <section ref={sectionRef} className="py-40 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-40 bg-gradient-to-b from-white via-gray-300 to-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 mb-32">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
           {/* Left Side - Heading */}

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Play, ArrowUpRight } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 import libraryBg from '@/assets/library_bg.png'
 
 const Library: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white via-accent/30 to-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12 md:mb-16">
@@ -62,7 +63,7 @@ const Library: React.FC = () => {
           </div>
 
           {/* Desktop Play Button */}
-          <div className="hidden sm:block absolute top-1/2 right-10 md:right-16 lg:right-1/4 -translate-y-1/2 z-20">
+          <div className="hidden sm:block absolute top-1/2 right-10 md:right-24 lg:right-32 -translate-y-1/2 z-20">
             <div className="w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-300">
               <div className="w-12 h-12 md:w-14 lg:w-16 md:h-14 lg:h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <Play className="w-6 h-6 md:w-7 lg:w-8 md:h-7 lg:h-8 text-[#01101B] fill-[#01101B]" />
@@ -73,10 +74,13 @@ const Library: React.FC = () => {
 
         {/* Bottom Button */}
         <div className="flex justify-center mt-12 md:mt-16">
-          <button className="flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-[#00B2BD] text-[#00B2BD] font-semibold hover:bg-[#00B2BD] hover:text-white transition-all duration-300 group text-sm md:text-base">
+          <Link 
+            to="/library"
+            className="flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-[#00B2BD] text-[#00B2BD] font-semibold hover:bg-[#00B2BD] hover:text-white transition-all duration-300 group text-sm md:text-base"
+          >
             View Other Episode
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
+          </Link>
         </div>
 
         {/* Bottom Accent */}

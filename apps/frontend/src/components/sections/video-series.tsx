@@ -91,7 +91,7 @@ const VideoSeries: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Series One')
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-white via-gray-300 to-white">
       <div className="container mx-auto px-4 md:px-8">
         {/* Tabs */}
         <div className="flex justify-center gap-8 md:gap-12 mb-16 border-b border-gray-100">

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import bgVideo from '@/assets/bg-1.mp4'
 import { Button } from '../ui/button'
 import { fadeIn, staggerContainer } from '@/lib/animations'
+import { BookCallDialogTrigger } from '../BookCallDialog'
 
 const Hero: React.FC = () => {
   return (
@@ -54,15 +55,17 @@ const Hero: React.FC = () => {
         </motion.p>
 
         <motion.div variants={fadeIn('up', 0.6)}>
-          <Button
-            type="button"
-            className="group bg-white text-[#01101B] hover:bg-[#22949A] hover:text-white transition-all duration-500 rounded-full pl-6 md:pl-7 lg:pl-8 pr-2 py-6 md:py-7 lg:py-8 flex items-center gap-3 md:gap-4 font-semibold text-base md:text-lg hover:shadow-[0_20px_60px_rgba(34,148,154,0.5)] active:scale-95"
-          >
-            Book a Consultation
-            <div className="bg-[#00696F] text-white p-3 md:p-3.5 lg:p-4 rounded-full group-hover:bg-white group-hover:text-[#22949A] transition-all duration-500 shadow-lg group-hover:shadow-none">
-              <ArrowUpRight className="w-5 h-5 md:w-5.5 lg:w-6 lg:h-6" />
-            </div>
-          </Button>
+          <BookCallDialogTrigger>
+            <Button
+              type="button"
+              className="group bg-white text-[#01101B] hover:bg-[#22949A] hover:text-white transition-all duration-500 rounded-full pl-6 md:pl-7 lg:pl-8 pr-2 py-6 md:py-7 lg:py-8 flex items-center gap-3 md:gap-4 font-semibold text-base md:text-lg hover:shadow-[0_20px_60px_rgba(34,148,154,0.5)] active:scale-95"
+            >
+              Book a Consultation
+              <div className="bg-[#00696F] text-white p-3 md:p-3.5 lg:p-4 rounded-full group-hover:bg-white group-hover:text-[#22949A] transition-all duration-500 shadow-lg group-hover:shadow-none">
+                <ArrowUpRight className="w-5 h-5 md:w-5.5 lg:w-6 lg:h-6" />
+              </div>
+            </Button>
+          </BookCallDialogTrigger>
         </motion.div>
       </motion.div>
     </div>

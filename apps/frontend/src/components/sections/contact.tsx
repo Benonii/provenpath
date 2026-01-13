@@ -4,6 +4,8 @@ import { Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import contactImg from '@/assets/contact_section.png'
 import { fadeIn, staggerContainer, scaleIn } from '@/lib/animations'
+import { Button } from '../ui/button'
+import { BookCallDialogTrigger } from '../BookCallDialog'
 
 interface ContactProps {
   variant?: 'light' | 'dark'
@@ -14,7 +16,7 @@ const Contact: FC<ContactProps> = ({ variant = 'light', reverse = false }) => {
   const isDark = variant === 'dark'
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-300 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <div className={`relative flex flex-col md:flex-row ${reverse ? 'md:flex-row-reverse' : ''} rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl ${isDark ? 'bg-gray-80' : 'bg-[#F8FAFB]'}`}>
           
@@ -57,14 +59,16 @@ const Contact: FC<ContactProps> = ({ variant = 'light', reverse = false }) => {
               variants={fadeIn('up', 0.2)}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
             >
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="button"
-                className="w-full sm:w-auto bg-[#00B2BD] text-white px-8 md:px-7 lg:px-8 py-4 rounded-full font-semibold text-base md:text-lg hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Book Consultation
-              </motion.button>
+              <BookCallDialogTrigger>
+                <motion.div>
+                  <Button
+                    className="w-full sm:w-auto bg-[#00B2BD] text-white px-8 md:px-7 lg:px-8 py-7 rounded-full font-semibold text-base md:text-lg hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    Book Consultation
+                  </Button>
+                </motion.div>
+              </BookCallDialogTrigger>
+              
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/contact"
