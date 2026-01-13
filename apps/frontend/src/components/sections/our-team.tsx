@@ -34,7 +34,7 @@ const OurTeam: FC = () => {
               className={`flex flex-col ${member.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
             >
               {/* Image Column */}
-              <div className="w-full md:w-1/2 flex justify-center">
+              <div className={`w-full md:w-1/2 flex ${member.reverse ? 'md:justify-end' : 'md:justify-start'} justify-center`}>
                 <div className="w-full max-w-[500px] aspect-[500/560] rounded-[2rem] overflow-hidden shadow-xl">
                   <img 
                     src={member.image} 
