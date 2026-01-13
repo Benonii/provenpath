@@ -9,10 +9,10 @@ import Contact from '@/components/sections/contact'
 const Index: React.FC = () => {
   return (
     <div className="bg-white">
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         <Hero />
       </div>
-      <div className="p-6 pt-0">
+      <div className="p-4 md:p-6 pt-0">
         <AboutUs />
       </div>
       <Clarity />

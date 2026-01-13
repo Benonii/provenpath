@@ -1,6 +1,8 @@
 import type { FC } from 'react'
+import { motion } from 'framer-motion'
 import ibsa from '@/assets/ibsa.png'
 import ashenafi from '@/assets/ashenafi.png'
+import { fadeIn, staggerContainer } from '@/lib/animations'
 
 const OurTeam: FC = () => {
   const team = [
@@ -23,42 +25,62 @@ const OurTeam: FC = () => {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-16 uppercase">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-12 md:mb-16 uppercase"
+        >
           Our Team
-        </h2>
+        </motion.h2>
 
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-16 md:gap-24">
           {team.map((member) => (
-            <div 
-              key={member.name} 
-              className={`flex flex-col ${member.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
+            <motion.div 
+              key={member.name}
+              variants={staggerContainer(0.2, 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.3 }}
+              className={`flex flex-col ${member.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-24`}
             >
               {/* Image Column */}
-              <div className={`w-full md:w-1/2 flex ${member.reverse ? 'md:justify-end' : 'md:justify-start'} justify-center`}>
-                <div className="w-full max-w-[500px] aspect-[500/560] rounded-[2rem] overflow-hidden shadow-xl">
+              <motion.div 
+                variants={fadeIn(member.reverse ? 'right' : 'left', 0)}
+                className={`w-full md:w-1/2 flex ${member.reverse ? 'md:justify-end' : 'md:justify-start'} justify-center`}
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full max-w-[340px] md:max-w-[500px] aspect-[500/560] rounded-[2rem] overflow-hidden shadow-xl"
+                >
                   <img 
                     src={member.image} 
                     alt={member.name} 
                     className="w-full h-full object-cover"
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Text Column */}
-              <div className="w-full md:w-1/2">
-                <div className="max-w-xl">
-                  <h3 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-2">
+              <motion.div 
+                variants={fadeIn(member.reverse ? 'left' : 'right', 0.2)}
+                className="w-full md:w-1/2"
+              >
+                <div className="max-w-xl text-center md:text-left">
+                  <h3 className="text-2xl md:text-4xl font-bold text-[#1A1A1A] mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-xl text-gray-600 mb-6">
+                  <p className="text-lg md:text-xl text-gray-600 mb-4 md:mb-6">
                     {member.role}
                   </p>
-                  <p className="text-gray-500 text-lg leading-relaxed">
+                  <p className="text-gray-500 text-base md:text-lg leading-relaxed">
                     {member.description}
                   </p>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

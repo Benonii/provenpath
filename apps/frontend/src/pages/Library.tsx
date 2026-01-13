@@ -1,6 +1,5 @@
 import React from 'react'
 import LibraryHero from '@/components/sections/library-hero'
-import LibrarySection from '@/components/sections/library'
 import VideoSeries from '@/components/sections/video-series'
 import Contact from '@/components/sections/contact'
 
@@ -10,7 +9,6 @@ const Library: React.FC = () => {
       <div className="p-6">
         <LibraryHero />
       </div>
-      <LibrarySection />
       <VideoSeries />
       <Contact variant="dark" />
     </div>

@@ -9,6 +9,7 @@ import {
 import { Toaster } from '@/components/ui/sonner'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import SmoothScroll from '@/components/smooth-scroll'
 
 import appCss from '../styles.css?url'
 
@@ -44,11 +45,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main className="flex-1 flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
         <TanStackDevtools
           config={{
             position: 'bottom-right',

@@ -1,6 +1,9 @@
 import type { FC } from 'react'
 import { Rocket } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
 import contactImg from '@/assets/contact_section.png'
+import { fadeIn, staggerContainer, scaleIn } from '@/lib/animations'
 
 interface ContactProps {
   variant?: 'light' | 'dark'
@@ -11,44 +14,74 @@ const Contact: FC<ContactProps> = ({ variant = 'light', reverse = false }) => {
   const isDark = variant === 'dark'
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <div className={`flex flex-col md:flex-row ${reverse ? 'md:flex-row-reverse' : ''} rounded-[3rem] overflow-hidden shadow-2xl ${isDark ? 'bg-gray-80' : 'bg-[#F8FAFB]'}`}>
-          {/* Content Side */}
-          <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center p-12 md:p-20">
-            {/* Rocket Icon */}
-            <div className={`w-16 h-16 ${isDark ? 'bg-white/10' : 'bg-[#E6F4F5]'} rounded-2xl flex items-center justify-center mb-10`}>
-              <Rocket className={`w-8 h-8 ${isDark ? 'text-white' : 'text-[#00B2BD]'}`} />
-            </div>
-
-            {/* Heading */}
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-[#1A1A1A]'} leading-tight mb-12`}>
-              Let's build a better <span className="font-lato font-[200] italic text-[#00B2BD]">future</span> together
-            </h2>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <button 
-                type="button"
-                className="bg-[#00B2BD] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Book Consultation
-              </button>
-              <button 
-                type="button"
-                className={`px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] ${
-                  isDark 
-                    ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20' 
-                    : 'bg-black text-white hover:bg-gray-900'
-                }`}
-              >
-                Contact Us
-              </button>
-            </div>
+        <div className={`relative flex flex-col md:flex-row ${reverse ? 'md:flex-row-reverse' : ''} rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl ${isDark ? 'bg-gray-80' : 'bg-[#F8FAFB]'}`}>
+          
+          {/* Background Image for Mobile/Tablet */}
+          <div className="absolute inset-0 z-0 md:hidden">
+            <img 
+              src={contactImg} 
+              alt="Background" 
+              className="w-full h-full object-cover"
+            />
+            <div className={`absolute inset-0 ${isDark ? 'bg-black/70' : 'bg-black/50'}`} />
           </div>
 
-          {/* Image Side */}
-          <div className="w-full md:w-1/2 h-[400px] md:h-auto">
+          {/* Content Side */}
+          <motion.div 
+            variants={staggerContainer(0.15, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative z-10 w-full md:w-1/2 flex flex-col items-center justify-center text-center p-10 md:p-20"
+          >
+            {/* Rocket Icon */}
+            <motion.div 
+              variants={scaleIn(0)}
+              className={`w-14 h-14 md:w-16 md:h-16 ${isDark ? 'bg-white/10' : 'bg-[#E6F4F5] md:bg-[#E6F4F5] bg-white/20'} backdrop-blur-sm md:backdrop-blur-none rounded-xl md:rounded-2xl flex items-center justify-center mb-8 md:mb-10`}
+            >
+              <Rocket className={`w-7 h-7 md:w-8 md:h-8 ${isDark ? 'text-white' : 'text-white md:text-[#00B2BD]'}`} />
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h2 
+              variants={fadeIn('up', 0.1)}
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? 'text-white' : 'text-white md:text-[#1A1A1A]'} leading-tight mb-10 md:mb-12`}
+            >
+              Let's build a better <span className="font-lato font-[200] italic text-[#00B2BD]">future</span> together
+            </motion.h2>
+
+            {/* Buttons */}
+            <motion.div 
+              variants={fadeIn('up', 0.2)}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+            >
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="button"
+                className="w-full sm:w-auto bg-[#00B2BD] text-white px-8 md:px-7 lg:px-8 py-4 rounded-full font-semibold text-base md:text-lg hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Book Consultation
+              </motion.button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/contact"
+                  className={`w-full sm:w-auto px-10 py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl text-center ${
+                    isDark 
+                      ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20' 
+                      : 'bg-white md:bg-black text-black md:text-white hover:bg-gray-100 md:hover:bg-gray-900'
+                  }`}
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Image Side (Desktop Only) */}
+          <div className="hidden md:block w-1/2 h-auto">
             <img 
               src={contactImg} 
               alt="Contact Us" 

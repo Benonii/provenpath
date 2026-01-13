@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import { Play } from 'lucide-react'
-import carousel1 from '@/assets/carousel_1.png'
-import carousel2 from '@/assets/carousel_2.png'
-import carousel3 from '@/assets/carousel_3.png'
+import carousel1 from '@/assets/carousel-1.png'
+import carousel2 from '@/assets/carousel-2.png'
+import carousel3 from '@/assets/carousel-3.png'
+import carousel4 from '@/assets/carousel-4.png'
+import carousel5 from '@/assets/carousel-5.png'
+import carousel6 from '@/assets/carousel-6.png'
+import carousel7 from '@/assets/carousel-7.png'
+import carousel8 from '@/assets/carousel-8.png'
+import carousel9 from '@/assets/carousel-9.png'
+import carousel10 from '@/assets/carousel-10.png'
 
 interface Video {
   id: number
@@ -15,37 +22,67 @@ const seriesData: Record<string, Video[]> = {
   'Series One': [
     {
       id: 1,
-      title: '{Video Title}',
-      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque cursus tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus. tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus.',
+      title: 'The Foundation of Growth',
+      description: 'Explore the fundamental principles that drive personal and professional development in today\'s rapidly changing world.',
       thumbnail: carousel1
     },
     {
       id: 2,
-      title: '{Video Title}',
-      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque cursus tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus. tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus.',
+      title: 'Strategic Leadership',
+      description: 'Learn how to lead with purpose and clarity, inspiring your team to achieve extraordinary results through proven strategies.',
       thumbnail: carousel2
     },
     {
       id: 3,
-      title: '{Video Title}',
-      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque cursus tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus. tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus.',
+      title: 'Mindset Mastery',
+      description: 'Discover the power of a growth mindset and how it can transform your approach to challenges and opportunities.',
       thumbnail: carousel3
     }
   ],
   'Series Two': [
     {
       id: 4,
-      title: '{Video Title} - Series Two',
-      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque cursus tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla.',
-      thumbnail: carousel2
+      title: 'Effective Communication',
+      description: 'Master the art of communication to build stronger relationships and influence positive change in your community.',
+      thumbnail: carousel4
+    },
+    {
+      id: 5,
+      title: 'Innovation & Creativity',
+      description: 'Unleash your creative potential and learn how to foster a culture of innovation in any environment.',
+      thumbnail: carousel5
+    },
+    {
+      id: 6,
+      title: 'Emotional Intelligence',
+      description: 'Develop the self-awareness and empathy needed to navigate complex social dynamics and lead effectively.',
+      thumbnail: carousel7
     }
   ],
   'Series Three': [
     {
-      id: 5,
-      title: '{Video Title} - Series Three',
-      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque cursus tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla.',
-      thumbnail: carousel3
+      id: 7,
+      title: 'Sustainable Impact',
+      description: 'Understand how to create lasting value and make a meaningful difference through sustainable practices.',
+      thumbnail: carousel6
+    },
+    {
+      id: 8,
+      title: 'Digital Transformation',
+      description: 'Navigate the digital landscape and leverage technology to scale your impact and reach a wider audience.',
+      thumbnail: carousel8
+    },
+    {
+      id: 9,
+      title: 'Financial Literacy',
+      description: 'Gain the financial knowledge and skills necessary to manage resources effectively and ensure long-term stability.',
+      thumbnail: carousel9
+    },
+    {
+      id: 10,
+      title: 'Community Building',
+      description: 'Learn how to foster collaboration and create strong, resilient communities that thrive together.',
+      thumbnail: carousel10
     }
   ]
 }
@@ -93,7 +130,7 @@ const VideoSeries: React.FC = () => {
                 <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
                     <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-                      <Play className="w-4 h-4 md:w-6 md:h-6 text-[#00B2BD] fill-[#00B2BD] ml-1" />
+                      <Play className="w-4 h-4 md:w-6 md:h-6 text-[#00B2BD] fill-[#00B2BD]" />
                     </div>
                   </div>
                 </div>
