@@ -10,8 +10,11 @@ import { Toaster } from '@/components/ui/sonner'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import SmoothScroll from '@/components/smooth-scroll'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import appCss from '../styles.css?url'
+
+const queryClient = new QueryClient()
 
 export const Route = createRootRouteWithContext()({
   head: () => ({
@@ -45,25 +48,27 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="flex flex-col min-h-screen">
-        <SmoothScroll>
-          <Header />
-          <main className="flex-1 flex flex-col">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScroll>
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
-        <Toaster />
+        <QueryClientProvider client={queryClient}>
+          <SmoothScroll>
+            <Header />
+            <main className="flex-1 flex flex-col">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
+          <TanStackDevtools
+            config={{
+              position: 'bottom-right',
+            }}
+            plugins={[
+              {
+                name: 'Tanstack Router',
+                render: <TanStackRouterDevtoolsPanel />,
+              },
+            ]}
+          />
+          <Toaster />
+          </QueryClientProvider>
         <Scripts />
       </body>
     </html>
