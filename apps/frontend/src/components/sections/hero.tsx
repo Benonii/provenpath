@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ArrowUpRight } from 'lucide-react'
-import { motion } from 'framer-motion'
 import bgVideo from '@/assets/bg-1.mp4'
 import { Button } from '../ui/button'
-import { fadeIn, staggerContainer } from '@/lib/animations'
+import { motion } from 'framer-motion'
 import { BookCallDialogTrigger } from '../BookCallDialog'
 
 const Hero: React.FC = () => {
+  const [typedText, setTypedText] = useState('')
+  const [iteration, setIteration] = useState(0)
+  const fullText = 'DESTINY'
+
+  useEffect(() => {
+    const baseDelay = 150 // Base typing speed
+    const speedMultiplier = Math.max(0.3, 1 - (iteration * 0.2)) // Gets faster each iteration, minimum 30% speed
+    const typingDelay = baseDelay * speedMultiplier
+
+    if (typedText.length < fullText.length) {
+      // Still typing
+      const timeout = setTimeout(() => {
+        setTypedText(fullText.slice(0, typedText.length + 1))
+      }, typingDelay)
+      return () => clearTimeout(timeout)
+    } else if (typedText === fullText) {
+      // Finished typing, wait before restarting
+      const restartTimeout = setTimeout(() => {
+        setTypedText('')
+        setIteration(prev => prev + 1)
+      }, 2000) // 2 second pause before restart
+      return () => clearTimeout(restartTimeout)
+    }
+  }, [typedText, iteration])
+
   return (
     <div className="relative h-[calc(100vh-3rem)] w-full overflow-hidden rounded-2xl">
       {/* Video Background */}
@@ -28,33 +52,32 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-80 z-10 rounded-2xl" />
 
       {/* Content */}
-      <motion.div 
-        variants={staggerContainer(0.2, 0.5)}
-        initial="hidden"
-        animate="show"
+      <div 
         className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 md:px-6"
       >
-        <motion.h1 
-          variants={fadeIn('up', 0)}
+        <h1 
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-wide mb-2"
         >
           WALK TO YOUR
-        </motion.h1>
-        <motion.h1 
-          variants={fadeIn('up', 0.2)}
+        </h1>
+        <h1
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#22949A] tracking-wide mb-6 md:mb-8"
         >
-          DESTINY
-        </motion.h1>
+          {typedText}
+          <motion.span
+            animate={{ opacity: [1, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+            className="inline-block w-1 h-16 bg-[#22949A] ml-1"
+          />
+        </h1>
         
-        <motion.p 
-          variants={fadeIn('up', 0.4)}
+        <p 
           className="text-white/90 text-base sm:text-lg md:text-xl mb-8 md:mb-12 max-w-2xl font-light"
         >
           Counseling, Training, Coaching, Mentoring, & Experience Sharing
-        </motion.p>
+        </p>
 
-        <motion.div variants={fadeIn('up', 0.6)}>
+        <div>
           <BookCallDialogTrigger>
             <Button
               type="button"
@@ -66,8 +89,8 @@ const Hero: React.FC = () => {
               </div>
             </Button>
           </BookCallDialogTrigger>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   )
 }

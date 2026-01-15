@@ -70,9 +70,9 @@ const Header: React.FC = () => {
             </Button>
           </SheetTrigger>
           
-          <SheetContent 
-            side="right" 
-            className="w-full !sm:w-[1000px] bg-[#00F2FF] border-l-0 p-0 flex flex-col justify-center items-center"
+          <SheetContent
+            side="right"
+            className="w-[80vw] sm:w-[1000px] bg-[#00F2FF] border-l-0 p-0 flex flex-col justify-center items-center"
           >
             <nav className="flex flex-col items-center gap-8">
               {navItems.map((item, index) => {

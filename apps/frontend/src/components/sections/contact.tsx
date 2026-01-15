@@ -51,18 +51,18 @@ const Contact: FC<ContactProps> = ({ variant = 'light', reverse = false }) => {
               variants={fadeIn('up', 0.1)}
               className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? 'text-white' : 'text-white md:text-[#1A1A1A]'} leading-tight mb-10 md:mb-12`}
             >
-              Let's build a better <span className="font-lato font-[200] italic text-[#00B2BD]">future</span> together
+              Let's build a better <span className={`font-lato font-bold italic text-[#00F2FF]`}>future</span> together
             </motion.h2>
 
             {/* Buttons */}
-            <motion.div 
+            <motion.div
               variants={fadeIn('up', 0.2)}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
             >
               <BookCallDialogTrigger>
                 <motion.div>
                   <Button
-                    className="w-full sm:w-auto bg-[#00B2BD] text-white px-8 md:px-7 lg:px-8 py-7 rounded-full font-semibold text-base md:text-lg hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full sm:w-[240px] bg-[#00B2BD] text-white px-6 py-7 rounded-full font-semibold text-base md:text-lg hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     Book Consultation
                   </Button>
@@ -72,9 +72,9 @@ const Contact: FC<ContactProps> = ({ variant = 'light', reverse = false }) => {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/contact"
-                  className={`w-full sm:w-auto px-10 py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl text-center ${
-                    isDark 
-                      ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20' 
+                  className={`w-full sm:w-[240px] px-12 py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl text-center inline-flex items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-auto ${
+                    isDark
+                      ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                       : 'bg-white md:bg-black text-black md:text-white hover:bg-gray-100 md:hover:bg-gray-900'
                   }`}
                 >
