@@ -123,6 +123,41 @@ yarn exec turbo link
 pnpm exec turbo link
 ```
 
+### Docker
+
+This project can be run using Docker Compose for easy development and deployment.
+
+#### Prerequisites
+
+- Docker and Docker Compose installed
+- Copy `env.example` to `.env` and fill in the required environment variables
+
+#### Running with Docker
+
+```bash
+# Build and start all services
+docker compose up --build
+
+# Or build first, then run
+docker compose build
+docker compose up -d
+
+# Stop services
+docker compose down
+
+# View logs
+docker compose logs -f
+
+# Run database migrations (after services are running)
+docker compose exec backend npm run drizzle:sync
+```
+
+#### Services
+
+- **Frontend**: TanStack Start React app on port 3000
+- **Backend**: Hono/Node.js API server on port 5000
+- **Database**: PostgreSQL 15 on port 5432
+
 ## Useful Links
 
 Learn more about the power of Turborepo:
