@@ -2,63 +2,21 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: ./apps/frontend/Dockerfile
+      dockerfile: apps/frontend/Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL}
     ports:
-      - "5173:5173"
-    environment:
-      - NODE_ENV=production
-      - VITE_API_URL=http://backend:5000/api
+      - "5173:3000"
     depends_on:
       - backend
-    networks:
-      - provenpath-network
+    restart: always
 
   backend:
     build:
       context: .
-      dockerfile: ./apps/backend/Dockerfile
+      dockerfile: apps/backend/Dockerfile
     ports:
       - "5001:5001"
     environment:
-      - NODE_ENV=production
-      - PORT=5000
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/provenpath
-      - CORS_WHITELIST=http://localhost:3000,http://frontend:3000
-      - SUPABASE_URL=${SUPABASE_URL}
-      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
-      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
-      - RESEND_API_KEY=${RESEND_API_KEY}
-      - FROM_EMAIL=${FROM_EMAIL}
-      - TO_EMAIL=${TO_EMAIL}
-    depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - provenpath-network
-
-  db:
-    image: postgres:15-alpine
+      - PORT=5001
     restart: always
-    environment:
-      - POSTGRES_DB=provenpath
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./apps/backend/drizzle:/docker-entrypoint-initdb.d
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d provenpath"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - provenpath-network
-
-volumes:
-  postgres_data:
-
-networks:
-  provenpath-network:
-    driver: bridge

@@ -1,43 +1,56 @@
-# Frontend Dockerfile
-FROM node:20-alpine AS base
-
-# Install dependencies only when needed
-FROM base AS deps
+# Build stage
+FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Install Python and build tools for native dependencies
-RUN apk add --no-cache python3 make g++
+RUN apk add --no-cache python3 make g++ openssl ca-certificates curl
 
-# Copy package files and lock file
-COPY ./apps/frontend/package.json ./package-lock.json ./
-RUN npm install --legacy-peer-deps
+# Install pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Rebuild the source code only when needed
-FROM base AS builder
+# Copy workspace configuration and install dependencies
+COPY package.json pnpm-workspace.yaml ./
+COPY apps/frontend/package.json ./apps/frontend/
+# Temporarily remove packageManager field to allow pnpm to install
+RUN node -e "const fs = require('fs'); const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')); delete pkg.packageManager; fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
+RUN pnpm install --ignore-scripts
+
+# Copy source code
+COPY . .
+
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
+# Temporarily remove packageManager field to allow pnpm to build
+RUN node -e "const fs = require('fs'); const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')); delete pkg.packageManager; fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
+RUN pnpm --filter frontend build
+
+# Production stage - use Node.js to run the SSR server
+FROM node:20-alpine
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY ./apps/frontend .
-# Ensure .tanstack directory is copied (needed for TanStack Router/Start)
-COPY ./apps/frontend/.tanstack ./.tanstack
 
-# Build the application
-RUN npm run build
+# Install pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Production image, copy all the files and run TanStack Start server
-FROM base AS runner
-WORKDIR /app
+# Install only production dependencies
+COPY package.json pnpm-workspace.yaml ./
+COPY apps/frontend/package.json ./apps/frontend/
+# Temporarily remove packageManager field to allow pnpm to install
+RUN node -e "const fs = require('fs'); const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')); delete pkg.packageManager; fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
+RUN pnpm install --prod --ignore-scripts
 
-ENV NODE_ENV production
+# Copy built application
+COPY --from=builder /app/apps/frontend/dist ./apps/frontend/dist
+COPY --from=builder /app/apps/frontend/package.json ./apps/frontend/
+COPY apps/frontend/server-entry.js ./apps/frontend/server-entry.js
 
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+WORKDIR /app/apps/frontend
 
-USER nextjs
+EXPOSE 3000
+ENV PORT=3000
+ENV NODE_ENV=production
 
-EXPOSE 5173
-
-ENV PORT 5173
-
-# Start the TanStack Start server
-CMD ["node", "dist/server/server.js"]
+CMD ["node", "server-entry.js"]

@@ -1,45 +1,36 @@
-# Backend Dockerfile
-FROM node:20-alpine AS base
+FROM oven/bun:1.2.12
 
-# Install dependencies only when needed
-FROM base AS deps
 WORKDIR /app
 
-# Install Python and build tools for native dependencies
-RUN apk add --no-cache python3 make g++
+# Install system deps needed for native modules
+RUN apt-get update && apt-get install -y \
+  python3 \
+  make \
+  g++ \
+  openssl \
+  ca-certificates \
+  curl \
+  && rm -rf /var/lib/apt/lists/*
 
-# Copy package files and lock file
-COPY ./apps/backend/package.json ./package-lock.json ./
-RUN npm install --production --legacy-peer-deps
+# Install pnpm
+ENV SHELL=/bin/bash
+RUN curl -fsSL https://get.pnpm.io/install.sh | SHELL=/bin/bash sh - && \
+    export PNPM_HOME="/root/.local/share/pnpm" && \
+    export PATH="$PNPM_HOME:$PATH" && \
+    pnpm --version
 
-# Rebuild the source code only when needed
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY ./apps/backend .
+# Copy workspace configuration and install dependencies
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml ./
+COPY apps/backend/package.json ./apps/backend/
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+# Temporarily remove packageManager field to allow pnpm to install
+RUN bun -e "const pkg = JSON.parse(await Bun.file('package.json').text()); delete pkg.packageManager; await Bun.write('package.json', JSON.stringify(pkg, null, 2));"
+RUN pnpm install --ignore-scripts
 
-# Build the application if needed (though this backend doesn't seem to need building)
-# RUN npm run build
+# Copy source code
+COPY . .
 
-# Production image
-FROM base AS runner
-WORKDIR /app
-
-ENV NODE_ENV production
-
-# Install tsx for running TypeScript
-RUN npm install -g tsx
-
-COPY --from=builder /app/src ./src
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
-
-USER nodejs
-
-EXPOSE 5001
-
-ENV PORT 5001
-
-# Start the server with tsx
-CMD ["tsx", "src/index.ts"]
+WORKDIR /app/apps/backend
+EXPOSE 5000
+CMD ["bun", "run", "start"]

@@ -1,3 +1,18 @@
+/node_modules
+/apps/**/node_modules
+/apps/**/dist
+/packages/**/node_modules
+/packages/**/dist
+/.git
+/.turbo
+/tmp
+/dist
+/apps/frontend/dist
+/apps/backend/dist
+/bun.lockb
+*.log
+*.tmp
+*.swp
 # Dependencies
 node_modules
 npm-debug.log*
