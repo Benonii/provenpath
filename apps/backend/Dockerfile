@@ -32,5 +32,5 @@ RUN pnpm install --ignore-scripts
 COPY . .
 
 WORKDIR /app/apps/backend
-EXPOSE 5000
+EXPOSE 5001
 CMD ["bun", "run", "start"]
