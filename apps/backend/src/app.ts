@@ -4,6 +4,7 @@ import { cors } from "hono/cors";
 import { Hono } from "hono";
 import { env } from "@/utils/env";
 import { Resend } from "resend";
+import { renderContactFormEmail, generateContactFormEmailText } from "@/utils/emailTemplates";
 
 const app = new Hono();
 
@@ -73,23 +74,23 @@ app.post('/email', async (c) => {
     try {
       const resend = new Resend(resendApiKey);
 
-      const { data, error } = await resend.emails.send({
+      const { error } = await resend.emails.send({
         from: `Proven Path Contact Form <${fromEmail}>`,
         to: [recipientEmail],
         replyTo: email,
         subject: `New Contact Form Submission from ${firstName} ${lastName}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333;">New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap; background: #f5f5f5; padding: 15px; border-radius: 5px;">${message}</p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
-            <p style="color: #666; font-size: 12px;">Sent from Buildin21 Contact Form</p>
-          </div>
-        `,
-        text: `New Contact Form Submission\n\nName: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from Buildin21 Contact Form`,
+        html: renderContactFormEmail({
+          firstName,
+          lastName,
+          email,
+          message,
+        }),
+        text: generateContactFormEmailText({
+          firstName,
+          lastName,
+          email,
+          message,
+        }),
       });
 
       if (error) {
