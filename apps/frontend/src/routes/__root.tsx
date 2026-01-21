@@ -56,17 +56,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </main>
             <Footer />
           </SmoothScroll>
-          <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-            ]}
-          />
           <Toaster />
           </QueryClientProvider>
         <Scripts />

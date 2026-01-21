@@ -1,6 +1,7 @@
 import React from 'react'
 import { Play, ArrowUpRight } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
+import { toast } from 'sonner'
 import libraryBg from '@/assets/library_bg.png'
 
 const Library: React.FC = () => {
@@ -32,13 +33,18 @@ const Library: React.FC = () => {
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Mobile Play Button Overlay */}
-            <div className="sm:hidden absolute inset-0 flex items-center justify-center bg-black/20">
+            <button
+              type="button"
+              className="sm:hidden absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer"
+              onClick={() => toast.info("video content coming soon")}
+              aria-label="Play video"
+            >
               <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
                   <Play className="w-5 h-5 text-[#01101B] fill-[#01101B]" />
                 </div>
               </div>
-            </div>
+            </button>
             {/* Desktop Overlay - Dark gradient on the left */}
             <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#01101B] via-[#01101B]/80 to-transparent z-10" />
           </div>
@@ -50,26 +56,31 @@ const Library: React.FC = () => {
                 LATEST EPISODE
               </span>
               <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                Lorem Ipsum dolor sit amemt consecteture
+                The Future of Digital Learning
               </h3>
               <p className="text-white/70 text-sm md:text-base leading-relaxed mb-8 md:mb-10 line-clamp-3">
-                Lorem ipsum dolor sit amet consectetur. Pellentesque cursus tristique tellus sit natoque diam. Nec nunc dui quam enim placerat dolor nulla. Dui netus viverra sapien quam viverra augue. Aenean leo eu tortor interdum phasellus.
+                Discover the transformative power of digital education through our carefully curated video series. From emerging technologies to essential life skills, our content bridges the gap between traditional learning and modern innovation, empowering students to navigate tomorrow's challenges with confidence and creativity.
               </p>
               
-              <button className="flex items-center gap-2 text-[#00B2BD] font-semibold border-b-2 border-[#00B2BD] pb-1 hover:text-[#00848D] hover:border-[#00848D] transition-colors text-sm md:text-base w-fit">
+              <button type="button" className="flex items-center gap-2 text-[#00B2BD] font-semibold border-b-2 border-[#00B2BD] pb-1 hover:text-[#00848D] hover:border-[#00848D] transition-colors text-sm md:text-base w-fit">
                 Start Listening
               </button>
             </div>
           </div>
 
           {/* Desktop Play Button */}
-          <div className="hidden sm:block absolute top-1/2 right-10 md:right-24 lg:right-32 -translate-y-1/2 z-20">
+          <button
+            type="button"
+            className="hidden sm:block absolute top-1/2 right-10 md:right-24 lg:right-32 -translate-y-1/2 z-20 cursor-pointer"
+            onClick={() => toast.info("video content coming soon")}
+            aria-label="Play video"
+          >
             <div className="w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-300">
               <div className="w-12 h-12 md:w-14 lg:w-16 md:h-14 lg:h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <Play className="w-6 h-6 md:w-7 lg:w-8 md:h-7 lg:h-8 text-[#01101B] fill-[#01101B]" />
               </div>
             </div>
-          </div>
+          </button>
         </div>
 
         {/* Bottom Button */}

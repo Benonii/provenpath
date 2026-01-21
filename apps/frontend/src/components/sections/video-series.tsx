@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Play } from 'lucide-react'
+import { toast } from 'sonner'
 import carousel1 from '@/assets/carousel-1.png'
 import carousel2 from '@/assets/carousel-2.png'
 import carousel3 from '@/assets/carousel-3.png'
@@ -97,6 +98,7 @@ const VideoSeries: React.FC = () => {
         <div className="flex justify-center gap-8 md:gap-12 mb-16 border-b border-gray-100">
           {Object.keys(seriesData).map((tab) => (
             <button
+              type="button"
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`pb-4 text-lg md:text-xl font-semibold transition-all relative ${
@@ -127,13 +129,18 @@ const VideoSeries: React.FC = () => {
                   alt={video.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+                <button
+                  type="button"
+                  className="absolute inset-0 bg-black/10 flex items-center justify-center cursor-pointer"
+                  onClick={() => toast.info("video content coming soon")}
+                  aria-label="Play video"
+                >
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
                     <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
                       <Play className="w-4 h-4 md:w-6 md:h-6 text-[#00B2BD] fill-[#00B2BD]" />
                     </div>
                   </div>
-                </div>
+                </button>
               </div>
 
               {/* Content */}
@@ -144,7 +151,11 @@ const VideoSeries: React.FC = () => {
                 <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-6 line-clamp-4 md:line-clamp-none">
                   {video.description}
                 </p>
-                <button className="text-[#00B2BD] font-semibold border-b-2 border-[#00B2BD] pb-0.5 hover:text-[#00848D] hover:border-[#00848D] transition-colors">
+                <button
+                  type="button"
+                  className="text-[#00B2BD] font-semibold border-b-2 border-[#00B2BD] pb-0.5 hover:text-[#00848D] hover:border-[#00848D] transition-colors"
+                  onClick={() => toast.info("video content coming soon")}
+                >
                   Watch Episode
                 </button>
               </div>
