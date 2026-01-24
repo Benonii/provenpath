@@ -1,7 +1,7 @@
+import React from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import bgVideo from '@/assets/bg-1.mp4'
 import { motion } from 'framer-motion'
-import { BookCallDialogTrigger } from '../BookCallDialog'
 
 const Hero: React.FC = () => {
 
@@ -115,28 +115,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12"
-        >
-          <BookCallDialogTrigger>
-            <button
-              type="button"
-              className="group bg-[#DBFE01] text-black px-10 md:px-14 py-5 md:py-6 font-bold text-sm md:text-base uppercase tracking-[0.15em] 
-                hover:bg-white transition-all duration-500 
-                hover:shadow-[0_20px_80px_rgba(219,254,1,0.4)] 
-                active:scale-95 flex items-center gap-4 border-2 border-[#DBFE01] hover:border-white"
-            >
-              Book a Consultation
-              <div className="bg-black text-[#DBFE01] p-3 group-hover:bg-[#DBFE01] group-hover:text-black transition-all duration-500">
-                <ArrowUpRight className="w-5 h-5" />
-              </div>
-            </button>
-          </BookCallDialogTrigger>
-        </motion.div>
       </div>
 
       {/* Scroll Indicator */}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero from '@/components/sections/hero'
+import Destiny from '@/components/sections/destiny'
 import AboutUs from '@/components/sections/about'
 import Library from '@/components/sections/library'
 import Services from '@/components/sections/services'
@@ -8,17 +9,14 @@ import Contact from '@/components/sections/contact'
 
 const Index: React.FC = () => {
   return (
-    <div className="bg-white">
-      <div className="p-4 md:p-6">
-        <Hero />
-      </div>
-      <div className="p-4 md:p-6 pt-0">
-        <AboutUs />
-      </div>
+    <div className="bg-black">
+      <Hero />
+      <Destiny />
+      <AboutUs />
       <Clarity />
       <Services />
       <Library />
-      <Contact variant="light" />
+      <Contact variant="dark" />
     </div>
   )
 }

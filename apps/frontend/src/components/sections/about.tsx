@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link } from '@tanstack/react-router'
 import { ArrowUpRight } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { fadeIn, staggerContainer } from '@/lib/animations'
 import carousel1 from '@/assets/carousel-1.png'
 import carousel2 from '@/assets/carousel-2.png'
@@ -9,8 +9,16 @@ import carousel3 from '@/assets/carousel-3.png'
 import carousel4 from '@/assets/carousel-4.png'
 
 const AboutUs: React.FC = () => {
+  const containerRef = useRef<HTMLElement>(null)
   const images = [carousel1, carousel2, carousel3, carousel4]
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  const yText = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,7 +29,7 @@ const AboutUs: React.FC = () => {
   }, [images.length])
 
   return (
-    <section className="relative py-24 md:py-32 bg-black overflow-hidden">
+    <section ref={containerRef} className="relative py-24 md:py-32 bg-black overflow-hidden">
       {/* Subtle Gradient Background */}
       <div className="absolute inset-0 bg-accent-gradient pointer-events-none" />
       
@@ -30,6 +38,7 @@ const AboutUs: React.FC = () => {
           
           {/* Left Content - MASSIVE TEXT */}
           <motion.div 
+            style={{ y: yText }}
             variants={staggerContainer(0.15, 0.3)}
             initial="hidden"
             whileInView="show"

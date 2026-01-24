@@ -66,7 +66,7 @@ const MVV: React.FC = () => {
               >
                 {values.map((value, index) => (
                   <motion.div 
-                    key={index} 
+                    key={value} 
                     variants={scaleIn(index * 0.05)}
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 105, 111, 0.05)' }}
                     className="bg-transparent p-5 rounded-2xl flex items-center gap-4 border border-accent/20 hover:border-none"

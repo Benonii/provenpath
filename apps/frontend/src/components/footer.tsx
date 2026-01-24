@@ -45,8 +45,8 @@ function SocialItem({ href, icon }: { href: string; icon: React.ReactNode }) {
       rel="noopener noreferrer"
       className="group relative flex items-center justify-center py-12 border-r border-white/10 last:border-r-0 md:last:border-r-0 [&:nth-child(3)]:border-r-0 md:[&:nth-child(3)]:border-r border-b md:border-b-0 [&:nth-child(4)]:border-b-0 [&:nth-child(5)]:border-b-0 [&:nth-child(6)]:border-b-0 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[#22949A] transform scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
-      <div className="relative z-10">
+      <div className="absolute inset-0 bg-[#DBFE01] transform scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+      <div className="relative z-10 transition-all duration-500 group-hover:text-black group-hover:[&_img]:invert-0 group-hover:[&_img]:brightness-0">
         {icon}
       </div>
     </a>

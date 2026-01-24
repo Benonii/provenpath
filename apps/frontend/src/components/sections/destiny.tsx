@@ -1,5 +1,7 @@
-import type React from 'react'
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { BookCallDialogTrigger } from '../BookCallDialog'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -11,6 +13,8 @@ const Destiny: React.FC = () => {
   const path2Ref = useRef<SVGPathElement>(null)
   const starRef = useRef<SVGPathElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
+  const wordsRef = useRef<(HTMLDivElement | null)[]>([])
+  const wordsContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!path1Ref.current || !path2Ref.current || !sectionRef.current || !starRef.current || !textRef.current) return
@@ -43,11 +47,18 @@ const Destiny: React.FC = () => {
       webkitTextStroke: '1px #DBFE01',
     })
 
+    // Set initial state for words (hidden, blurred, slightly down)
+    gsap.set(wordsRef.current, {
+      opacity: 0,
+      filter: 'blur(10px)',
+      y: 20,
+    })
+
     // Create timeline
     const tl = gsap.timeline({
       repeat: -1,
       yoyo: true,
-      repeatDelay: 1,
+      repeatDelay: 2, // Pause briefly when fully revealed
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 80%',
@@ -83,6 +94,20 @@ const Destiny: React.FC = () => {
       duration: 0.5,
       ease: 'power2.out',
     })
+    // Separate animation for words to make them persistent (no yoyo)
+    gsap.to(wordsRef.current, {
+      opacity: 1,
+      filter: 'blur(0px)',
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: wordsContainerRef.current,
+        start: 'top 85%', // Trigger when the words container is near the bottom of the viewport
+        toggleActions: 'play none none reverse',
+      },
+    })
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
@@ -92,9 +117,17 @@ const Destiny: React.FC = () => {
     }
   }, [])
 
+  const words = [
+    "Counseling",
+    "Training",
+    "Coaching",
+    "Mentoring",
+    "Experience Sharing"
+  ]
+
   return (
     <section ref={sectionRef} className="relative bg-black py-20 overflow-hidden">
-      <div className="relative w-full max-w-[1500px] mx-auto px-10 py-72">
+      <div className="relative w-full max-w-[1500px] mx-auto px-10 py-96">
         
         {/* SVG with absolute positioning for precise control */}
         <svg
@@ -193,6 +226,46 @@ const Destiny: React.FC = () => {
           <p className="sb-body text-[#B0B0B0] max-w-xl mx-auto">
             Every journey begins with a single step. Let us guide you on the path to achieving your goals.
           </p>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-12 flex justify-center"
+          >
+            <BookCallDialogTrigger>
+              <button
+                type="button"
+                className="group bg-[#DBFE01] text-black px-10 md:px-14 py-5 md:py-6 font-bold text-sm md:text-base uppercase tracking-[0.15em] 
+                  hover:bg-white transition-all duration-500 
+                  hover:shadow-[0_20px_80px_rgba(219,254,1,0.4)] 
+                  active:scale-95 flex items-center gap-4 border-2 border-[#DBFE01] hover:border-white"
+              >
+                Book a Consultation
+                <div className="bg-black text-[#DBFE01] p-3 group-hover:bg-[#DBFE01] group-hover:text-black transition-all duration-500">
+                  <ArrowUpRight className="w-5 h-5" />
+                </div>
+              </button>
+            </BookCallDialogTrigger>
+          </motion.div>
+        </div>
+
+        {/* Diagonal Words Section */}
+        <div ref={wordsContainerRef} className="absolute top-20 right-20 z-20 flex flex-col pointer-events-none">
+          {words.map((word, i) => (
+            <div
+              key={word}
+              ref={(el) => {
+                if (el) wordsRef.current[i] = el
+              }}
+              className="text-white font-bold text-4xl! mb-1 tracking-wide sb-hero"
+              style={{ marginLeft: `${i * 3}rem` }}
+            >
+              {word}
+            </div>
+          ))}
         </div>
       </div>
     </section>
