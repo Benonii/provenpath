@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from '@tanstack/react-router';
 import logo from '@/assets/logo.png';
-import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
-  SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
@@ -58,60 +56,71 @@ const Header: React.FC = () => {
           <img src={logo} alt="ProvenPath Logo" className="h-16 w-auto" />
         </Link>
 
-        {/* Navigation Sheet */}
+
+        {/* Menu button */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button 
-              variant="ghost" 
-              className="relative z-50 text-white hover:bg-white/20 hover:text-white h-16 w-18 p-0"
-            >
-              <Menu className="!h-12 !w-18" strokeWidth={1.5} />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
+          <button 
+            type="button"
+            onClick={() => setIsOpen(true)} 
+            className="text-[#DBFE01] hover:text-white transition-colors transform hover:scale-110 duration-300"
+          >
+            <Menu className="w-12 h-12 md:w-16 md:h-16" strokeWidth={1.5} />
+          </button>
           
           <SheetContent
             side="right"
-            className="w-[80vw] sm:w-[1000px] bg-[#00F2FF] border-l-0 p-0 flex flex-col justify-center items-center"
+            className="w-full md:w-[35vw] md:max-w-none bg-[#DBFE01] border-l-0 p-12 md:p-20 flex flex-col justify-center items-center text-black"
           >
-            <nav className="flex flex-col items-center gap-8">
+            <nav className="flex flex-col items-center gap-4 md:gap-6 w-full">
               {navItems.map((item, index) => {
                 const active = isActive(item.path, item.hash);
-                const delay = index * 150; // Slower staggered delay
+                const delay = index * 100;
 
                 return (
-                  <div 
-                    key={item.hash ? `${item.path}#${item.hash}` : item.path}
-                    className={`transition-all duration-700 ease-out transform ${
-                      showContent 
-                        ? 'opacity-100 translate-y-0' 
-                        : 'opacity-0 -translate-y-4'
-                    }`}
-                    style={{ transitionDelay: `${delay}ms` }}
-                  >
-                    <SheetClose asChild>
-                      <Link
-                        to={item.path}
-                        hash={item.hash}
-                        className="group relative block text-4xl font-bold uppercase text-black hover:text-white transition-colors duration-300"
-                      >
-                        {item.label}
-                        
-                        {/* Animated Strikethrough */}
-                        {active && (
-                          <span 
-                            className={`absolute left-0 top-1/2 h-[6px] bg-black block transition-all duration-700 ease-out ${
-                              showContent ? 'w-full' : 'w-0'
-                            }`}
-                            style={{ 
-                              transform: 'translateY(-50%)',
-                              transitionDelay: `${(navItems.length * 150) + 400}ms` // Start after all text appears
-                            }}
-                          />
-                        )}
-                      </Link>
-                    </SheetClose>
-                  </div>
+                  <React.Fragment key={item.hash ? `${item.path}#${item.hash}` : item.path}>
+                    {/* Divider after Home */}
+                    {index === 1 && (
+                      <div className="w-48 h-px bg-black/10 my-4" />
+                    )}
+                    
+                    {/* Divider before Contact */}
+                    {index === navItems.length - 1 && (
+                      <div className="w-48 h-px bg-black/10 my-4" />
+                    )}
+
+                    <div 
+                      className={`transition-all duration-700 ease-out transform ${
+                        showContent 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 -translate-y-4'
+                      }`}
+                      style={{ transitionDelay: `${delay}ms` }}
+                    >
+                      <SheetClose asChild>
+                        <Link
+                          to={item.path}
+                          hash={item.hash}
+                          className={`group relative block text-2xl md:text-4xl lg:text-5xl font-black uppercase leading-[0.85] tracking-tighter transition-all duration-300 ${
+                            active ? 'opacity-20' : 'hover:opacity-60'
+                          }`}
+                        >
+                          {item.label}
+                          
+                          {/* Animated Strikethrough */}
+                          {active && (
+                            <span 
+                              className={`absolute left-1/2 top-1/2 h-[4px] md:h-[8px] bg-black block transition-all duration-700 ease-out -translate-x-1/2 -translate-y-1/2 ${
+                                showContent ? 'w-[120%]' : 'w-0'
+                              }`}
+                              style={{ 
+                                transitionDelay: `${(navItems.length * 100) + 300}ms`
+                              }}
+                            />
+                          )}
+                        </Link>
+                      </SheetClose>
+                    </div>
+                  </React.Fragment>
                 );
               })}
             </nav>
