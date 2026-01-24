@@ -1,96 +1,159 @@
-import React, { useState, useEffect } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import bgVideo from '@/assets/bg-1.mp4'
-import { Button } from '../ui/button'
 import { motion } from 'framer-motion'
 import { BookCallDialogTrigger } from '../BookCallDialog'
 
 const Hero: React.FC = () => {
-  const [typedText, setTypedText] = useState('')
-  const [iteration, setIteration] = useState(0)
-  const fullText = 'DESTINY'
-
-  useEffect(() => {
-    const baseDelay = 150 // Base typing speed
-    const speedMultiplier = Math.max(0.3, 1 - (iteration * 0.2)) // Gets faster each iteration, minimum 30% speed
-    const typingDelay = baseDelay * speedMultiplier
-
-    if (typedText.length < fullText.length) {
-      // Still typing
-      const timeout = setTimeout(() => {
-        setTypedText(fullText.slice(0, typedText.length + 1))
-      }, typingDelay)
-      return () => clearTimeout(timeout)
-    } else if (typedText === fullText) {
-      // Finished typing, wait before restarting
-      const restartTimeout = setTimeout(() => {
-        setTypedText('')
-        setIteration(prev => prev + 1)
-      }, 2000) // 2 second pause before restart
-      return () => clearTimeout(restartTimeout)
-    }
-  }, [typedText, iteration])
 
   return (
-    <div className="relative h-[calc(100vh-3rem)] w-full overflow-hidden rounded-2xl">
-      {/* Video Background */}
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* Video Background - FULL SCREEN, NO ROUNDED CORNERS */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 min-w-full min-h-full object-cover w-auto h-auto z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src={bgVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10 rounded-2xl" />
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-80 z-10 rounded-2xl" />
 
-      {/* Content */}
-      <div 
-        className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 md:px-6"
-      >
-        <h1 
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-wide mb-2"
-        >
-          WALK TO YOUR
-        </h1>
-        <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#22949A] tracking-wide mb-6 md:mb-8"
-        >
-          {typedText}
-          <motion.span
-            animate={{ opacity: [1, 0] }}
-            transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-            className="inline-block w-1 h-16 bg-[#22949A] ml-1"
-          />
-        </h1>
+      {/* Content - MASSIVE CENTERED TEXT */}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 md:px-8">
         
-        <p 
-          className="text-white/90 text-base sm:text-lg md:text-xl mb-8 md:mb-12 max-w-2xl font-light"
-        >
-          Counseling, Training, Coaching, Mentoring, & Experience Sharing
-        </p>
+        {/* PROVEN PATH - Thematic Animation: Validation + Forward Journey */}
+        <div className="flex flex-col items-center gap-4 mb-8 md:mb-12">
+          {/* PROVEN - Checkmark Validation Motion (bounce down like a stamp) */}
+          <div className="flex">
+            {Array.from("PROVEN").map((char, i) => (
+              <motion.span
+                key={char}
+                animate={{
+                  y: [0, 15, -5, 0],
+                  scale: [1, 0.95, 1.03, 1],
+                  opacity: [0.7, 1, 1, 0.7],
+                }}
+                transition={{
+                  duration: 1.2,
+                  delay: i * 0.15,
+                  repeat: Infinity,
+                  repeatDelay: 3,
+                  ease: [0.34, 1.56, 0.64, 1] // Bouncy easing
+                }}
+                className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block text-white"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
 
-        <div>
+          {/* PATH - Strong Forward Motion with Multiple Trails */}
+          <div className="flex relative">
+            {Array.from("PATH").map((char, i) => (
+              <div key={char} className="relative">
+                {/* Main letter */}
+                <motion.span
+                  animate={{
+                    x: [0, 8, 0],
+                    color: ["#DBFE01", "#FFFFFF", "#DBFE01"]
+                  }}
+                  transition={{
+                    duration: 2,
+                    delay: i * 0.15,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block relative z-10"
+                >
+                  {char}
+                </motion.span>
+                
+                {/* Trail 1 - Close */}
+                <motion.span
+                  animate={{
+                    x: [0, 30, 60],
+                    opacity: [0.5, 0.25, 0],
+                    scale: [1, 0.96, 0.92]
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    delay: i * 0.15,
+                    repeat: Infinity,
+                    ease: "easeOut"
+                  }}
+                  className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-[#DBFE01] pointer-events-none"
+                  style={{ filter: "blur(1px)" }}
+                >
+                  {char}
+                </motion.span>
+
+                {/* Trail 2 - Far */}
+                <motion.span
+                  animate={{
+                    x: [0, 50, 100],
+                    opacity: [0.3, 0.15, 0],
+                    scale: [1, 0.93, 0.86]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    delay: i * 0.15 + 0.1,
+                    repeat: Infinity,
+                    ease: "easeOut"
+                  }}
+                  className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-white pointer-events-none"
+                  style={{ filter: "blur(3px)" }}
+                >
+                  {char}
+                </motion.span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-12"
+        >
           <BookCallDialogTrigger>
-            <Button
+            <button
               type="button"
-              className="group bg-white text-[#01101B] hover:bg-[#22949A] hover:text-white transition-all duration-500 rounded-full pl-6 md:pl-7 lg:pl-8 pr-2 py-6 md:py-7 lg:py-8 flex items-center gap-3 md:gap-4 font-semibold text-base md:text-lg hover:shadow-[0_20px_60px_rgba(34,148,154,0.5)] active:scale-95"
+              className="group bg-[#DBFE01] text-black px-10 md:px-14 py-5 md:py-6 font-bold text-sm md:text-base uppercase tracking-[0.15em] 
+                hover:bg-white transition-all duration-500 
+                hover:shadow-[0_20px_80px_rgba(219,254,1,0.4)] 
+                active:scale-95 flex items-center gap-4 border-2 border-[#DBFE01] hover:border-white"
             >
               Book a Consultation
-              <div className="bg-[#00696F] text-white p-3 md:p-3.5 lg:p-4 rounded-full group-hover:bg-white group-hover:text-[#22949A] transition-all duration-500 shadow-lg group-hover:shadow-none">
-                <ArrowUpRight className="w-5 h-5 md:w-5.5 lg:w-6 lg:h-6" />
+              <div className="bg-black text-[#DBFE01] p-3 group-hover:bg-[#DBFE01] group-hover:text-black transition-all duration-500">
+                <ArrowUpRight className="w-5 h-5" />
               </div>
-            </Button>
+            </button>
           </BookCallDialogTrigger>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+      >
+        <span className="text-white/80 text-xs font-bold tracking-widest uppercase drop-shadow-md">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <ArrowUpRight className="w-6 h-6 text-[#DBFE01] rotate-135" />
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
