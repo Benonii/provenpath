@@ -63,7 +63,7 @@ const AboutUs: FC = () => {
 						{/* Heading - MASSIVE */}
 						<motion.h2
 							variants={fadeIn("right", 0.1)}
-							className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-white mb-10 leading-[0.95] uppercase tracking-tight"
+							className="text-[clamp(2rem,8vw,5.5rem)] font-black text-white mb-6 md:mb-10 leading-[0.95] uppercase tracking-tight"
 						>
 							About Us
 						</motion.h2>
@@ -71,7 +71,7 @@ const AboutUs: FC = () => {
 						{/* Body Text - MUCH LARGER with yellow highlights */}
 						<motion.div
 							variants={fadeIn("right", 0.2)}
-							className="text-white text-[clamp(1.5rem,3vw,2.5rem)] leading-tight mb-12 font-black uppercase"
+							className="text-white text-[clamp(1rem,3vw,2.5rem)] leading-tight mb-8 md:mb-12 font-black uppercase"
 						>
 							<p className="mb-4">
 								Proven Path is a{" "}
@@ -89,11 +89,11 @@ const AboutUs: FC = () => {
 							<Link
 								to="/about"
 								className="group border-2 border-white text-white hover:bg-[#DBFE01] hover:text-black hover:border-[#DBFE01]
-                  transition-all duration-300 px-10 py-5 flex items-center gap-4 font-black uppercase tracking-widest text-sm w-fit"
+                  transition-all duration-300 px-5 md:px-10 py-4 md:py-5 flex items-center gap-4 font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center"
 							>
 								Learn More About Us
 								<div className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">
-									<ArrowUpRight className="w-6 h-6" />
+									<ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />
 								</div>
 							</Link>
 						</motion.div>
@@ -105,10 +105,10 @@ const AboutUs: FC = () => {
 						whileInView={{ opacity: 1, scale: 1 }}
 						viewport={{ once: false, amount: 0.3 }}
 						transition={{ duration: 0.8 }}
-						className="relative w-full h-[500px] md:h-[700px] flex items-center justify-center"
+						className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center"
 					>
 						{/* Perfect Hexagon Shape Container */}
-						<div className="relative w-[500px] h-[500px] md:w-[700px] md:h-[700px]">
+						<div className="relative w-[300px] h-[300px] md:w-[700px] md:h-[700px]">
 							{/* Rotating border effect */}
 							<motion.div
 								animate={{ rotate: 360 }}

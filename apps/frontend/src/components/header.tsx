@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Menu } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import logo from "@/assets/logo.png";
+import Logo from "@/components/logo";
 import { Sheet, SheetClose, SheetContent } from "@/components/ui/sheet";
 
 interface NavItem {
@@ -52,15 +52,12 @@ const Header: React.FC = () => {
 					: "bg-linear-to-b from-gray-80 via-gray-80/60 to-transparent"
 			}`}
 		>
-			<div className="relative flex items-center justify-between px-12 py-4">
+			<div className="relative flex items-center justify-between px-4 md:px-12 py-4">
 				{/* Logo */}
 				<Link to="/" className="flex items-center z-50">
-					<img
-						src={logo}
-						alt="ProvenPath Logo"
-						className={`h-16 w-auto transition-all duration-300 ${
-							location.pathname === "/contact" ? "brightness-0" : ""
-						}`}
+					<Logo
+						variant={location.pathname === "/contact" ? "dark" : "default"}
+						className="scale-75 md:scale-100 origin-left"
 					/>
 				</Link>
 

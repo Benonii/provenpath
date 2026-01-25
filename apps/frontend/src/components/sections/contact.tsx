@@ -24,7 +24,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 	return (
 		<section
 			ref={containerRef}
-			className="py-32 md:py-40 bg-black overflow-hidden"
+			className="py-20 md:py-40 bg-black overflow-hidden"
 		>
 			<div className="container mx-auto px-6 md:px-8">
 				<div
@@ -47,7 +47,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 						initial="hidden"
 						whileInView="show"
 						viewport={{ once: false, amount: 0.3 }}
-						className="relative z-10 w-full md:w-1/2 flex flex-col items-center justify-center text-center p-12 md:p-20"
+						className="relative z-10 w-full md:w-1/2 flex flex-col items-center justify-center text-center p-8 md:p-20"
 					>
 						{/* Icon - SHARP, YELLOW ACCENT */}
 						<motion.div
@@ -68,7 +68,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 						{/* Heading - LARGE, WHITE WITH YELLOW ACCENT */}
 						<motion.h2
 							variants={fadeIn("up", 0.1)}
-							className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white leading-tight mb-12"
+							className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white leading-tight mb-8 md:mb-12"
 						>
 							Let's build a better{" "}
 							<span className="text-[#DBFE01] italic font-lato">future</span>{" "}
@@ -84,7 +84,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className="w-full sm:w-auto bg-[#DBFE01] text-black px-10 py-5 font-bold uppercase tracking-wider text-sm
+									className="w-48 sm:w-auto bg-[#DBFE01] text-black px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-wider text-xs md:text-sm
                     hover:bg-white transition-all duration-500 
                     shadow-[0_15px_50px_rgba(219,254,1,0.2)] hover:shadow-[0_20px_60px_rgba(219,254,1,0.4)]"
 								>
@@ -98,7 +98,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 							>
 								<Link
 									to="/contact"
-									className="w-full sm:w-auto px-10 py-5 font-bold uppercase tracking-wider text-sm
+									className="w-48 sm:w-auto px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-wider text-xs md:text-sm
                     border border-white text-white hover:bg-white hover:text-black
                     transition-all duration-500 inline-flex items-center justify-center"
 								>

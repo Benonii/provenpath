@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import { type FC, useEffect, useRef } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { BookCallDialogTrigger } from "../BookCallDialog";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,6 +15,14 @@ const Destiny: FC = () => {
 	const textRef = useRef<HTMLSpanElement>(null);
 	const wordsRef = useRef<(HTMLDivElement | null)[]>([]);
 	const wordsContainerRef = useRef<HTMLDivElement>(null);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkMobile = () => setIsMobile(window.innerWidth < 768);
+		checkMobile();
+		window.addEventListener("resize", checkMobile);
+		return () => window.removeEventListener("resize", checkMobile);
+	}, []);
 
 	useEffect(() => {
 		if (
@@ -141,14 +149,14 @@ const Destiny: FC = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative bg-black py-20 overflow-hidden"
+			className="relative bg-black py-12 md:py-20 overflow-hidden"
 		>
-			<div className="relative w-full max-w-[1500px] mx-auto px-10 py-96">
+			<div className="relative w-full max-w-[1500px] mx-auto px-6 md:px-10 py-48 md:py-96">
 				{/* SVG with absolute positioning for precise control */}
 				<svg
-					className="absolute left-0 top-0 w-full h-full pointer-events-none"
+					className="absolute left-0 -top-12 md:top-0 w-full h-full pointer-events-none hidden min-[320px]:block"
 					style={{ width: "100%", height: "100%" }}
-					viewBox="0 -50 1300 700"
+					viewBox={isMobile ? "0 -250 1300 1000" : "0 -100 1300 700"}
 					preserveAspectRatio="xMidYMid meet"
 					aria-label="Path to Destiny"
 				>
@@ -157,10 +165,11 @@ const Destiny: FC = () => {
 					{/* --- TOP LEFT PATH --- */}
 					{/* Background dim path 1 */}
 					<path
-						d="M 140,-100
-               C 220,20 300,80 360,40
-               S 400,-120 300,-100
-               S 220,100 360,200"
+						d={
+							isMobile
+								? "M 140,-200 C 220,-80 300,-20 360,-60 S 400,-220 300,-200 S 220,0 360,100"
+								: "M 140,-100 C 220,20 300,80 360,40 S 400,-120 300,-100 S 220,100 360,200"
+						}
 						stroke="rgba(219, 254, 1, 0.15)"
 						strokeWidth="6"
 						fill="none"
@@ -171,10 +180,11 @@ const Destiny: FC = () => {
 					{/* Animated thick path 1 */}
 					<path
 						ref={path1Ref}
-						d="M 140,-100
-               C 220,20 300,80 360,40
-               S 400,-120 300,-100
-               S 220,100 360,200"
+						d={
+							isMobile
+								? "M 140,-200 C 220,-80 300,-20 360,-60 S 400,-220 300,-200 S 220,0 360,100"
+								: "M 140,-100 C 220,20 300,80 360,40 S 400,-120 300,-100 S 220,100 360,200"
+						}
 						stroke="#DBFE01"
 						strokeWidth="8"
 						fill="none"
@@ -185,10 +195,11 @@ const Destiny: FC = () => {
 					{/* --- BOTTOM RIGHT PATH --- */}
 					{/* Background dim path 2 */}
 					<path
-						d="M 850,340
-               C 920,400 980,440 1040,400
-               S 1100,320 1150,380
-               S 1200,500 1230,560"
+						d={
+							isMobile
+								? "M 850,440 C 920,500 980,540 1040,500 S 1100,420 1150,480 S 1200,600 1230,660"
+								: "M 850,340 C 920,400 980,440 1040,400 S 1100,320 1150,380 S 1200,500 1230,560"
+						}
 						stroke="rgba(219, 254, 1, 0.15)"
 						strokeWidth="6"
 						fill="none"
@@ -199,10 +210,11 @@ const Destiny: FC = () => {
 					{/* Animated thick path 2 */}
 					<path
 						ref={path2Ref}
-						d="M 850,340
-               C 920,400 980,440 1040,400
-               S 1100,320 1150,380
-               S 1200,500 1230,560"
+						d={
+							isMobile
+								? "M 850,440 C 920,500 980,540 1040,500 S 1100,420 1150,480 S 1200,600 1230,660"
+								: "M 850,340 C 920,400 980,440 1040,400 S 1100,320 1150,380 S 1200,500 1230,560"
+						}
 						stroke="#DBFE01"
 						strokeWidth="8"
 						fill="none"
@@ -213,7 +225,7 @@ const Destiny: FC = () => {
 					{/* STAR at end of path 2 */}
 					<svg
 						x="1180"
-						y="510"
+						y={isMobile ? "610" : "510"}
 						width="80"
 						height="80"
 						viewBox="0 0 80 80"
@@ -244,7 +256,6 @@ const Destiny: FC = () => {
 						Every journey begins with a single step. Let us guide you on the
 						path to achieving your goals.
 					</p>
-
 					{/* CTA Button */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -256,14 +267,14 @@ const Destiny: FC = () => {
 						<BookCallDialogTrigger>
 							<button
 								type="button"
-								className="group bg-[#DBFE01] text-black px-10 md:px-14 py-5 md:py-6 font-bold text-sm md:text-base uppercase tracking-[0.15em] 
+								className="group bg-[#DBFE01] text-black px-6 md:px-14 py-4 md:py-6 font-bold text-xs md:text-base uppercase tracking-[0.15em] 
                   hover:bg-white transition-all duration-500 
                   hover:shadow-[0_20px_80px_rgba(219,254,1,0.4)] 
-                  active:scale-95 flex items-center gap-4 border-2 border-[#DBFE01] hover:border-white"
+                  active:scale-95 flex items-center gap-4 border-2 border-[#DBFE01] hover:border-white w-fit md:w-auto justify-center"
 							>
 								Book a Consultation
-								<div className="bg-black text-[#DBFE01] p-3 group-hover:bg-[#DBFE01] group-hover:text-black transition-all duration-500">
-									<ArrowUpRight className="w-5 h-5" />
+								<div className="bg-black text-[#DBFE01] p-2 md:p-3 group-hover:bg-[#DBFE01] group-hover:text-black transition-all duration-500">
+									<ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
 								</div>
 							</button>
 						</BookCallDialogTrigger>
@@ -273,7 +284,7 @@ const Destiny: FC = () => {
 				{/* Diagonal Words Section */}
 				<div
 					ref={wordsContainerRef}
-					className="absolute top-20 right-20 z-20 flex flex-col pointer-events-none"
+					className="absolute top-10 md:top-20 right-4 md:right-20 z-20 hidden md:flex flex-col pointer-events-none"
 				>
 					{words.map((word, i) => (
 						<div
@@ -281,8 +292,8 @@ const Destiny: FC = () => {
 							ref={(el) => {
 								if (el) wordsRef.current[i] = el;
 							}}
-							className="text-white font-bold text-4xl! mb-1 tracking-wide sb-hero"
-							style={{ marginLeft: `${i * 3}rem` }}
+							className="text-white font-bold text-lg md:text-4xl! mb-1 tracking-wide sb-hero"
+							style={{ marginLeft: `${i * 1}rem` }}
 						>
 							{word}
 						</div>

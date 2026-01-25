@@ -92,7 +92,7 @@ const ServiceCard = ({
 				rotateY,
 				transformStyle: "preserve-3d",
 			}}
-			className={`group relative bg-[#0A0A0A] border border-white/10 p-8 md:p-10 lg:p-12
+			className={`group relative bg-[#0A0A0A] border border-white/10 p-6 md:p-10 lg:p-12
         transition-colors duration-500 cursor-pointer overflow-hidden
         hover:border-[#DBFE01]/50 perspective-[1000px]`}
 		>
@@ -109,7 +109,7 @@ const ServiceCard = ({
 
 			{/* Title */}
 			<h3
-				className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-[#DBFE01] transition-colors duration-300"
+				className="text-lg md:text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-[#DBFE01] transition-colors duration-300"
 				style={{ transform: "translateZ(50px)" }}
 			>
 				{service.title}
@@ -117,7 +117,7 @@ const ServiceCard = ({
 
 			{/* Description */}
 			<p
-				className="text-gray-500 group-hover:text-gray-400 transition-colors duration-300 text-base md:text-lg"
+				className="text-gray-500 group-hover:text-gray-400 transition-colors duration-300 text-sm md:text-lg"
 				style={{ transform: "translateZ(40px)" }}
 			>
 				{service.description}
@@ -145,7 +145,7 @@ const Services: React.FC = () => {
 		<section
 			ref={containerRef}
 			id="services"
-			className="relative w-full py-32 md:py-40 bg-black overflow-hidden perspective-[1000px]"
+			className="relative w-full py-20 md:py-40 bg-black overflow-hidden perspective-[1000px]"
 		>
 			{/* Stronger Gradient Background */}
 			<motion.div
@@ -181,7 +181,7 @@ const Services: React.FC = () => {
 					<div className="overflow-hidden">
 						<motion.h2
 							variants={fadeIn("up", 0.1)}
-							className="text-[clamp(3rem,6vw,5rem)] font-black text-white tracking-tight uppercase leading-[0.9]"
+							className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white tracking-tight uppercase leading-[0.9]"
 						>
 							SERVICES
 						</motion.h2>

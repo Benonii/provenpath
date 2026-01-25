@@ -19,7 +19,7 @@ const Library: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="py-32 md:py-40 bg-black overflow-hidden relative"
+			className="py-20 md:py-40 bg-black overflow-hidden relative"
 		>
 			{/* Cool Gradient Background - Brought back from previous version with dark theme */}
 			<motion.div
@@ -49,14 +49,14 @@ const Library: FC = () => {
 					<div className="overflow-hidden">
 						<motion.h2
 							variants={fadeIn("up", 0.2)}
-							className="text-[clamp(3rem,6vw,5rem)] font-black text-white mb-8 uppercase tracking-tight leading-[0.9]"
+							className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white mb-8 uppercase tracking-tight leading-[0.9]"
 						>
 							Our Best Video
 						</motion.h2>
 					</div>
 					<motion.p
 						variants={fadeIn("up", 0.3)}
-						className="text-gray-400 text-xl max-w-2xl leading-relaxed font-light"
+						className="text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light"
 					>
 						Explore our collection of educational videos and social media
 						content designed to empower and inspire the next generation.
@@ -106,10 +106,10 @@ const Library: FC = () => {
 							<span className="text-[#DBFE01] text-xs font-black tracking-[0.25em] uppercase mb-6 block">
 								LATEST EPISODE
 							</span>
-							<h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-[0.9] uppercase tracking-tight">
+							<h3 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8 leading-[0.9] uppercase tracking-tight">
 								The Future of Digital Learning
 							</h3>
-							<p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-12 line-clamp-3 font-light">
+							<p className="text-gray-400 text-base md:text-xl leading-relaxed mb-10 md:mb-12 line-clamp-3 font-light">
 								Discover the transformative power of digital education through
 								our carefully curated video series. From emerging technologies
 								to essential life skills, our content bridges the gap between
@@ -157,11 +157,11 @@ const Library: FC = () => {
 				>
 					<Link
 						to="/library"
-						className="group flex items-center gap-4 px-10 md:px-12 py-5 md:py-6 border-2 border-white text-white font-black uppercase tracking-widest text-sm
+						className="group flex items-center gap-4 px-6 md:px-12 py-4 md:py-6 border-2 border-white text-white font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center
               hover:bg-[#DBFE01] hover:text-black hover:border-[#DBFE01] transition-all duration-300"
 					>
 						View Other Episodes
-						<ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+						<ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
 					</Link>
 				</motion.div>
 

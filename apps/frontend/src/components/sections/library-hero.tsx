@@ -3,14 +3,14 @@ import libraryHeroVideo from "@/assets/library-hero.mp4";
 
 const LibraryHero: React.FC = () => {
 	return (
-		<div className="relative h-screen w-full overflow-hidden">
+		<div className="relative h-[140vw] md:h-screen w-full overflow-hidden">
 			{/* Video Background */}
 			<video
 				autoPlay
 				loop
 				muted
 				playsInline
-				className="absolute top-0 left-0 min-w-full min-h-full object-cover w-auto h-auto z-0"
+				className="absolute inset-0 w-full h-full object-cover z-0"
 			>
 				<source src={libraryHeroVideo} type="video/mp4" />
 				Your browser does not support the video tag.

@@ -104,11 +104,11 @@
   --sb-transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   
   /* Typography Scale */
-  --sb-fs-hero: clamp(4rem, 10vw, 8rem);
-  --sb-fs-h1: clamp(2.5rem, 6vw, 5rem);
-  --sb-fs-h2: clamp(1.75rem, 4vw, 3rem);
-  --sb-fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
-  --sb-fs-body: clamp(1rem, 1.5vw, 1.125rem);
+  --sb-fs-hero: clamp(2.5rem, 10vw, 8rem);
+  --sb-fs-h1: clamp(2rem, 6vw, 5rem);
+  --sb-fs-h2: clamp(1.5rem, 4vw, 3rem);
+  --sb-fs-h3: clamp(1.125rem, 2.5vw, 1.75rem);
+  --sb-fs-body: clamp(0.875rem, 1.5vw, 1.125rem);
   --sb-fs-label: clamp(0.625rem, 0.8vw, 0.75rem);
   
   /* Letter Spacing */

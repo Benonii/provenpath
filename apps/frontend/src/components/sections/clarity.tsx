@@ -48,7 +48,7 @@ const Clarity: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="relative py-32 md:py-40 bg-black overflow-hidden"
+			className="relative py-20 md:py-40 bg-black overflow-hidden"
 		>
 			{/* Stronger Gradient Background - Reduced height for smoother transition */}
 			<motion.div
@@ -103,15 +103,15 @@ const Clarity: FC = () => {
 					<div className="overflow-hidden">
 						<motion.h2
 							variants={fadeIn("up", 0.1)}
-							className="text-[clamp(3rem,5vw,6rem)] font-black text-white leading-[0.9] uppercase tracking-tight"
+							className="text-[clamp(2rem,5vw,6rem)] font-black text-white leading-[0.9] uppercase tracking-tight"
 						>
 							Take your first step towards
 						</motion.h2>
 					</div>
-					<div className="overflow-hidden mb-10">
+					<div className="overflow-hidden mb-6 md:mb-10">
 						<motion.h2
 							variants={fadeIn("up", 0.2)}
-							className="text-[clamp(3rem,5vw,6rem)] font-black text-[#DBFE01] leading-[0.9] uppercase tracking-tight"
+							className="text-[clamp(2.5rem,5vw,6rem)] font-black text-[#DBFE01] leading-[0.9] uppercase tracking-tight"
 						>
 							Clarity
 						</motion.h2>
@@ -120,7 +120,7 @@ const Clarity: FC = () => {
 					{/* Description - GRAY */}
 					<motion.p
 						variants={fadeIn("up", 0.3)}
-						className="text-gray-400 text-xl md:text-2xl leading-relaxed mb-16 max-w-3xl font-light"
+						className="text-gray-400 text-base md:text-2xl leading-relaxed mb-10 md:mb-16 max-w-3xl font-light"
 					>
 						Join us as we dive deep into the stories of resilience, strategy, and
 						success. Real conversations with those who have walked the path and
@@ -136,10 +136,10 @@ const Clarity: FC = () => {
 						<button
 							type="button"
 							onClick={handleNotifyClick}
-							className="bg-[#DBFE01] text-black px-14 md:px-20 py-6 md:py-8 font-black uppercase tracking-[0.2em] text-sm md:text-base
+							className="bg-[#DBFE01] text-black px-6 md:px-20 py-5 md:py-8 font-black uppercase tracking-[0.2em] text-xs md:text-base
                   hover:bg-white transition-all duration-500 
                   shadow-[0_20px_60px_rgba(219,254,1,0.4)] hover:shadow-[0_30px_100px_rgba(219,254,1,0.6)]
-                  cursor-pointer border-2 border-[#DBFE01] hover:border-white"
+                  cursor-pointer border-2 border-[#DBFE01] hover:border-white w-fit md:w-auto"
 						>
 							Notify Me When It Launches
 						</button>

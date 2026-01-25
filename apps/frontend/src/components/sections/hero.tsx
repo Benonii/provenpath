@@ -12,14 +12,14 @@ const Hero: FC = () => {
 				loop
 				muted
 				playsInline
-				className="absolute inset-0 w-full h-full object-cover z-0"
+				className="absolute inset-0 w-full h-full object-cover z-0 brightness-[1.1] md:brightness-100"
 			>
 				<source src={bgVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 
 			{/* Dark Overlay */}
-			<div className="absolute inset-0 bg-black/40 z-10" />
+			<div className="absolute inset-0 bg-black/30 md:bg-black/40 z-10" />
 
 			{/* Content - MASSIVE CENTERED TEXT */}
 			<div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 md:px-8">
@@ -42,7 +42,7 @@ const Hero: FC = () => {
 									repeatDelay: 3,
 									ease: [0.34, 1.56, 0.64, 1], // Bouncy easing
 								}}
-								className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block text-white"
+								className="text-[clamp(2.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block text-white"
 							>
 								{char}
 							</motion.span>
@@ -65,7 +65,7 @@ const Hero: FC = () => {
 										repeat: Infinity,
 										ease: "easeInOut",
 									}}
-									className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block relative z-10"
+									className="text-[clamp(2.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block relative z-10"
 								>
 									{char}
 								</motion.span>
@@ -83,7 +83,7 @@ const Hero: FC = () => {
 										repeat: Infinity,
 										ease: "easeOut",
 									}}
-									className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-[#DBFE01] pointer-events-none"
+									className="text-[clamp(2.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-[#DBFE01] pointer-events-none"
 									style={{ filter: "blur(1px)" }}
 								>
 									{char}
@@ -102,7 +102,7 @@ const Hero: FC = () => {
 										repeat: Infinity,
 										ease: "easeOut",
 									}}
-									className="text-[clamp(3.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-white pointer-events-none"
+									className="text-[clamp(2.5rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-white pointer-events-none"
 									style={{ filter: "blur(3px)" }}
 								>
 									{char}
