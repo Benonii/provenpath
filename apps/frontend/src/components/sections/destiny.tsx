@@ -18,12 +18,13 @@ const Destiny: FC = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		const checkMobile = () => setIsMobile(window.innerWidth < 768);
+		const checkMobile = () => setIsMobile(window.innerWidth < 1024);
 		checkMobile();
 		window.addEventListener("resize", checkMobile);
 		return () => window.removeEventListener("resize", checkMobile);
 	}, []);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: isMobile is needed to re-run the effect when the SVG path coordinates change
 	useEffect(() => {
 		if (
 			!path1Ref.current ||
@@ -136,7 +137,7 @@ const Destiny: FC = () => {
 			});
 			tl.kill();
 		};
-	}, []);
+	}, [isMobile]);
 
 	const words = [
 		"Counseling",
@@ -156,7 +157,7 @@ const Destiny: FC = () => {
 				<svg
 					className="absolute left-0 -top-12 md:top-0 w-full h-full pointer-events-none hidden min-[320px]:block"
 					style={{ width: "100%", height: "100%" }}
-					viewBox={isMobile ? "0 -250 1300 1000" : "0 -100 1300 700"}
+					viewBox={isMobile ? "0 -325 1300 1150" : "0 -100 1300 700"}
 					preserveAspectRatio="xMidYMid meet"
 					aria-label="Path to Destiny"
 				>
@@ -167,8 +168,8 @@ const Destiny: FC = () => {
 					<path
 						d={
 							isMobile
-								? "M 140,-200 C 220,-80 300,-20 360,-60 S 400,-220 300,-200 S 220,0 360,100"
-								: "M 140,-100 C 220,20 300,80 360,40 S 400,-120 300,-100 S 220,100 360,200"
+								? "M 140,-250 C 220,-130 300,-70 360,-110 S 400,-270 300,-250 S 220,-50 360,50"
+								: "M 190,-100 C 270,20 350,80 410,40 S 450,-120 350,-100 S 270,100 410,200"
 						}
 						stroke="rgba(219, 254, 1, 0.15)"
 						strokeWidth="6"
@@ -182,8 +183,8 @@ const Destiny: FC = () => {
 						ref={path1Ref}
 						d={
 							isMobile
-								? "M 140,-200 C 220,-80 300,-20 360,-60 S 400,-220 300,-200 S 220,0 360,100"
-								: "M 140,-100 C 220,20 300,80 360,40 S 400,-120 300,-100 S 220,100 360,200"
+								? "M 140,-250 C 220,-130 300,-70 360,-110 S 400,-270 300,-250 S 220,-50 360,50"
+								: "M 190,-100 C 270,20 350,80 410,40 S 450,-120 350,-100 S 270,100 410,200"
 						}
 						stroke="#DBFE01"
 						strokeWidth="8"
@@ -197,7 +198,7 @@ const Destiny: FC = () => {
 					<path
 						d={
 							isMobile
-								? "M 850,440 C 920,500 980,540 1040,500 S 1100,420 1150,480 S 1200,600 1230,660"
+								? "M 850,490 C 920,550 980,590 1040,550 S 1100,470 1150,530 S 1200,650 1230,710"
 								: "M 850,340 C 920,400 980,440 1040,400 S 1100,320 1150,380 S 1200,500 1230,560"
 						}
 						stroke="rgba(219, 254, 1, 0.15)"
@@ -212,7 +213,7 @@ const Destiny: FC = () => {
 						ref={path2Ref}
 						d={
 							isMobile
-								? "M 850,440 C 920,500 980,540 1040,500 S 1100,420 1150,480 S 1200,600 1230,660"
+								? "M 850,490 C 920,550 980,590 1040,550 S 1100,470 1150,530 S 1200,650 1230,710"
 								: "M 850,340 C 920,400 980,440 1040,400 S 1100,320 1150,380 S 1200,500 1230,560"
 						}
 						stroke="#DBFE01"
@@ -225,7 +226,7 @@ const Destiny: FC = () => {
 					{/* STAR at end of path 2 */}
 					<svg
 						x="1180"
-						y={isMobile ? "610" : "510"}
+						y={isMobile ? "660" : "510"}
 						width="80"
 						height="80"
 						viewBox="0 0 80 80"
@@ -284,7 +285,7 @@ const Destiny: FC = () => {
 				{/* Diagonal Words Section */}
 				<div
 					ref={wordsContainerRef}
-					className="absolute top-10 md:top-20 right-4 md:right-20 z-20 hidden md:flex flex-col pointer-events-none"
+					className="absolute top-10 md:top-32 right-4 md:right-20 z-20 hidden md:flex flex-col pointer-events-none"
 				>
 					{words.map((word, i) => (
 						<div
