@@ -12,14 +12,14 @@ const Hero: FC = () => {
 				loop
 				muted
 				playsInline
-				className="absolute inset-0 w-full h-full object-cover z-0 brightness-[1.1] md:brightness-100"
+				className="absolute inset-0 w-full h-full object-cover z-0 brightness-100"
 			>
 				<source src={bgVideo} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 
 			{/* Dark Overlay */}
-			<div className="absolute inset-0 bg-black/30 md:bg-black/40 z-10" />
+			<div className="absolute inset-0 bg-black/40 z-10" />
 
 			{/* Content - MASSIVE CENTERED TEXT */}
 			<div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 md:px-8">
