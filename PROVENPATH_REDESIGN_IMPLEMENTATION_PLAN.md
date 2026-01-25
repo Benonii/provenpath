@@ -368,7 +368,7 @@ const Timeline = () => {
   return (
     <section className="py-32 bg-black relative">
       {/* Vertical line that grows on scroll */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#DBFE01] to-transparent" />
+      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-[#DBFE01] to-transparent" />
 
       <div className="container mx-auto px-8">
         {timeline.map((item, i) => (
@@ -532,7 +532,7 @@ const Library = () => {
           />
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/60 to-transparent" />
 
           {/* Content */}
           <div className="absolute inset-0 flex items-center p-16">
