@@ -79,7 +79,7 @@ const Clarity: FC = () => {
 			{/* Glow effect - Squashed to reduce vertical footprint */}
 			<motion.div
 				style={{ scale: scaleGlow }}
-				className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#DBFE01]/10 rounded-full blur-[120px] pointer-events-none"
+				className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[120px] md:w-[800px] md:h-[300px] bg-[#DBFE01]/10 rounded-full blur-[120px] pointer-events-none"
 			/>
 
 			<div className="container mx-auto px-6 md:px-8 relative z-10">
