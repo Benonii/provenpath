@@ -1,5 +1,5 @@
 import type React from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-2.png";
 
 interface LogoProps {
 	className?: string;
@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant = "default" }) => {
 	const isDark = variant === "dark";
-	const cyanColor = "#22D3EE";
+	const neonColor = "#DBFE01";
 	const textColor = isDark ? "#000000" : "#FFFFFF";
 
 	return (
@@ -26,14 +26,14 @@ const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant =
 			{!iconOnly && (
 				<div className="flex flex-col justify-center">
 					<span
-						className="text-xl md:text-2xl font-black tracking-tighter leading-none uppercase"
+						className="text-2xl md:text-3xl font-black tracking-tighter leading-none uppercase"
 						style={{ color: textColor, fontFamily: "Euclid Circular B, sans-serif" }}
 					>
 						PROVEN PATH
 					</span>
 					<span
-						className="text-[10px] md:text-xs font-medium tracking-wide leading-none mt-1"
-						style={{ color: cyanColor, fontFamily: "Euclid Circular B, sans-serif" }}
+						className="text-[20px] md:text-base font-medium tracking-wide leading-none mt-1"
+						style={{ color: neonColor, fontFamily: "Euclid Circular B, sans-serif" }}
 					>
 						Learning Service
 					</span>
