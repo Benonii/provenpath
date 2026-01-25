@@ -24,12 +24,17 @@ const Toaster = ({ ...props }: ToasterProps) => {
 			}}
 			style={
 				{
-					"--normal-bg": "#FFFFFF", // Changed to white for visibility
-					"--normal-text": "var(--popover-foreground)",
+					"--normal-bg": "#FFFFFF",
+					"--normal-text": "#000000",
 					"--normal-border": "var(--border)",
 					"--border-radius": "var(--radius)",
 				} as React.CSSProperties
 			}
+			toastOptions={{
+				classNames: {
+					description: "group-[.toast]:text-black",
+				},
+			}}
 			{...props}
 		/>
 	);
