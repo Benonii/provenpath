@@ -77,7 +77,8 @@ const Destiny: FC = () => {
 			repeatDelay: 2, // Pause briefly when fully revealed
 			scrollTrigger: {
 				trigger: sectionRef.current,
-				start: "top 80%",
+				start: "top 60%", // Start when the section is more visible
+				toggleActions: "play pause resume pause",
 			},
 		});
 
@@ -126,8 +127,8 @@ const Destiny: FC = () => {
 			ease: "power2.out",
 			scrollTrigger: {
 				trigger: wordsContainerRef.current,
-				start: "top 85%", // Trigger when the words container is near the bottom of the viewport
-				toggleActions: "play none none reverse",
+				start: "top 75%", // Trigger when the words container is more visible
+				toggleActions: "play pause resume pause",
 			},
 		});
 
