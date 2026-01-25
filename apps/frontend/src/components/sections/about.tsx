@@ -105,10 +105,10 @@ const AboutUs: FC = () => {
 						whileInView={{ opacity: 1, scale: 1 }}
 						viewport={{ once: false, amount: 0.3 }}
 						transition={{ duration: 0.8 }}
-						className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center"
+						className="relative w-full h-[450px] md:h-[800px] flex items-center justify-center"
 					>
 						{/* Perfect Hexagon Shape Container */}
-						<div className="relative w-[300px] h-[300px] md:w-[700px] md:h-[700px]">
+						<div className="relative w-[500px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[700px] md:h-[700px]">
 							{/* Rotating border effect */}
 							<motion.div
 								animate={{ rotate: 360 }}
