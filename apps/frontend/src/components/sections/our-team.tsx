@@ -1,10 +1,23 @@
-import { motion } from "framer-motion";
-import type { FC } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { type FC, useRef } from "react";
 import ashenafi from "@/assets/ashenafi.png";
 import ibsa from "@/assets/ibsa.png";
 import { fadeIn, staggerContainer } from "@/lib/animations";
 
 const OurTeam: FC = () => {
+	const containerRef = useRef<HTMLElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start end", "end start"],
+	});
+
+	const yBg = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+	const opacityBg = useTransform(
+		scrollYProgress,
+		[0, 0.2, 0.8, 1],
+		[0, 1, 1, 0],
+	);
+
 	const team = [
 		{
 			name: "Ibsa Merga Olika",
@@ -25,19 +38,44 @@ const OurTeam: FC = () => {
 	];
 
 	return (
-		<section className="py-24 bg-linear-to-b from-white via-gray-300 to-white">
-			<div className="container mx-auto px-4 md:px-8">
-				<motion.h2
-					initial={{ opacity: 0, y: 30 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: false }}
-					transition={{ duration: 0.8 }}
-					className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-12 md:mb-16 uppercase"
-				>
-					Our Team
-				</motion.h2>
+		<section
+			ref={containerRef}
+			className="py-32 bg-black relative overflow-hidden"
+		>
+			{/* Subtle grid pattern background */}
+			<motion.div
+				style={{ opacity: opacityBg, y: yBg }}
+				className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-full max-w-6xl opacity-[0.07] pointer-events-none"
+			>
+				<div
+					className="w-full h-full"
+					style={{
+						backgroundImage: `linear-gradient(rgba(219, 254, 1, 0.3) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(219, 254, 1, 0.3) 1px, transparent 1px)`,
+						backgroundSize: "80px 80px",
+						maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+						WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+					}}
+				/>
+			</motion.div>
 
-				<div className="flex flex-col gap-16 md:gap-24">
+			<div className="container mx-auto px-4 md:px-8 relative z-10">
+				<div className="text-center mb-20">
+					<span className="text-[#DBFE01] font-bold tracking-[0.3em] text-xs uppercase block mb-4">
+						LEADERSHIP
+					</span>
+					<motion.h2
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: false }}
+						transition={{ duration: 0.8 }}
+						className="text-[clamp(3rem,5vw,5rem)] font-black text-white uppercase tracking-tighter"
+					>
+						Our Team
+					</motion.h2>
+				</div>
+
+				<div className="flex flex-col gap-24 md:gap-32">
 					{team.map((member) => (
 						<motion.div
 							key={member.name}
@@ -53,15 +91,20 @@ const OurTeam: FC = () => {
 								className={`w-full md:w-1/2 flex ${member.reverse ? "md:justify-end" : "md:justify-start"} justify-center`}
 							>
 								<motion.div
-									whileHover={{ scale: 1.03, y: -5 }}
+									whileHover={{ scale: 1.02, y: -5 }}
 									transition={{ duration: 0.3 }}
-									className="w-full max-w-[340px] md:max-w-[500px] aspect-500/560 rounded-4xl overflow-hidden shadow-xl"
+									className="w-full max-w-[340px] md:max-w-[500px] aspect-500/560 rounded-none overflow-hidden border border-white/10 group relative"
 								>
 									<img
 										src={member.image}
 										alt={member.name}
-										className="w-full h-full object-cover"
+										className="w-full h-full object-cover transition-all duration-500"
 									/>
+									{/* Gradient Overlay */}
+									<div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
+									
+									{/* Yellow overlay line on hover */}
+									<div className="absolute bottom-0 left-0 w-full h-1 bg-[#DBFE01] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 								</motion.div>
 							</motion.div>
 
@@ -71,13 +114,13 @@ const OurTeam: FC = () => {
 								className="w-full md:w-1/2"
 							>
 								<div className="max-w-xl text-center md:text-left">
-									<h3 className="text-2xl md:text-4xl font-bold text-[#1A1A1A] mb-2">
+									<h3 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white mb-6 uppercase tracking-tight leading-none">
 										{member.name}
 									</h3>
-									<p className="text-lg md:text-xl text-gray-600 mb-4 md:mb-6">
+									<p className="text-[#DBFE01] mb-8 font-bold tracking-widest uppercase text-sm md:text-base">
 										{member.role}
 									</p>
-									<p className="text-gray-500 text-base md:text-lg leading-relaxed">
+									<p className="text-[#B0B0B0] text-[clamp(1.1rem,1.5vw,1.4rem)] leading-relaxed font-light">
 										{member.description}
 									</p>
 								</div>

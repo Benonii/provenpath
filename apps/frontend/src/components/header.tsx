@@ -34,10 +34,10 @@ const Header: React.FC = () => {
 	useEffect(() => {
 		let timeout: NodeJS.Timeout;
 		if (isOpen) {
-			// Delay text appearance until sheet is fully open (approx 800ms now due to slower animation)
+			// Delay text appearance until sheet is fully open (approx 1500ms now due to slower animation)
 			timeout = setTimeout(() => {
 				setShowContent(true);
-			}, 800);
+			}, 1500);
 		} else {
 			setShowContent(false);
 		}
@@ -45,11 +45,23 @@ const Header: React.FC = () => {
 	}, [isOpen]);
 
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 bg-linear-to-b from-gray-80 via-gray-80/60 to-transparent pt-4">
+		<header
+			className={`fixed top-0 left-0 right-0 z-50 pt-4 transition-colors duration-300 ${
+				location.pathname === "/contact"
+					? "bg-transparent"
+					: "bg-linear-to-b from-gray-80 via-gray-80/60 to-transparent"
+			}`}
+		>
 			<div className="relative flex items-center justify-between px-12 py-4">
 				{/* Logo */}
 				<Link to="/" className="flex items-center z-50">
-					<img src={logo} alt="ProvenPath Logo" className="h-16 w-auto" />
+					<img
+						src={logo}
+						alt="ProvenPath Logo"
+						className={`h-16 w-auto transition-all duration-300 ${
+							location.pathname === "/contact" ? "brightness-0" : ""
+						}`}
+					/>
 				</Link>
 
 				{/* Menu button */}
@@ -57,7 +69,11 @@ const Header: React.FC = () => {
 					<button
 						type="button"
 						onClick={() => setIsOpen(true)}
-						className="text-[#DBFE01] hover:text-white transition-colors transform hover:scale-110 duration-300"
+						className={`${
+							location.pathname === "/contact"
+								? "text-black hover:opacity-70"
+								: "text-[#DBFE01] hover:text-white"
+						} transition-colors transform hover:scale-110 duration-300`}
 					>
 						<Menu className="w-12 h-12 md:w-16 md:h-16" strokeWidth={1.5} />
 					</button>
@@ -69,7 +85,7 @@ const Header: React.FC = () => {
 						<nav className="flex flex-col items-center gap-4 md:gap-6 w-full">
 							{navItems.map((item, index) => {
 								const active = isActive(item.path, item.hash);
-								const delay = index * 100;
+								const delay = index * 200;
 
 								return (
 									<React.Fragment
@@ -86,7 +102,7 @@ const Header: React.FC = () => {
 										)}
 
 										<div
-											className={`transition-all duration-700 ease-out transform ${
+											className={`transition-all duration-1000 ease-out transform ${
 												showContent
 													? "opacity-100 translate-y-0"
 													: "opacity-0 -translate-y-4"
@@ -97,6 +113,11 @@ const Header: React.FC = () => {
 												<Link
 													to={item.path}
 													hash={item.hash}
+													onClick={() => {
+														if (item.label !== "Services") {
+															window.scrollTo(0, 0);
+														}
+													}}
 													className={`group relative block text-2xl md:text-4xl lg:text-5xl font-black uppercase leading-[0.85] tracking-tighter transition-all duration-300 ${
 														active ? "opacity-20" : "hover:opacity-60"
 													}`}
@@ -106,11 +127,11 @@ const Header: React.FC = () => {
 													{/* Animated Strikethrough */}
 													{active && (
 														<span
-															className={`absolute left-1/2 top-1/2 h-[4px] md:h-[8px] bg-black block transition-all duration-700 ease-out -translate-x-1/2 -translate-y-1/2 ${
+															className={`absolute left-1/2 top-1/2 h-[4px] md:h-[8px] bg-black block transition-all duration-1000 ease-out -translate-x-1/2 -translate-y-1/2 ${
 																showContent ? "w-[120%]" : "w-0"
 															}`}
 															style={{
-																transitionDelay: `${navItems.length * 100 + 300}ms`,
+																transitionDelay: `${navItems.length * 200 + 500}ms`,
 															}}
 														/>
 													)}

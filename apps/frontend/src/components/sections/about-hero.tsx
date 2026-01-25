@@ -3,7 +3,7 @@ import aboutHeroVideo from "@/assets/about-hero.mp4";
 
 const AboutHero: React.FC = () => {
 	return (
-		<div className="relative h-[calc(100vh-3rem)] w-full overflow-hidden rounded-2xl">
+		<div className="relative h-screen w-full overflow-hidden">
 			{/* Video Background */}
 			<video
 				autoPlay
@@ -17,11 +17,14 @@ const AboutHero: React.FC = () => {
 			</video>
 
 			{/* Dark Overlay */}
-			<div className="absolute inset-0 bg-black/50 z-10" />
+			<div className="absolute inset-0 bg-black/60 z-10" />
 
 			{/* Content */}
 			<div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
-				<h1 className="text-6xl md:text-9xl font-bold text-white tracking-widest uppercase">
+				<span className="text-[#DBFE01] font-bold tracking-[0.3em] text-sm uppercase mb-4">
+					PROVEN PATH
+				</span>
+				<h1 className="text-[clamp(4rem,10vw,8rem)] font-black text-white tracking-tighter uppercase leading-none">
 					About Us
 				</h1>
 			</div>

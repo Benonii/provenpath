@@ -7,10 +7,8 @@ import WhoWeAre from "@/components/sections/who-we-are";
 
 const About: React.FC = () => {
 	return (
-		<div className="bg-white">
-			<div className="p-6">
-				<AboutHero />
-			</div>
+		<div className="bg-black">
+			<AboutHero />
 			<WhoWeAre />
 			<MVV />
 			<OurTeam />

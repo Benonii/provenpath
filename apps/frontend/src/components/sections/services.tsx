@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { Briefcase, User, Users, Zap } from "lucide-react";
 import type React from "react";
-import { useId, useRef } from "react";
+import { useRef } from "react";
 import { fadeIn, staggerContainer } from "@/lib/animations";
 
 const services = [
@@ -140,12 +140,11 @@ const Services: React.FC = () => {
 	});
 
 	const yBg = useTransform(scrollYProgress, [0, 1], ["-10%", "30%"]);
-	const sectionId = useId();
 
 	return (
 		<section
 			ref={containerRef}
-			id={sectionId}
+			id="services"
 			className="relative w-full py-32 md:py-40 bg-black overflow-hidden perspective-[1000px]"
 		>
 			{/* Stronger Gradient Background */}

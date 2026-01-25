@@ -53,30 +53,30 @@ const ContactForm: React.FC = () => {
 		contactMutation.mutate(data);
 	};
 	return (
-		<section className="py-20 bg-white">
+		<section className="py-32 bg-black">
 			<div className="container mx-auto px-4 md:px-8">
-				<div className="flex flex-col lg:flex-row gap-16 items-start">
+				<div className="flex flex-col lg:flex-row gap-20 items-start">
 					{/* Form Side */}
 					<div className="w-full lg:w-1/2">
-						<h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-6">
-							Lets Get In <span className="text-[#00B2BD]">Touch</span>
+						<h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black text-white mb-8 uppercase tracking-tight leading-none">
+							Let's Get In <span className="text-[#DBFE01]">Touch</span>
 						</h2>
-						<p className="text-gray-500 text-lg mb-12 max-w-xl">
+						<p className="text-[#B0B0B0] text-lg mb-12 max-w-xl font-light leading-relaxed">
 							Ready to take the next step? Schedule a complimentary consultation
 							with our team and discover how we can help you achieve your goals.
 						</p>
 
-						<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 								<div>
 									<input
 										type="text"
 										placeholder="First Name"
 										{...register("firstName")}
-										className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-[#F8FAFB] focus:outline-none focus:border-[#00B2BD] transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-[#DBFE01] transition-colors"
 									/>
 									{errors.firstName && (
-										<p className="text-red-500 text-sm mt-1">
+										<p className="text-red-500 text-sm mt-2 font-mono">
 											{errors.firstName.message}
 										</p>
 									)}
@@ -86,25 +86,25 @@ const ContactForm: React.FC = () => {
 										type="text"
 										placeholder="Last Name"
 										{...register("lastName")}
-										className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-[#F8FAFB] focus:outline-none focus:border-[#00B2BD] transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-[#DBFE01] transition-colors"
 									/>
 									{errors.lastName && (
-										<p className="text-red-500 text-sm mt-1">
+										<p className="text-red-500 text-sm mt-2 font-mono">
 											{errors.lastName.message}
 										</p>
 									)}
 								</div>
 							</div>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 								<div>
 									<input
 										type="email"
 										placeholder="Email Address"
 										{...register("email")}
-										className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-[#F8FAFB] focus:outline-none focus:border-[#00B2BD] transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-[#DBFE01] transition-colors"
 									/>
 									{errors.email && (
-										<p className="text-red-500 text-sm mt-1">
+										<p className="text-red-500 text-sm mt-2 font-mono">
 											{errors.email.message}
 										</p>
 									)}
@@ -114,10 +114,10 @@ const ContactForm: React.FC = () => {
 										type="tel"
 										placeholder="Phone Number"
 										{...register("phoneNumber")}
-										className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-[#F8FAFB] focus:outline-none focus:border-[#00B2BD] transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-[#DBFE01] transition-colors"
 									/>
 									{errors.phoneNumber && (
-										<p className="text-red-500 text-sm mt-1">
+										<p className="text-red-500 text-sm mt-2 font-mono">
 											{errors.phoneNumber.message}
 										</p>
 									)}
@@ -128,10 +128,10 @@ const ContactForm: React.FC = () => {
 									placeholder="Message"
 									rows={6}
 									{...register("message")}
-									className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-[#F8FAFB] focus:outline-none focus:border-[#00B2BD] transition-colors resize-none"
+									className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-[#DBFE01] transition-colors resize-none"
 								/>
 								{errors.message && (
-									<p className="text-red-500 text-sm mt-1">
+									<p className="text-red-500 text-sm mt-2 font-mono">
 										{errors.message.message}
 									</p>
 								)}
@@ -139,74 +139,68 @@ const ContactForm: React.FC = () => {
 							<button
 								type="submit"
 								disabled={contactMutation.isPending}
-								className="bg-[#00B2BD] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#00848D] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+								className="bg-[#DBFE01] text-black px-12 py-6 font-black uppercase tracking-widest hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
 							>
-								{contactMutation.isPending ? "Sending..." : "Contact Us"}
+								{contactMutation.isPending ? "Sending..." : "Send Message"}
 							</button>
 						</form>
 					</div>
 
 					{/* Image Side with Overlay */}
 					<div className="w-full lg:w-1/2">
-						<div className="relative rounded-4xl overflow-hidden shadow-2xl aspect-618/636">
+						<div className="relative rounded-none overflow-hidden border border-white/10 aspect-square md:aspect-auto md:h-full min-h-[600px]">
 							<img
 								src={trailingImg}
 								alt="Contact Us"
-								className="w-full h-full object-cover"
+								className="w-full h-full object-cover transition-all duration-700"
 							/>
 
 							{/* Overlay Content */}
-							<div className="absolute inset-0 bg-black/20 flex flex-col justify-end p-8 md:p-12 text-white">
-								<div className="space-y-6 mb-8">
+							<div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-10 md:p-16 text-white">
+								<div className="space-y-8 mb-12">
 									{/* Email */}
-									<div className="flex items-center gap-4">
-										<div className="w-10 h-10 flex items-center justify-center">
-											<Mail className="w-6 h-6" />
+									<div className="flex items-center gap-6 group">
+										<div className="w-12 h-12 flex items-center justify-center bg-[#DBFE01]/10 group-hover:bg-[#DBFE01] transition-colors duration-300">
+											<Mail className="w-6 h-6 text-[#DBFE01] group-hover:text-black transition-colors" />
 										</div>
-										<span className="text-sm md:text-base font-medium">
-											ibsa@provenpath.et | ashenafi@provenpath.et
+										<span className="text-lg font-bold tracking-wide">
+											ibsa@provenpath.et
 										</span>
 									</div>
 
 									{/* Phone */}
-									<div className="flex items-center gap-4">
-										<div className="w-10 h-10 flex items-center justify-center">
-											<Phone className="w-6 h-6" />
+									<div className="flex items-center gap-6 group">
+										<div className="w-12 h-12 flex items-center justify-center bg-[#DBFE01]/10 group-hover:bg-[#DBFE01] transition-colors duration-300">
+											<Phone className="w-6 h-6 text-[#DBFE01] group-hover:text-black transition-colors" />
 										</div>
-										<span className="text-sm md:text-base font-medium">
-											+251910335501
+										<span className="text-lg font-bold tracking-wide">
+											+251 910 335 501
 										</span>
 									</div>
 
 									{/* Address */}
-									<div className="flex items-center gap-4">
-										<div className="w-10 h-10 flex items-center justify-center">
-											<MapPin className="w-6 h-6" />
+									<div className="flex items-center gap-6 group">
+										<div className="w-12 h-12 flex items-center justify-center bg-[#DBFE01]/10 group-hover:bg-[#DBFE01] transition-colors duration-300">
+											<MapPin className="w-6 h-6 text-[#DBFE01] group-hover:text-black transition-colors" />
 										</div>
-										<span className="text-sm md:text-base font-medium">
-											State, City, Country.
+										<span className="text-lg font-bold tracking-wide">
+											Addis Ababa, Ethiopia
 										</span>
 									</div>
 								</div>
 
 								{/* Social Icons */}
-								<div className="flex gap-4 mb-8">
+								<div className="flex gap-4">
 									{[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
 										<a
 											key={Icon.displayName || i}
 											href="/"
-											className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors"
+											className="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#DBFE01] hover:border-[#DBFE01] group transition-all duration-300"
 										>
-											<Icon className="w-5 h-5" />
+											<Icon className="w-6 h-6 text-white group-hover:text-black transition-colors" />
 										</a>
 									))}
 								</div>
-
-								{/* Description */}
-								<p className="text-sm md:text-base leading-relaxed opacity-90 max-w-md">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-									vulputate libero et velit interdum, ac aliquet odio mattis.
-								</p>
 							</div>
 						</div>
 					</div>

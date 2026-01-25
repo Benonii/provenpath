@@ -103,68 +103,73 @@ const VideoSeries: React.FC = () => {
 	const [activeTab, setActiveTab] = useState("Series One");
 
 	return (
-		<section className="py-20 bg-linear-to-b from-white via-gray-300 to-white">
+		<section className="py-32 bg-black">
 			<div className="container mx-auto px-4 md:px-8">
 				{/* Tabs */}
-				<div className="flex justify-center gap-8 md:gap-12 mb-16 border-b border-gray-100">
+				<div className="flex justify-center gap-8 md:gap-16 mb-20 border-b border-white/10">
 					{Object.keys(seriesData).map((tab) => (
 						<button
 							type="button"
 							key={tab}
 							onClick={() => setActiveTab(tab)}
-							className={`pb-4 text-lg md:text-xl font-semibold transition-all relative ${
+							className={`pb-6 text-lg md:text-xl font-bold uppercase tracking-wider transition-all relative ${
 								activeTab === tab
-									? "text-[#00B2BD]"
-									: "text-gray-400 hover:text-gray-600"
+									? "text-[#DBFE01]"
+									: "text-gray-500 hover:text-white"
 							}`}
 						>
 							{tab}
 							{activeTab === tab && (
-								<div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#00B2BD]" />
+								<div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#DBFE01]" />
 							)}
 						</button>
 					))}
 				</div>
 
 				{/* Video List */}
-				<div className="flex flex-col gap-8 max-w-5xl mx-auto">
+				<div className="flex flex-col gap-1">
 					{seriesData[activeTab].map((video) => (
 						<div
 							key={video.id}
-							className="bg-[#F8FAFB] rounded-4xl overflow-hidden flex flex-col md:flex-row items-center p-6 md:p-8 gap-8 group hover:shadow-lg transition-shadow"
+							className="bg-[#0A0A0A] border border-white/5 flex flex-col md:flex-row items-stretch p-0 group hover:border-[#DBFE01] transition-all duration-300"
 						>
 							{/* Thumbnail */}
-							<div className="relative w-full md:w-2/5 aspect-video rounded-2xl overflow-hidden shrink-0">
+							<div className="relative w-full md:w-[400px] aspect-video overflow-hidden shrink-0">
 								<img
 									src={video.thumbnail}
 									alt={video.title}
-									className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+									className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
 								/>
+								<div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-300" />
+								
 								<button
 									type="button"
-									className="absolute inset-0 bg-black/10 flex items-center justify-center cursor-pointer"
+									className="absolute inset-0 flex items-center justify-center cursor-pointer"
 									onClick={() => toast.info("video content coming soon")}
 									aria-label="Play video"
 								>
-									<div className="w-12 h-12 md:w-16 md:h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
-										<div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-											<Play className="w-4 h-4 md:w-6 md:h-6 text-[#00B2BD] fill-[#00B2BD]" />
-										</div>
+									<div className="w-16 h-16 bg-[#DBFE01] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+										<Play className="w-6 h-6 text-black fill-black ml-1" />
 									</div>
 								</button>
 							</div>
 
 							{/* Content */}
-							<div className="grow">
-								<h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-4">
-									{video.title}
-								</h3>
-								<p className="text-gray-500 text-sm md:text-base leading-relaxed mb-6 line-clamp-4 md:line-clamp-none">
+							<div className="grow p-8 md:p-10 flex flex-col justify-center">
+								<div className="flex items-start justify-between gap-4 mb-4">
+									<h3 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight group-hover:text-[#DBFE01] transition-colors">
+										{video.title}
+									</h3>
+									<span className="text-gray-600 font-mono text-sm">0{video.id}</span>
+								</div>
+								
+								<p className="text-[#B0B0B0] text-base md:text-lg leading-relaxed mb-8 font-light max-w-3xl">
 									{video.description}
 								</p>
+								
 								<button
 									type="button"
-									className="text-[#00B2BD] font-semibold border-b-2 border-[#00B2BD] pb-0.5 hover:text-[#00848D] hover:border-[#00848D] transition-colors"
+									className="text-white font-bold uppercase tracking-widest text-sm border-b border-[#DBFE01] pb-1 self-start hover:text-[#DBFE01] transition-colors"
 									onClick={() => toast.info("video content coming soon")}
 								>
 									Watch Episode
