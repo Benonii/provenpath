@@ -19,7 +19,7 @@ const Library: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="py-20 md:py-40 bg-black overflow-hidden relative"
+			className="min-h-screen flex items-center py-12 md:py-20 bg-black overflow-hidden relative"
 		>
 			{/* Cool Gradient Background - Brought back from previous version with dark theme */}
 			<motion.div
@@ -34,29 +34,29 @@ const Library: FC = () => {
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: false, amount: 0.3 }}
-					className="flex flex-col items-center text-center mb-16 md:mb-20"
+					className="flex flex-col items-center text-center mb-10 md:mb-12"
 				>
 					<motion.div
 						variants={fadeIn("down", 0)}
-						className="w-16 h-1 bg-[#DBFE01] mb-8"
+						className="w-16 h-1 bg-[#DBFE01] mb-4 md:mb-6"
 					/>
 					<motion.span
 						variants={fadeIn("down", 0.1)}
-						className="text-[#DBFE01] font-black tracking-[0.3em] text-sm uppercase mb-6"
+						className="text-[#DBFE01] font-black tracking-[0.3em] text-xs md:text-sm uppercase mb-3 md:mb-4"
 					>
 						CONTENT LIBRARY
 					</motion.span>
 					<div className="overflow-hidden">
 						<motion.h2
 							variants={fadeIn("up", 0.2)}
-							className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white mb-8 uppercase tracking-tight leading-[0.9]"
+							className="text-[clamp(2rem,5vw,4rem)] font-black text-white mb-4 md:mb-6 uppercase tracking-tight leading-[0.9]"
 						>
 							Our Best Video
 						</motion.h2>
 					</div>
 					<motion.p
 						variants={fadeIn("up", 0.3)}
-						className="text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light"
+						className="text-gray-400 text-base md:text-lg max-w-2xl leading-relaxed font-light"
 					>
 						Explore our collection of educational videos and social media
 						content designed to empower and inspire the next generation.
@@ -101,15 +101,15 @@ const Library: FC = () => {
 					</div>
 
 					{/* Content */}
-					<div className="relative z-20 flex flex-col justify-center px-8 py-12 sm:h-full sm:px-16 md:px-20 sm:py-0">
+					<div className="relative z-20 flex flex-col justify-center px-6 py-8 sm:h-full sm:px-16 md:px-20 sm:py-0">
 						<div className="max-w-xl md:max-w-lg lg:max-w-xl">
 							<span className="text-[#DBFE01] text-xs font-black tracking-[0.25em] uppercase mb-6 block">
 								LATEST EPISODE
 							</span>
-							<h3 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8 leading-[0.9] uppercase tracking-tight">
+							<h3 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 leading-[0.9] uppercase tracking-tight">
 								The Future of Digital Learning
 							</h3>
-							<p className="text-gray-400 text-base md:text-xl leading-relaxed mb-10 md:mb-12 line-clamp-3 font-light">
+							<p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-6 md:mb-8 line-clamp-2 md:line-clamp-3 font-light">
 								Discover the transformative power of digital education through
 								our carefully curated video series. From emerging technologies
 								to essential life skills, our content bridges the gap between
@@ -153,7 +153,7 @@ const Library: FC = () => {
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: false }}
 					transition={{ delay: 0.4 }}
-					className="flex justify-center mt-16 md:mt-24"
+					className="flex justify-center mt-10 md:mt-12"
 				>
 					<Link
 						to="/library"
@@ -166,7 +166,7 @@ const Library: FC = () => {
 				</motion.div>
 
 				{/* Bottom Accent */}
-				<div className="flex justify-center mt-20">
+				<div className="flex justify-center mt-8 md:mt-12">
 					<div className="w-16 h-1 bg-[#DBFE01]" />
 				</div>
 			</div>
