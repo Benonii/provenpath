@@ -38,11 +38,11 @@ const Library: FC = () => {
 				>
 					<motion.div
 						variants={fadeIn("down", 0)}
-						className="w-16 h-1 bg-[#DBFE01] mb-4 md:mb-6"
+						className="w-16 h-1 bg-accent mb-4 md:mb-6"
 					/>
 					<motion.span
 						variants={fadeIn("down", 0.1)}
-						className="text-[#DBFE01] font-black tracking-[0.3em] text-xs md:text-sm uppercase mb-3 md:mb-4"
+						className="text-accent font-black tracking-[0.3em] text-xs md:text-sm uppercase mb-3 md:mb-4"
 					>
 						CONTENT LIBRARY
 					</motion.span>
@@ -69,7 +69,7 @@ const Library: FC = () => {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: false, amount: 0.2 }}
 					transition={{ duration: 0.8 }}
-					className="relative max-w-6xl mx-auto flex flex-col sm:block sm:aspect-video md:aspect-21/9 overflow-hidden group cursor-pointer bg-[#0A0A0A] border border-white/10 hover:border-[#DBFE01] transition-colors duration-500"
+					className="relative max-w-6xl mx-auto flex flex-col sm:block sm:aspect-video md:aspect-21/9 overflow-hidden group cursor-pointer bg-accent border border-white/10 hover:border-accent transition-colors duration-500"
 				>
 					{/* Video Thumbnail / Background Image */}
 					<div className="relative aspect-video sm:absolute sm:inset-0 sm:aspect-auto overflow-hidden">
@@ -91,7 +91,7 @@ const Library: FC = () => {
 							aria-label="Play video"
 						>
 							<div className="w-20 h-20 bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-								<div className="w-14 h-14 bg-[#DBFE01] flex items-center justify-center">
+								<div className="w-14 h-14 bg-accent flex items-center justify-center">
 									<Play className="w-6 h-6 text-black fill-black" />
 								</div>
 							</div>
@@ -103,7 +103,7 @@ const Library: FC = () => {
 					{/* Content */}
 					<div className="relative z-20 flex flex-col justify-center px-6 py-8 sm:h-full sm:px-16 md:px-20 sm:py-0">
 						<div className="max-w-xl md:max-w-lg lg:max-w-xl">
-							<span className="text-[#DBFE01] text-xs font-black tracking-[0.25em] uppercase mb-6 block">
+							<span className="text-accent text-xs font-black tracking-[0.25em] uppercase mb-6 block">
 								LATEST EPISODE
 							</span>
 							<h3 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 leading-[0.9] uppercase tracking-tight">
@@ -120,10 +120,10 @@ const Library: FC = () => {
 							<button
 								type="button"
 								onClick={() => toast.info("Video content coming soon")}
-								className="group/link relative text-[#DBFE01] font-black tracking-widest text-sm uppercase"
+								className="group/link relative text-accent font-black tracking-widest text-sm uppercase"
 							>
 								Start Listening
-								<span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#DBFE01] transform scale-x-100 group-hover/link:scale-x-0 transition-transform duration-300 origin-right" />
+								<span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-100 group-hover/link:scale-x-0 transition-transform duration-300 origin-right" />
 								<span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left" />
 							</button>
 						</div>
@@ -138,9 +138,9 @@ const Library: FC = () => {
 					>
 						<motion.div
 							whileHover={{ scale: 1.1 }}
-							className="w-24 h-24 md:w-28 lg:w-32 md:h-28 lg:h-32 bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:border-[#DBFE01] transition-all duration-300"
+							className="w-24 h-24 md:w-28 lg:w-32 md:h-28 lg:h-32 bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:border-accent transition-all duration-300"
 						>
-							<div className="w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 bg-[#DBFE01] flex items-center justify-center group-hover:shadow-[0_0_80px_rgba(219,254,1,0.6)] transition-shadow duration-300">
+							<div className="w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 bg-accent flex items-center justify-center group-hover:shadow-[0_0_80px_rgba(219,254,1,0.6)] transition-shadow duration-300">
 								<Play className="w-8 h-8 md:w-10 lg:w-12 md:h-10 lg:h-12 text-black fill-black" />
 							</div>
 						</motion.div>
@@ -158,7 +158,7 @@ const Library: FC = () => {
 					<Link
 						to="/library"
 						className="group flex items-center gap-4 px-6 md:px-12 py-4 md:py-6 border-2 border-white text-white font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center
-              hover:bg-[#DBFE01] hover:text-black hover:border-[#DBFE01] transition-all duration-300"
+              hover:bg-accent hover:text-black hover:border-accent transition-all duration-300"
 					>
 						View Other Episodes
 						<ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -167,7 +167,7 @@ const Library: FC = () => {
 
 				{/* Bottom Accent */}
 				<div className="flex justify-center mt-8 md:mt-12">
-					<div className="w-16 h-1 bg-[#DBFE01]" />
+					<div className="w-16 h-1 bg-accent" />
 				</div>
 			</div>
 		</section>

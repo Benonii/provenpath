@@ -61,7 +61,7 @@ const OurTeam: FC = () => {
 
 			<div className="container mx-auto px-4 md:px-8 relative z-10">
 				<div className="text-center mb-20">
-					<span className="text-[#DBFE01] font-bold tracking-[0.3em] text-xs uppercase block mb-4">
+					<span className="text-accent font-bold tracking-[0.3em] text-xs uppercase block mb-4">
 						LEADERSHIP
 					</span>
 					<motion.h2
@@ -104,7 +104,7 @@ const OurTeam: FC = () => {
 									<div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
 									
 									{/* Yellow overlay line on hover */}
-									<div className="absolute bottom-0 left-0 w-full h-1 bg-[#DBFE01] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+									<div className="absolute bottom-0 left-0 w-full h-1 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 								</motion.div>
 							</motion.div>
 
@@ -117,7 +117,7 @@ const OurTeam: FC = () => {
 									<h3 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white mb-6 uppercase tracking-tight leading-none">
 										{member.name}
 									</h3>
-									<p className="text-[#DBFE01] mb-8 font-bold tracking-widest uppercase text-sm md:text-base">
+									<p className="text-accent mb-8 font-bold tracking-widest uppercase text-sm md:text-base">
 										{member.role}
 									</p>
 									<p className="text-[#B0B0B0] text-[clamp(1.1rem,1.5vw,1.4rem)] leading-relaxed font-light">

@@ -81,12 +81,12 @@ const WhoWeAre: React.FC = () => {
 				<div className="flex flex-col md:flex-row items-start gap-12 md:gap-24">
 					{/* Left Side - Heading */}
 					<div className="w-full md:w-1/3 md:sticky md:top-32">
-						<span className="text-[#DBFE01] font-bold tracking-[0.3em] text-xs uppercase block mb-4">
+						<span className="text-accent font-bold tracking-[0.3em] text-xs uppercase block mb-4">
 							WHO WE ARE
 						</span>
 						<h2 className="text-[clamp(3rem,5vw,5rem)] font-black text-white leading-[0.9] tracking-tighter uppercase">
 							Our <br />
-							<span className="text-transparent bg-clip-text bg-linear-to-r from-[#DBFE01] to-white">
+							<span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-white">
 								Story
 							</span>
 						</h2>

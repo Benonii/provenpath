@@ -82,7 +82,7 @@ const Header: React.FC = () => {
 						className={`${
 							useDarkHeader
 								? "text-black hover:opacity-70"
-								: "text-[#DBFE01] hover:text-white"
+								: "text-accent hover:text-white"
 						} transition-colors transform hover:scale-110 duration-300`}
 					>
 						<Menu className="w-12 h-12 md:w-16 md:h-16" strokeWidth={1.5} />
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
 
 					<SheetContent
 						side="right"
-						className="w-full md:w-[35vw] md:max-w-none bg-[#DBFE01] border-l-0 p-12 md:p-20 flex flex-col justify-center items-center text-black"
+						className="w-full md:w-[35vw] md:max-w-none bg-accent border-l-0 p-12 md:p-20 flex flex-col justify-center items-center text-black"
 					>
 						<nav className="flex flex-col items-center gap-4 md:gap-6 w-full">
 							{navItems.map((item, index) => {

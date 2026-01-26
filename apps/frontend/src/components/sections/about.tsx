@@ -55,7 +55,7 @@ const AboutUs: FC = () => {
 						{/* Section Label - YELLOW */}
 						<motion.span
 							variants={fadeIn("right", 0)}
-							className="text-[#DBFE01] font-black tracking-[0.25em] text-sm md:text-base uppercase mb-8 block"
+							className="text-accent font-black tracking-[0.25em] text-sm md:text-base uppercase mb-8 block"
 						>
 							WHO WE ARE
 						</motion.span>
@@ -75,7 +75,7 @@ const AboutUs: FC = () => {
 						>
 							<p className="mb-4">
 								Proven Path is a{" "}
-								<span className="text-[#DBFE01]">
+								<span className="text-accent">
 									service-based private organization
 								</span>{" "}
 								that aims to bring a positive impact on the generation through a
@@ -88,7 +88,7 @@ const AboutUs: FC = () => {
 						<motion.div variants={fadeIn("right", 0.3)}>
 							<Link
 								to="/about"
-								className="group border-2 border-white text-white hover:bg-[#DBFE01] hover:text-black hover:border-[#DBFE01]
+								className="group border-2 border-white text-white hover:bg-accent hover:text-black hover:border-accent
                   transition-all duration-300 px-5 md:px-10 py-4 md:py-5 flex items-center gap-4 font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center"
 							>
 								Learn More About Us
@@ -119,7 +119,7 @@ const AboutUs: FC = () => {
 										"polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)",
 								}}
 							>
-								<div className="w-full h-full bg-linear-to-br from-[#DBFE01] via-white to-[#DBFE01]" />
+								<div className="w-full h-full bg-linear-to-br from-accent via-white to-accent" />
 							</motion.div>
 
 							{/* Inner hexagon with image */}
@@ -145,7 +145,7 @@ const AboutUs: FC = () => {
 							</div>
 
 							{/* Glow effect */}
-							<div className="absolute inset-0 bg-[#DBFE01]/20 blur-[80px] -z-10 scale-110" />
+							<div className="absolute inset-0 bg-accent/20 blur-[80px] -z-10 scale-110" />
 						</div>
 
 						{/* Image indicators */}
@@ -157,7 +157,7 @@ const AboutUs: FC = () => {
 									onClick={() => setCurrentImageIndex(index)}
 									className={`h-2 transition-all duration-300 ${
 										index === currentImageIndex
-											? "bg-[#DBFE01] w-10"
+											? "bg-accent w-10"
 											: "bg-white/30 hover:bg-white/50 w-2"
 									}`}
 									aria-label={`View image ${index + 1}`}

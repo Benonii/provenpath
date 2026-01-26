@@ -94,22 +94,22 @@ const ServiceCard = ({
 			}}
 			className={`group relative bg-[#0A0A0A] border border-white/10 p-6 md:p-10 lg:p-12
         transition-colors duration-500 cursor-pointer overflow-hidden
-        hover:border-[#DBFE01]/50 perspective-[1000px]`}
+        hover:border-accent/50 perspective-[1000px]`}
 		>
 			{/* Yellow top border on hover */}
 			<div
-				className="absolute top-0 left-0 right-0 h-[3px] bg-[#DBFE01] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+				className="absolute top-0 left-0 right-0 h-[3px] bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
 				style={{ transform: "translateZ(30px)" }}
 			/>
 
 			{/* Icon */}
 			<div className="mb-6" style={{ transform: "translateZ(60px)" }}>
-				<service.icon className="w-8 h-8 text-white/60 group-hover:text-[#DBFE01] transition-colors duration-300" />
+				<service.icon className="w-8 h-8 text-white/60 group-hover:text-accent transition-colors duration-300" />
 			</div>
 
 			{/* Title */}
 			<h3
-				className="text-lg md:text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-[#DBFE01] transition-colors duration-300"
+				className="text-lg md:text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-accent transition-colors duration-300"
 				style={{ transform: "translateZ(50px)" }}
 			>
 				{service.title}
@@ -125,7 +125,7 @@ const ServiceCard = ({
 
 			{/* Hover glow effect */}
 			<div
-				className="absolute -bottom-20 -right-20 w-60 h-60 bg-[#DBFE01]/0 group-hover:bg-[#DBFE01]/5 rounded-full blur-3xl transition-all duration-500 pointer-events-none"
+				className="absolute -bottom-20 -right-20 w-60 h-60 bg-accent/0 group-hover:bg-accent/5 rounded-full blur-3xl transition-all duration-500 pointer-events-none"
 				style={{ transform: "translateZ(-20px)" }}
 			/>
 		</motion.div>
@@ -142,6 +142,7 @@ const Services: React.FC = () => {
 	const yBg = useTransform(scrollYProgress, [0, 1], ["-10%", "30%"]);
 
 	return (
+		// biome-ignore lint: Static ID required for hash navigation
 		<section
 			ref={containerRef}
 			id="services"
@@ -174,7 +175,7 @@ const Services: React.FC = () => {
 				<div className="text-center mb-16 md:mb-20">
 					<motion.span
 						variants={fadeIn("down", 0)}
-						className="text-[#DBFE01] font-black tracking-[0.3em] text-sm uppercase block mb-6"
+						className="text-accent font-black tracking-[0.3em] text-sm uppercase block mb-6"
 					>
 						WHAT WE OFFER
 					</motion.span>

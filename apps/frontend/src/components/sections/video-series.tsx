@@ -114,13 +114,13 @@ const VideoSeries: React.FC = () => {
 							onClick={() => setActiveTab(tab)}
 							className={`pb-6 text-lg md:text-xl font-bold uppercase tracking-wider transition-all relative ${
 								activeTab === tab
-									? "text-[#DBFE01]"
+									? "text-accent"
 									: "text-gray-500 hover:text-white"
 							}`}
 						>
 							{tab}
 							{activeTab === tab && (
-								<div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#DBFE01]" />
+								<div className="absolute bottom-0 left-0 w-full h-[2px] bg-accent" />
 							)}
 						</button>
 					))}
@@ -131,7 +131,7 @@ const VideoSeries: React.FC = () => {
 					{seriesData[activeTab].map((video) => (
 						<div
 							key={video.id}
-							className="bg-[#0A0A0A] border border-white/5 flex flex-col md:flex-row items-stretch p-0 group hover:border-[#DBFE01] transition-all duration-300"
+							className="bg-[#0A0A0A] border border-white/5 flex flex-col md:flex-row items-stretch p-0 group hover:border-accent transition-all duration-300"
 						>
 							{/* Thumbnail */}
 							<div className="relative w-full md:w-[400px] aspect-video overflow-hidden shrink-0">
@@ -148,7 +148,7 @@ const VideoSeries: React.FC = () => {
 									onClick={() => toast.info("video content coming soon")}
 									aria-label="Play video"
 								>
-									<div className="w-16 h-16 bg-[#DBFE01] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+									<div className="w-16 h-16 bg-accent flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
 										<Play className="w-6 h-6 text-black fill-black ml-1" />
 									</div>
 								</button>
@@ -157,7 +157,7 @@ const VideoSeries: React.FC = () => {
 							{/* Content */}
 							<div className="grow p-8 md:p-10 flex flex-col justify-center">
 								<div className="flex items-start justify-between gap-4 mb-4">
-									<h3 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight group-hover:text-[#DBFE01] transition-colors">
+									<h3 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight group-hover:text-accent transition-colors">
 										{video.title}
 									</h3>
 									<span className="text-gray-600 font-mono text-sm">0{video.id}</span>
@@ -169,7 +169,7 @@ const VideoSeries: React.FC = () => {
 								
 								<button
 									type="button"
-									className="text-white font-bold uppercase tracking-widest text-sm border-b border-[#DBFE01] pb-1 self-start hover:text-[#DBFE01] transition-colors"
+									className="text-white font-bold uppercase tracking-widest text-sm border-b border-accent pb-1 self-start hover:text-accent transition-colors"
 									onClick={() => toast.info("video content coming soon")}
 								>
 									Watch Episode

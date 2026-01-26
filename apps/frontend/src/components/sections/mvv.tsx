@@ -33,9 +33,9 @@ const MVV: React.FC = () => {
 					viewport={{ once: false }}
 					className="mb-12 md:mb-16"
 				>
-					<div className="w-12 h-1 bg-[#DBFE01] mb-6" />
+					<div className="w-12 h-1 bg-accent mb-6" />
 					<h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none">
-						Our <span className="text-[#DBFE01]">Foundation</span>
+						Our <span className="text-accent">Foundation</span>
 					</h2>
 				</motion.div>
 
@@ -51,15 +51,15 @@ const MVV: React.FC = () => {
 						className="md:col-span-8 md:row-span-2 bg-[#0A0A0A] border border-white/10 p-8 md:p-12 relative group overflow-hidden flex flex-col justify-between"
 					>
 						{/* Glow Effect */}
-						<div className="absolute -top-24 -left-24 w-64 h-64 bg-[#DBFE01]/10 rounded-full blur-[100px] group-hover:bg-[#DBFE01]/20 transition-colors duration-500" />
+						<div className="absolute -top-24 -left-24 w-64 h-64 bg-accent/10 rounded-full blur-[100px] group-hover:bg-accent/20 transition-colors duration-500" />
 						
 						<div className="relative z-10">
 							<div className="flex items-center gap-3 mb-6">
-								<div className="w-1 h-8 bg-[#DBFE01]" />
-								<span className="text-[#DBFE01] font-black tracking-[0.3em] text-xs uppercase">01 / MISSION</span>
+								<div className="w-1 h-8 bg-accent" />
+								<span className="text-accent font-black tracking-[0.3em] text-xs uppercase">01 / MISSION</span>
 							</div>
 							<h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-6 leading-tight">
-								Empowering the <br /> <span className="text-[#DBFE01]">Next Generation</span>
+								Empowering the <br /> <span className="text-accent">Next Generation</span>
 							</h3>
 							<p className="text-gray-400 text-lg md:text-xl leading-relaxed font-light max-w-xl">
 								To help and build a self-empowered, creative, independent, and disciplined generation in Ethiopia through innovative education and mentorship.
@@ -69,7 +69,7 @@ const MVV: React.FC = () => {
 						<div className="mt-12 relative z-10">
 							<div className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest group/link cursor-pointer">
 								Learn More 
-								<Sparkles className="w-4 h-4 text-[#DBFE01] group-hover/link:rotate-12 transition-transform" />
+								<Sparkles className="w-4 h-4 text-accent group-hover/link:rotate-12 transition-transform" />
 							</div>
 						</div>
 
@@ -88,12 +88,12 @@ const MVV: React.FC = () => {
 						viewport={{ once: false }}
 						className="md:col-span-4 md:row-span-3 bg-[#0A0A0A] border border-white/10 p-8 relative group overflow-hidden flex flex-col"
 					>
-						<div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#DBFE01]/5 rounded-full blur-[100px] group-hover:bg-[#DBFE01]/15 transition-colors duration-500" />
+						<div className="absolute -bottom-24 -right-24 w-64 h-64 bg-accent/5 rounded-full blur-[100px] group-hover:bg-accent/15 transition-colors duration-500" />
 						
 						<div className="relative z-10 mb-8">
 							<div className="flex items-center gap-3 mb-6">
-								<div className="w-1 h-8 bg-[#DBFE01]" />
-								<span className="text-[#DBFE01] font-black tracking-[0.3em] text-xs uppercase">02 / VISION</span>
+								<div className="w-1 h-8 bg-accent" />
+								<span className="text-accent font-black tracking-[0.3em] text-xs uppercase">02 / VISION</span>
 							</div>
 							<h3 className="text-3xl font-black text-white uppercase tracking-tight mb-6">
 								A Future <br /> Reimagined
@@ -117,12 +117,12 @@ const MVV: React.FC = () => {
 						viewport={{ once: false }}
 						className="md:col-span-4 md:row-span-3 bg-[#0A0A0A] border border-white/10 p-8 relative group overflow-hidden flex flex-col"
 					>
-						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#DBFE01]/5 rounded-full blur-[100px]" />
+						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
 						
 						<div className="relative z-10 mb-8">
 							<div className="flex items-center gap-3 mb-6">
-								<div className="w-1 h-8 bg-[#DBFE01]" />
-								<span className="text-[#DBFE01] font-black tracking-[0.3em] text-xs uppercase">03 / VALUES</span>
+								<div className="w-1 h-8 bg-accent" />
+								<span className="text-accent font-black tracking-[0.3em] text-xs uppercase">03 / VALUES</span>
 							</div>
 							<h3 className="text-3xl font-black text-white uppercase tracking-tight mb-6">
 								Our Core <br /> Principles
@@ -132,7 +132,7 @@ const MVV: React.FC = () => {
 						<div className="space-y-4 relative z-10">
 							{values.map((value) => (
 								<div key={value} className="flex items-center gap-4 group/item">
-									<div className="w-2 h-2 bg-[#DBFE01] rotate-45 group-hover/item:scale-150 transition-transform" />
+									<div className="w-2 h-2 bg-accent rotate-45 group-hover/item:scale-150 transition-transform" />
 									<span className="text-gray-400 group-hover/item:text-white transition-colors font-bold uppercase tracking-widest text-xs">
 										{value}
 									</span>
@@ -157,7 +157,7 @@ const MVV: React.FC = () => {
 						initial="hidden"
 						whileInView="show"
 						viewport={{ once: false }}
-						className="md:col-span-4 md:row-span-1 bg-[#DBFE01] p-8 flex items-center justify-center relative overflow-hidden group"
+						className="md:col-span-4 md:row-span-1 bg-accent p-8 flex items-center justify-center relative overflow-hidden group"
 					>
 						<div className="relative z-10 text-black text-center">
 							<span className="font-black text-2xl uppercase tracking-tighter leading-none">
@@ -177,19 +177,19 @@ const MVV: React.FC = () => {
 						viewport={{ once: false }}
 						className="md:col-span-8 md:row-span-2 bg-[#0A0A0A] border border-white/10 p-8 md:p-12 relative group overflow-hidden flex flex-col md:flex-row gap-8"
 					>
-						<div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#DBFE01]/10 rounded-full blur-[100px]" />
+						<div className="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/10 rounded-full blur-[100px]" />
 						
 						<div className="flex-1 relative z-10 flex flex-col justify-between">
 							<div>
 								<h3 className="text-3xl font-black text-white uppercase tracking-tight mb-4">
-									Community <br /> <span className="text-[#DBFE01]">Driven</span>
+									Community <br /> <span className="text-accent">Driven</span>
 								</h3>
 								<p className="text-gray-400 leading-relaxed font-light">
 									We believe in the power of collective growth. Our community is the heartbeat of everything we do.
 								</p>
 							</div>
 							<div className="mt-8 flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest group/link cursor-pointer">
-								Join Us <Sparkles className="w-4 h-4 text-[#DBFE01]" />
+								Join Us <Sparkles className="w-4 h-4 text-accent" />
 							</div>
 						</div>
 

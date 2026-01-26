@@ -83,7 +83,7 @@ const Hero: FC = () => {
 										repeat: Infinity,
 										ease: "easeOut",
 									}}
-									className="text-[clamp(4rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-[#DBFE01] pointer-events-none"
+									className="text-[clamp(4rem,14vw,11rem)] font-black tracking-tighter leading-none inline-block absolute top-0 left-0 text-accent pointer-events-none"
 									style={{ filter: "blur(1px)" }}
 								>
 									{char}
@@ -127,7 +127,7 @@ const Hero: FC = () => {
 					animate={{ y: [0, 10, 0] }}
 					transition={{ duration: 1.5, repeat: Infinity }}
 				>
-					<ArrowUpRight className="w-6 h-6 text-[#DBFE01] rotate-135" />
+					<ArrowUpRight className="w-6 h-6 text-accent rotate-135" />
 				</motion.div>
 			</motion.div>
 		</div>

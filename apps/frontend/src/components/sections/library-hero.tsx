@@ -23,7 +23,7 @@ const LibraryHero: React.FC = () => {
 
 			{/* Content */}
 			<div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
-				<span className="text-[#DBFE01] font-bold tracking-[0.3em] text-sm uppercase mb-4">
+				<span className="text-accent font-bold tracking-[0.3em] text-sm uppercase mb-4">
 					KNOWLEDGE HUB
 				</span>
 				<h1 className="text-[clamp(4rem,12vw,10rem)] font-black text-white tracking-tighter uppercase leading-none">
@@ -45,7 +45,7 @@ const LibraryHero: React.FC = () => {
 					animate={{ y: [0, 10, 0] }}
 					transition={{ duration: 1.5, repeat: Infinity }}
 				>
-					<ArrowUpRight className="w-6 h-6 text-[#DBFE01] rotate-135" />
+					<ArrowUpRight className="w-6 h-6 text-accent rotate-135" />
 				</motion.div>
 			</motion.div>
 		</div>

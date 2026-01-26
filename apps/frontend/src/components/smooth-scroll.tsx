@@ -1,3 +1,4 @@
+import { useLocation } from "@tanstack/react-router";
 import Lenis from "lenis";
 import type React from "react";
 import { useEffect, useRef } from "react";
@@ -38,11 +39,12 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
 	}, []);
 
 	// Scroll to top when pathname changes
+	const { pathname } = useLocation();
 	useEffect(() => {
-		if (lenisRef.current) {
+		if (lenisRef.current && pathname) {
 			lenisRef.current.scrollTo(0, { immediate: true });
 		}
-	}, []);
+	}, [pathname]);
 
 	return <>{children}</>;
 };

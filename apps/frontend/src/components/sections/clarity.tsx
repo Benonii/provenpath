@@ -79,7 +79,7 @@ const Clarity: FC = () => {
 			{/* Glow effect - Squashed to reduce vertical footprint */}
 			<motion.div
 				style={{ scale: scaleGlow }}
-				className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[120px] md:w-[800px] md:h-[300px] bg-[#DBFE01]/10 rounded-full blur-[120px] pointer-events-none"
+				className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[120px] md:w-[800px] md:h-[300px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"
 			/>
 
 			<div className="container mx-auto px-6 md:px-8 relative z-10">
@@ -94,7 +94,7 @@ const Clarity: FC = () => {
 					{/* Section Label - YELLOW */}
 					<motion.span
 						variants={fadeIn("down", 0)}
-						className="text-[#DBFE01] font-black tracking-[0.3em] text-sm uppercase mb-8"
+						className="text-accent font-black tracking-[0.3em] text-sm uppercase mb-8"
 					>
 						PODCAST
 					</motion.span>
@@ -111,7 +111,7 @@ const Clarity: FC = () => {
 					<div className="overflow-hidden mb-6 md:mb-10">
 						<motion.h2
 							variants={fadeIn("up", 0.2)}
-							className="text-[clamp(2.5rem,5vw,6rem)] font-black text-[#DBFE01] leading-[0.9] uppercase tracking-tight"
+							className="text-[clamp(2.5rem,5vw,6rem)] font-black text-accent leading-[0.9] uppercase tracking-tight"
 						>
 							Clarity
 						</motion.h2>
@@ -136,10 +136,10 @@ const Clarity: FC = () => {
 						<button
 							type="button"
 							onClick={handleNotifyClick}
-							className="bg-[#DBFE01] text-black px-6 md:px-20 py-5 md:py-8 font-black uppercase tracking-[0.2em] text-xs md:text-base
+							className="bg-accent text-black px-6 md:px-20 py-5 md:py-8 font-black uppercase tracking-[0.2em] text-xs md:text-base
                   hover:bg-white transition-all duration-500 
                   shadow-[0_20px_60px_rgba(219,254,1,0.4)] hover:shadow-[0_30px_100px_rgba(219,254,1,0.6)]
-                  cursor-pointer border-2 border-[#DBFE01] hover:border-white w-fit md:w-auto"
+                  cursor-pointer border-2 border-accent hover:border-white w-fit md:w-auto"
 						>
 							Notify Me When It Launches
 						</button>

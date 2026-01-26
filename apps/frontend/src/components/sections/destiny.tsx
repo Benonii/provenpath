@@ -294,13 +294,13 @@ const Destiny: FC = () => {
 						<BookCallDialogTrigger>
 							<button
 								type="button"
-								className="group bg-[#DBFE01] text-black px-6 md:px-14 py-4 md:py-6 font-bold text-xs md:text-base uppercase tracking-[0.15em] 
+								className="group bg-accent text-black px-6 md:px-14 py-4 md:py-6 font-bold text-xs md:text-base uppercase tracking-[0.15em] 
                   hover:bg-white transition-all duration-500 
                   hover:shadow-[0_20px_80px_rgba(219,254,1,0.4)] 
-                  active:scale-95 flex items-center gap-4 border-2 border-[#DBFE01] hover:border-white w-fit md:w-auto justify-center"
+                  active:scale-95 flex items-center gap-4 border-2 border-accent hover:border-white w-fit md:w-auto justify-center"
 							>
 								Book a Consultation
-								<div className="bg-black text-[#DBFE01] p-2 md:p-3 group-hover:bg-[#DBFE01] group-hover:text-black transition-all duration-500">
+								<div className="bg-black text-accent p-2 md:p-3 group-hover:bg-accent group-hover:text-black transition-all duration-500">
 									<ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
 								</div>
 							</button>

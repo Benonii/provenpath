@@ -60,9 +60,9 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 								y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
 								rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
 							}}
-							className="w-16 h-16 md:w-20 md:h-20 bg-[#DBFE01]/10 flex items-center justify-center mb-10"
+							className="w-16 h-16 md:w-20 md:h-20 bg-accent/10 flex items-center justify-center mb-10"
 						>
-							<Rocket className="w-8 h-8 md:w-10 md:h-10 text-[#DBFE01]" />
+							<Rocket className="w-8 h-8 md:w-10 md:h-10 text-accent" />
 						</motion.div>
 
 						{/* Heading - LARGE, WHITE WITH YELLOW ACCENT */}
@@ -71,7 +71,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 							className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white leading-tight mb-8 md:mb-12"
 						>
 							Let's build a better{" "}
-							<span className="text-[#DBFE01] italic font-lato">future</span>{" "}
+							<span className="text-accent italic font-lato">future</span>{" "}
 							together
 						</motion.h2>
 
@@ -84,7 +84,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className="w-48 sm:w-auto bg-[#DBFE01] text-black px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-wider text-xs md:text-sm
+									className="w-48 sm:w-auto bg-accent text-black px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-wider text-xs md:text-sm
                     hover:bg-white transition-all duration-500 
                     shadow-[0_15px_50px_rgba(219,254,1,0.2)] hover:shadow-[0_20px_60px_rgba(219,254,1,0.4)]"
 								>
