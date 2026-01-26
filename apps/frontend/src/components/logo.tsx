@@ -11,6 +11,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant =
 	const isDark = variant === "dark";
 	const neonColor = "#DBFE01";
 	const textColor = isDark ? "#000000" : "#FFFFFF";
+	const subtextColor = isDark ? "#000000" : neonColor;
 
 	return (
 		<div className={`flex items-center gap-3 ${className}`}>
@@ -33,7 +34,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant =
 					</span>
 					<span
 						className="text-[20px] md:text-base font-medium tracking-wide leading-none mt-1"
-						style={{ color: neonColor, fontFamily: "Euclid Circular B, sans-serif" }}
+						style={{ color: subtextColor, fontFamily: "Euclid Circular B, sans-serif" }}
 					>
 						Learning Service
 					</span>

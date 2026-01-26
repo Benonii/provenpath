@@ -148,7 +148,7 @@ const ContactForm: React.FC = () => {
 
 					{/* Image Side with Overlay */}
 					<div className="w-full lg:w-1/2">
-						<div className="relative rounded-none overflow-hidden border border-white/10 aspect-square md:aspect-auto md:h-full min-h-[600px]">
+						<div className="relative rounded-none overflow-hidden border border-white/10 w-full lg:aspect-auto lg:h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
 							<img
 								src={trailingImg}
 								alt="Contact Us"

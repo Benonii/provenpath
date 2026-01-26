@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
 const Header: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showContent, setShowContent] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 	const location = useLocation();
 
 	const isActive = (path: string, hash?: string) => {
@@ -29,6 +30,15 @@ const Header: React.FC = () => {
 		}
 		return location.pathname === path && !location.hash;
 	};
+
+	// Handle scroll for contact page header variant
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrolled(window.scrollY > 100);
+		};
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	// Handle animation sequencing
 	useEffect(() => {
@@ -44,19 +54,22 @@ const Header: React.FC = () => {
 		return () => clearTimeout(timeout);
 	}, [isOpen]);
 
+	const isContactPage = location.pathname === "/contact";
+	const useDarkHeader = isContactPage && !scrolled;
+
 	return (
 		<header
 			className={`fixed top-0 left-0 right-0 z-50 pt-4 transition-colors duration-300 ${
-				location.pathname === "/contact"
+				useDarkHeader
 					? "bg-transparent"
-					: "bg-linear-to-b from-gray-80 via-gray-80/60 to-transparent"
+					: "bg-linear-to-b from-black/80 via-black/40 to-transparent"
 			}`}
 		>
 			<div className="relative flex items-center justify-between px-4 md:px-12 py-4">
 				{/* Logo */}
 				<Link to="/" className="flex items-center z-50">
 					<Logo
-						variant={location.pathname === "/contact" ? "dark" : "default"}
+						variant={useDarkHeader ? "dark" : "default"}
 						className="scale-75 md:scale-100 origin-left"
 					/>
 				</Link>
@@ -67,7 +80,7 @@ const Header: React.FC = () => {
 						type="button"
 						onClick={() => setIsOpen(true)}
 						className={`${
-							location.pathname === "/contact"
+							useDarkHeader
 								? "text-black hover:opacity-70"
 								: "text-[#DBFE01] hover:text-white"
 						} transition-colors transform hover:scale-110 duration-300`}
