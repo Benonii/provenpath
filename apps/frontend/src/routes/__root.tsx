@@ -1,16 +1,16 @@
-// biome-ignore assist/source/organizeImports: can't make Biome happy
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
+	createRootRouteWithContext,
 	HeadContent,
 	Scripts,
-	createRootRouteWithContext,
+	useRouterState,
 } from "@tanstack/react-router";
-import { Toaster } from "@/components/ui/sonner";
-import Header from "@/components/header";
+import { useEffect, useState } from "react";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+import LoadingScreen from "@/components/loading-screen";
 import SmoothScroll from "@/components/smooth-scroll";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
 
@@ -42,12 +42,34 @@ export const Route = createRootRouteWithContext()({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+	const routerState = useRouterState();
+	const [isInitialLoading, setIsInitialLoading] = useState(true);
+
+	useEffect(() => {
+		// Simulate initial load completion
+		// In a real app, you might wait for critical data or just the window load event
+		const handleLoad = () => {
+			setIsInitialLoading(false);
+		};
+
+		if (document.readyState === "complete") {
+			handleLoad();
+		} else {
+			window.addEventListener("load", handleLoad);
+			return () => window.removeEventListener("load", handleLoad);
+		}
+	}, []);
+
+	const isPending = routerState.status === "pending";
+	const showLoading = isInitialLoading || isPending;
+
 	return (
 		<html lang="en">
 			<head>
 				<HeadContent />
 			</head>
 			<body className="flex flex-col min-h-screen">
+				<LoadingScreen isVisible={showLoading} />
 				<QueryClientProvider client={queryClient}>
 					<SmoothScroll>
 						<Header />
