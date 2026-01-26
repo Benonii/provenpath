@@ -69,7 +69,7 @@ const Library: FC = () => {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: false, amount: 0.2 }}
 					transition={{ duration: 0.8 }}
-					className="relative max-w-6xl mx-auto flex flex-col sm:block sm:aspect-video md:aspect-21/9 overflow-hidden group cursor-pointer bg-accent border border-white/10 hover:border-accent transition-colors duration-500"
+					className="relative max-w-6xl mx-auto flex flex-col sm:block sm:aspect-video md:aspect-21/9 overflow-hidden group cursor-pointer bg-zinc-900/30 border border-white/10 hover:border-accent transition-colors duration-500"
 				>
 					{/* Video Thumbnail / Background Image */}
 					<div className="relative aspect-video sm:absolute sm:inset-0 sm:aspect-auto overflow-hidden">
