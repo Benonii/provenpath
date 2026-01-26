@@ -50,8 +50,8 @@ const OurTeam: FC = () => {
 				<div
 					className="w-full h-full"
 					style={{
-						backgroundImage: `linear-gradient(rgba(219, 254, 1, 0.3) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(219, 254, 1, 0.3) 1px, transparent 1px)`,
+						backgroundImage: `linear-gradient(rgba(0, 210, 255, 0.3) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(0, 210, 255, 0.3) 1px, transparent 1px)`,
 						backgroundSize: "80px 80px",
 						maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
 						WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",

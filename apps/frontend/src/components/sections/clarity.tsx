@@ -57,7 +57,7 @@ const Clarity: FC = () => {
 			>
 				<div
 					ref={gradientRef}
-					className="w-full h-full bg-accent-gradient-strong"
+					className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,210,255,0.08)_0%,transparent_70%)]"
 				/>
 			</motion.div>
 
@@ -79,7 +79,7 @@ const Clarity: FC = () => {
 			{/* Glow effect - Squashed to reduce vertical footprint */}
 			<motion.div
 				style={{ scale: scaleGlow }}
-				className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[120px] md:w-[800px] md:h-[300px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"
+				className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[120px] md:w-[800px] md:h-[300px] bg-[#00D2FF]/10 rounded-full blur-[120px] pointer-events-none"
 			/>
 
 			<div className="container mx-auto px-6 md:px-8 relative z-10">
@@ -138,7 +138,7 @@ const Clarity: FC = () => {
 							onClick={handleNotifyClick}
 							className="bg-accent text-black px-6 md:px-20 py-5 md:py-8 font-black uppercase tracking-[0.2em] text-xs md:text-base
                   hover:bg-white transition-all duration-500 
-                  shadow-[0_20px_60px_rgba(219,254,1,0.4)] hover:shadow-[0_30px_100px_rgba(219,254,1,0.6)]
+                  shadow-[0_20px_60px_rgba(0,210,255,0.4)] hover:shadow-[0_30px_100px_rgba(0,210,255,0.6)]
                   cursor-pointer border-2 border-accent hover:border-white w-fit md:w-auto"
 						>
 							Notify Me When It Launches

@@ -36,6 +36,23 @@ export const Route = createRootRouteWithContext()({
 				href: appCss,
 			},
 		],
+		style: [
+			{
+				children: `
+					@keyframes text-pulse {
+						0%, 100% { opacity: 0.3; }
+						50% { opacity: 1; }
+					}
+					.animate-text-pulse {
+						animation: text-pulse 2s ease-in-out infinite;
+					}
+					body {
+						background-color: #000000;
+						margin: 0;
+					}
+				`,
+			},
+		],
 	}),
 
 	shellComponent: RootDocument,

@@ -17,8 +17,19 @@ const LoadingScreen = ({ isVisible }: { isVisible: boolean }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-9999 flex items-center justify-center bg-background transition-opacity duration-500 ${
-        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#000000",
+        transition: "opacity 500ms",
+        opacity: isVisible ? 1 : 0,
+      }}
+      className={`${
+        isVisible ? "" : "pointer-events-none"
       }`}
     >
       <div className="relative flex flex-col items-center gap-6">
@@ -26,17 +37,28 @@ const LoadingScreen = ({ isVisible }: { isVisible: boolean }) => {
           src={logoAnimation}
           alt="Loading..."
           className="w-32 h-32 object-contain"
+          style={{ width: "8rem", height: "8rem" }}
         />
         <div className="flex flex-col items-center text-center animate-text-pulse">
           <span
             className="text-3xl md:text-4xl font-black tracking-tighter leading-none uppercase text-white"
-            style={{ fontFamily: "Euclid Circular B, sans-serif" }}
+            style={{
+              fontFamily: "Euclid Circular B, sans-serif",
+              fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
+              fontWeight: 900,
+              color: "#ffffff",
+            }}
           >
             PROVEN PATH
           </span>
           <span
-            className="text-lg md:text-xl font-medium tracking-wide leading-none mt-2 text-sb-primary"
-            style={{ fontFamily: "Euclid Circular B, sans-serif" }}
+            className="text-lg md:text-xl font-medium tracking-wide leading-none mt-2 text-accent"
+            style={{
+              fontFamily: "Euclid Circular B, sans-serif",
+              fontSize: "clamp(1.125rem, 3vw, 1.25rem)",
+              fontWeight: 500,
+              color: "#00D2FF",
+            }}
           >
             Learning Service
           </span>

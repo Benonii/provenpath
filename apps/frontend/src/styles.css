@@ -131,7 +131,7 @@
   --secondary-foreground: 0 0% 100%; /* #ffffff */
   --muted: 0 0% 7%; /* #111111 */
   --muted-foreground: 0 0% 69%; /* #B0B0B0 */
-  --accent: 68 99% 50%; /* #DBFE01 */
+  --accent: 191, 100%, 50%; /* #00D2FF */
   --accent-foreground: 0 0% 0%; /* #000000 */
   --destructive: 0 84.2% 60.2%; /* #ef4444 */
   --destructive-foreground: 0 0% 100%; /* #ffffff */

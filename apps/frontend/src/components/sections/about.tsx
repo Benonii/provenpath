@@ -52,7 +52,7 @@ const AboutUs: FC = () => {
 						viewport={{ once: false, amount: 0.5 }}
 						className="max-w-2xl"
 					>
-						{/* Section Label - YELLOW */}
+						{/* Section Label - BLUE */}
 						<motion.span
 							variants={fadeIn("right", 0)}
 							className="text-accent font-black tracking-[0.25em] text-sm md:text-base uppercase mb-8 block"
@@ -68,7 +68,7 @@ const AboutUs: FC = () => {
 							About Us
 						</motion.h2>
 
-						{/* Body Text - MUCH LARGER with yellow highlights */}
+						{/* Body Text - MUCH LARGER with blue highlights */}
 						<motion.div
 							variants={fadeIn("right", 0.2)}
 							className="text-white text-[clamp(1rem,3vw,2.5rem)] leading-tight mb-8 md:mb-12 font-black uppercase"

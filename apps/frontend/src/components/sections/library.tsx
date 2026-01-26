@@ -24,7 +24,7 @@ const Library: FC = () => {
 			{/* Cool Gradient Background - Brought back from previous version with dark theme */}
 			<motion.div
 				style={{ y: yBg }}
-				className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(219,254,1,0.15)_0%,transparent_70%)] pointer-events-none"
+				className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,210,255,0.15)_0%,transparent_70%)] pointer-events-none"
 			/>
 
 			<div className="container mx-auto px-6 md:px-8 relative z-10">
@@ -140,7 +140,7 @@ const Library: FC = () => {
 							whileHover={{ scale: 1.1 }}
 							className="w-24 h-24 md:w-28 lg:w-32 md:h-28 lg:h-32 bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:border-accent transition-all duration-300"
 						>
-							<div className="w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 bg-accent flex items-center justify-center group-hover:shadow-[0_0_80px_rgba(219,254,1,0.6)] transition-shadow duration-300">
+							<div className="w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 bg-accent flex items-center justify-center group-hover:shadow-[0_0_80px_rgba(0,210,255,0.6)] transition-shadow duration-300">
 								<Play className="w-8 h-8 md:w-10 lg:w-12 md:h-10 lg:h-12 text-black fill-black" />
 							</div>
 						</motion.div>

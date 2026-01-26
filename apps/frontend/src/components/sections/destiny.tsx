@@ -60,7 +60,7 @@ const Destiny: FC = () => {
 		// Set initial text state (outline)
 		gsap.set(textRef.current, {
 			color: "transparent",
-			WebkitTextStroke: "1px #DBFE01",
+			WebkitTextStroke: "1px #00D2FF",
 		});
 
 		// Ensure everything is visible but in its starting state
@@ -98,10 +98,10 @@ const Destiny: FC = () => {
 				textRef.current,
 				{
 					color: "transparent",
-					WebkitTextStroke: "1px #DBFE01",
+					WebkitTextStroke: "1px #00D2FF",
 				},
 				{
-					color: "#DBFE01",
+					color: "#00D2FF",
 					duration: 1,
 					ease: "power2.inOut",
 				},
@@ -123,7 +123,7 @@ const Destiny: FC = () => {
 					fill: "transparent",
 				},
 				{
-					fill: "#DBFE01",
+					fill: "#00D2FF",
 					duration: 0.5,
 					ease: "power2.out",
 				},
@@ -191,7 +191,8 @@ const Destiny: FC = () => {
 								? "M 140,-250 C 220,-130 300,-70 360,-110 S 400,-270 300,-250 S 220,-50 360,50"
 								: "M 190,-100 C 270,20 350,80 410,40 S 450,-120 350,-100 S 270,100 410,200"
 						}
-						stroke="rgba(219, 254, 1, 0.15)"
+						stroke="#00D2FF"
+						style={{ opacity: 0.15 }}
 						strokeWidth="6"
 						fill="none"
 						strokeLinecap="round"
@@ -206,7 +207,7 @@ const Destiny: FC = () => {
 								? "M 140,-250 C 220,-130 300,-70 360,-110 S 400,-270 300,-250 S 220,-50 360,50"
 								: "M 190,-100 C 270,20 350,80 410,40 S 450,-120 350,-100 S 270,100 410,200"
 						}
-						stroke="#DBFE01"
+						stroke="#00D2FF"
 						strokeWidth="8"
 						fill="none"
 						strokeLinecap="round"
@@ -222,7 +223,8 @@ const Destiny: FC = () => {
 								? "M 850,490 C 920,550 980,590 1040,550 S 1100,470 1150,530 S 1200,650 1230,710"
 								: "M 850,340 C 920,400 980,440 1040,400 S 1100,320 1150,380 S 1200,500 1230,560"
 						}
-						stroke="rgba(219, 254, 1, 0.15)"
+						stroke="#00D2FF"
+						style={{ opacity: 0.15 }}
 						strokeWidth="6"
 						fill="none"
 						strokeLinecap="round"
@@ -237,7 +239,7 @@ const Destiny: FC = () => {
 								? "M 850,490 C 920,550 980,590 1040,550 S 1100,470 1150,530 S 1200,650 1230,710"
 								: "M 850,340 C 920,400 980,440 1040,400 S 1100,320 1150,380 S 1200,500 1230,560"
 						}
-						stroke="#DBFE01"
+						stroke="#00D2FF"
 						strokeWidth="8"
 						fill="none"
 						strokeLinecap="round"
@@ -260,7 +262,7 @@ const Destiny: FC = () => {
 							ref={starRef}
 							d="M40 8 L48 30 L72 30 L52 45 L60 68 L40 54 L20 68 L28 45 L8 30 L32 30 Z"
 							fill="transparent"
-							stroke="#DBFE01"
+							stroke="#00D2FF"
 							strokeWidth="2"
 						/>
 					</svg>
@@ -273,7 +275,7 @@ const Destiny: FC = () => {
 						<span
 							ref={textRef}
 							className="text-transparent"
-							style={{ WebkitTextStroke: "1px #DBFE01" }}
+							style={{ WebkitTextStroke: "1px #00D2FF" }}
 						>
 							destiny
 						</span>
@@ -295,8 +297,7 @@ const Destiny: FC = () => {
 							<button
 								type="button"
 								className="group bg-accent text-black px-6 md:px-14 py-4 md:py-6 font-bold text-xs md:text-base uppercase tracking-[0.15em] 
-                  hover:bg-white transition-all duration-500 
-                  hover:shadow-[0_20px_80px_rgba(219,254,1,0.4)] 
+                  hover:bg-white transition-all duration-500                   hover:shadow-[0_20px_80px_rgba(0,210,255,0.4)] 
                   active:scale-95 flex items-center gap-4 border-2 border-accent hover:border-white w-fit md:w-auto justify-center"
 							>
 								Book a Consultation

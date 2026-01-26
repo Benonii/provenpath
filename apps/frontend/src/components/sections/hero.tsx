@@ -57,7 +57,7 @@ const Hero: FC = () => {
 								<motion.span
 									animate={{
 										x: [0, 8, 0],
-										color: ["#DBFE01", "#FFFFFF", "#DBFE01"],
+										color: ["#00D2FF", "#FFFFFF", "#00D2FF"],
 									}}
 									transition={{
 										duration: 2,

@@ -1,5 +1,5 @@
 import type React from "react";
-import logo from "@/assets/logo-2.png";
+import logo from "@/assets/logo.png";
 
 interface LogoProps {
 	className?: string;
@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant = "default" }) => {
 	const isDark = variant === "dark";
-	const neonColor = "#DBFE01";
+	const neonColor = "#00D2FF";
 	const textColor = isDark ? "#000000" : "#FFFFFF";
 	const subtextColor = isDark ? "#000000" : neonColor;
 
