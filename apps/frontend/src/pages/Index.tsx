@@ -9,7 +9,7 @@ import Services from "@/components/sections/services";
 
 const Index: React.FC = () => {
 	return (
-		<div className="bg-black">
+		<div className="bg-white">
 			<Hero />
 			<Destiny />
 			<AboutUs />

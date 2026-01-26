@@ -9,9 +9,8 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant = "default" }) => {
 	const isDark = variant === "dark";
-	const neonColor = "#00D2FF";
 	const textColor = isDark ? "#000000" : "#FFFFFF";
-	const subtextColor = isDark ? "#000000" : neonColor;
+	const subtextColor = isDark ? "#000000" : "#00D2FF";
 
 	return (
 		<div className={`flex items-center gap-3 ${className}`}>
@@ -19,9 +18,12 @@ const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false, variant =
 			<img
 				src={logo}
 				alt="ProvenPath Logo"
-				className={`h-12 md:h-16 w-auto transition-all duration-300 ${
-					isDark ? "brightness-0" : ""
-				}`}
+				className="h-12 md:h-16 w-auto transition-all duration-300"
+				style={{ 
+					filter: isDark 
+						? "brightness(0)" 
+						: "invert(58%) sepia(90%) saturate(2500%) hue-rotate(165deg) brightness(100%) contrast(105%)" 
+				}}
 			/>
 
 			{!iconOnly && (

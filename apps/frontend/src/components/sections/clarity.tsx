@@ -48,7 +48,7 @@ const Clarity: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="relative py-20 md:py-40 bg-black overflow-hidden"
+			className="relative py-20 md:py-40 bg-white overflow-hidden"
 		>
 			{/* Stronger Gradient Background - Reduced height for smoother transition */}
 			<motion.div
@@ -69,8 +69,8 @@ const Clarity: FC = () => {
 				<div
 					className="absolute inset-0"
 					style={{
-						backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+						backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
 						backgroundSize: "80px 80px",
 					}}
 				/>
@@ -99,11 +99,11 @@ const Clarity: FC = () => {
 						PODCAST
 					</motion.span>
 
-					{/* Heading - WHITE, MASSIVE */}
+					{/* Heading - BLACK, MASSIVE */}
 					<div className="overflow-hidden">
 						<motion.h2
 							variants={fadeIn("up", 0.1)}
-							className="text-[clamp(2rem,5vw,6rem)] font-black text-white leading-[0.9] uppercase tracking-tight"
+							className="text-[clamp(2rem,5vw,6rem)] font-black text-black leading-[0.9] uppercase tracking-tight"
 						>
 							Take your first step towards
 						</motion.h2>
@@ -120,7 +120,7 @@ const Clarity: FC = () => {
 					{/* Description - GRAY */}
 					<motion.p
 						variants={fadeIn("up", 0.3)}
-						className="text-gray-400 text-base md:text-2xl leading-relaxed mb-10 md:mb-16 max-w-3xl font-light"
+						className="text-gray-600 text-base md:text-2xl leading-relaxed mb-10 md:mb-16 max-w-3xl font-light"
 					>
 						Join us as we dive deep into the stories of resilience, strategy, and
 						success. Real conversations with those who have walked the path and
@@ -137,9 +137,9 @@ const Clarity: FC = () => {
 							type="button"
 							onClick={handleNotifyClick}
 							className="bg-accent text-black px-6 md:px-20 py-5 md:py-8 font-black uppercase tracking-[0.2em] text-xs md:text-base
-                  hover:bg-white transition-all duration-500 
+                  hover:bg-black hover:text-white transition-all duration-500 
                   shadow-[0_20px_60px_rgba(0,210,255,0.4)] hover:shadow-[0_30px_100px_rgba(0,210,255,0.6)]
-                  cursor-pointer border-2 border-accent hover:border-white w-fit md:w-auto"
+                  cursor-pointer border-2 border-accent hover:border-black w-fit md:w-auto"
 						>
 							Notify Me When It Launches
 						</button>

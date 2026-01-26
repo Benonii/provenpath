@@ -75,7 +75,7 @@ const WhoWeAre: React.FC = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className="py-40 bg-black overflow-hidden"
+			className="py-40 bg-white overflow-hidden"
 		>
 			<div className="container mx-auto px-4 md:px-8 mb-32">
 				<div className="flex flex-col md:flex-row items-start gap-12 md:gap-24">
@@ -84,9 +84,9 @@ const WhoWeAre: React.FC = () => {
 						<span className="text-accent font-bold tracking-[0.3em] text-xs uppercase block mb-4">
 							WHO WE ARE
 						</span>
-						<h2 className="text-[clamp(3rem,5vw,5rem)] font-black text-white leading-[0.9] tracking-tighter uppercase">
+						<h2 className="text-[clamp(3rem,5vw,5rem)] font-black text-black leading-[0.9] tracking-tighter uppercase">
 							Our <br />
-							<span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-white">
+							<span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-black">
 								Story
 							</span>
 						</h2>
@@ -94,7 +94,7 @@ const WhoWeAre: React.FC = () => {
 
 					{/* Right Side - Text */}
 					<div className="w-full md:w-2/3">
-						<p className="text-[#B0B0B0] text-xl md:text-2xl leading-relaxed font-light">
+						<p className="text-[#444444] text-xl md:text-2xl leading-relaxed font-light">
 							Proven Path is a service-based private organization that aims to
 							bring a positive impact on the generation through a learning
 							platform designed and delivered by distinguished professionals on
@@ -103,7 +103,7 @@ const WhoWeAre: React.FC = () => {
 						<p className="text-accent font-bold mt-4 uppercase tracking-widest text-sm">
 							Available via In-Person & Virtual Programs
 						</p>
-						<p className="text-[#666666] text-lg mt-8 leading-relaxed">
+						<p className="text-[#888888] text-lg mt-8 leading-relaxed">
 							Proven-path was founded by two visionaries who envisioned that
 							equipping the young generation will save them from wallowing in
 							the mire of moral destruction, creating a vibrant, disciplined and
@@ -117,9 +117,9 @@ const WhoWeAre: React.FC = () => {
 			{/* Horizontal Carousels */}
 			<div className="flex flex-col gap-4 relative">
 				{/* Left Fade */}
-				<div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-black to-transparent z-10 pointer-events-none" />
+				<div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
 				{/* Right Fade */}
-				<div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-black to-transparent z-10 pointer-events-none" />
+				<div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
 				{/* Row 1 - Moves Right on Scroll */}
 				<div className="relative flex overflow-hidden">
@@ -150,7 +150,7 @@ const WhoWeAre: React.FC = () => {
 									alt="Gallery Item"
 									className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
 								/>
-								<div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+								<div className="absolute inset-0 bg-linear-to-t from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 							</div>
 						))}
 					</div>
@@ -187,7 +187,7 @@ const WhoWeAre: React.FC = () => {
 						{infiniteImages.map((img) => (
 							<div
 								key={`row3-${img.uniqueId}`}
-								className="w-[200px] md:w-[300px] aspect-video rounded-none overflow-hidden border border-white/10 shrink-0 relative group"
+								className="w-[200px] md:w-[300px] aspect-video rounded-none overflow-hidden border border-black/10 shrink-0 relative group"
 							>
 								<img
 									src={img.src}

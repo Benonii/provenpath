@@ -36,7 +36,7 @@ const AboutUs: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="relative py-24 md:py-32 bg-black overflow-hidden"
+			className="relative py-24 md:py-32 bg-white overflow-hidden"
 		>
 			{/* Subtle Gradient Background */}
 			<div className="absolute inset-0 bg-accent-gradient pointer-events-none" />
@@ -63,7 +63,7 @@ const AboutUs: FC = () => {
 						{/* Heading - MASSIVE */}
 						<motion.h2
 							variants={fadeIn("right", 0.1)}
-							className="text-[clamp(2rem,8vw,5.5rem)] font-black text-white mb-6 md:mb-10 leading-[0.95] uppercase tracking-tight"
+							className="text-[clamp(2rem,8vw,5.5rem)] font-black text-black mb-6 md:mb-10 leading-[0.95] uppercase tracking-tight"
 						>
 							About Us
 						</motion.h2>
@@ -71,7 +71,7 @@ const AboutUs: FC = () => {
 						{/* Body Text - MUCH LARGER with blue highlights */}
 						<motion.div
 							variants={fadeIn("right", 0.2)}
-							className="text-white text-[clamp(1rem,3vw,2.5rem)] leading-tight mb-8 md:mb-12 font-black uppercase"
+							className="text-black text-[clamp(1rem,3vw,2.5rem)] leading-tight mb-8 md:mb-12 font-black uppercase"
 						>
 							<p className="mb-4">
 								Proven Path is a{" "}
@@ -82,9 +82,9 @@ const AboutUs: FC = () => {
 								learning platform designed and delivered by distinguished
 								professionals on various societal topics.
 							</p>
-							<p className="text-sm md:text-lg font-bold tracking-widest text-white/60">
-								Available through <span className="text-white">in-person</span>{" "}
-								and <span className="text-white">virtual programs</span>.
+							<p className="text-sm md:text-lg font-bold tracking-widest text-black/60">
+								Available through <span className="text-black">in-person</span>{" "}
+								and <span className="text-black">virtual programs</span>.
 							</p>
 						</motion.div>
 
@@ -92,7 +92,7 @@ const AboutUs: FC = () => {
 						<motion.div variants={fadeIn("right", 0.3)}>
 							<Link
 								to="/about"
-								className="group border-2 border-white text-white hover:bg-accent hover:text-black hover:border-accent
+								className="group border-2 border-black text-black hover:bg-black hover:text-white hover:border-black
                   transition-all duration-300 px-5 md:px-10 py-4 md:py-5 flex items-center gap-4 font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center"
 							>
 								Learn More About Us
@@ -128,7 +128,7 @@ const AboutUs: FC = () => {
 
 							{/* Inner hexagon with image */}
 							<div
-								className="absolute inset-[6px] overflow-hidden bg-black"
+								className="absolute inset-[6px] overflow-hidden bg-white"
 								style={{
 									clipPath:
 										"polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)",
@@ -162,7 +162,7 @@ const AboutUs: FC = () => {
 									className={`h-2 transition-all duration-300 ${
 										index === currentImageIndex
 											? "bg-accent w-10"
-											: "bg-white/30 hover:bg-white/50 w-2"
+											: "bg-black/30 hover:bg-black/50 w-2"
 									}`}
 									aria-label={`View image ${index + 1}`}
 								/>

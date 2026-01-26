@@ -170,7 +170,7 @@ const Destiny: FC = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative bg-black py-12 md:py-20 overflow-hidden"
+			className="relative bg-white py-12 md:py-20 overflow-hidden"
 		>
 			<div className="relative w-full max-w-[1500px] mx-auto px-6 md:px-10 py-48 md:py-96">
 				{/* SVG with absolute positioning for precise control */}
@@ -270,7 +270,7 @@ const Destiny: FC = () => {
 
 				{/* Text Section - Centered */}
 				<div className="relative z-10 text-center py-16">
-					<h2 className="sb-hero text-white mb-6">
+					<h2 className="sb-hero text-black mb-6">
 						walk to your{" "}
 						<span
 							ref={textRef}
@@ -281,7 +281,7 @@ const Destiny: FC = () => {
 						</span>
 					</h2>
 
-					<p className="sb-body text-[#B0B0B0] max-w-xl mx-auto">
+					<p className="sb-body text-[#444444] max-w-xl mx-auto">
 						Every journey begins with a single step. Let us guide you on the
 						path to achieving your goals.
 					</p>
@@ -297,11 +297,11 @@ const Destiny: FC = () => {
 							<button
 								type="button"
 								className="group bg-accent text-black px-6 md:px-14 py-4 md:py-6 font-bold text-xs md:text-base uppercase tracking-[0.15em] 
-                  hover:bg-white transition-all duration-500                   hover:shadow-[0_20px_80px_rgba(0,210,255,0.4)] 
-                  active:scale-95 flex items-center gap-4 border-2 border-accent hover:border-white w-fit md:w-auto justify-center"
+                  hover:bg-black hover:text-white transition-all duration-500                   hover:shadow-[0_20px_80px_rgba(0,210,255,0.4)] 
+                  active:scale-95 flex items-center gap-4 border-2 border-accent hover:border-black w-fit md:w-auto justify-center"
 							>
 								Book a Consultation
-								<div className="bg-black text-accent p-2 md:p-3 group-hover:bg-accent group-hover:text-black transition-all duration-500">
+								<div className="bg-white text-accent p-2 md:p-3 group-hover:bg-accent group-hover:text-black transition-all duration-500">
 									<ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
 								</div>
 							</button>
@@ -320,7 +320,7 @@ const Destiny: FC = () => {
 							ref={(el) => {
 								if (el) wordsRef.current[i] = el;
 							}}
-							className="text-white font-bold text-lg md:text-4xl! mb-1 tracking-wide sb-hero opacity-0"
+							className="text-black font-bold text-lg md:text-4xl! mb-1 tracking-wide sb-hero opacity-0"
 							style={{ marginLeft: `${i * 1}rem` }}
 						>
 							{word}

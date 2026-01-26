@@ -53,15 +53,15 @@ const ContactForm: React.FC = () => {
 		contactMutation.mutate(data);
 	};
 	return (
-		<section className="py-32 bg-black">
+		<section className="py-32 bg-white">
 			<div className="container mx-auto px-4 md:px-8">
 				<div className="flex flex-col lg:flex-row gap-20 items-start">
 					{/* Form Side */}
 					<div className="w-full lg:w-1/2">
-						<h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black text-white mb-8 uppercase tracking-tight leading-none">
+						<h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black text-black mb-8 uppercase tracking-tight leading-none">
 							Let's Get In <span className="text-accent">Touch</span>
 						</h2>
-						<p className="text-[#B0B0B0] text-lg mb-12 max-w-xl font-light leading-relaxed">
+						<p className="text-[#444444] text-lg mb-12 max-w-xl font-light leading-relaxed">
 							Ready to take the next step? Schedule a complimentary consultation
 							with our team and discover how we can help you achieve your goals.
 						</p>
@@ -73,7 +73,7 @@ const ContactForm: React.FC = () => {
 										type="text"
 										placeholder="First Name"
 										{...register("firstName")}
-										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-black/20 bg-transparent text-black placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
 									/>
 									{errors.firstName && (
 										<p className="text-red-500 text-sm mt-2 font-mono">
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
 										type="text"
 										placeholder="Last Name"
 										{...register("lastName")}
-										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-black/20 bg-transparent text-black placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
 									/>
 									{errors.lastName && (
 										<p className="text-red-500 text-sm mt-2 font-mono">
@@ -101,7 +101,7 @@ const ContactForm: React.FC = () => {
 										type="email"
 										placeholder="Email Address"
 										{...register("email")}
-										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-black/20 bg-transparent text-black placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
 									/>
 									{errors.email && (
 										<p className="text-red-500 text-sm mt-2 font-mono">
@@ -114,7 +114,7 @@ const ContactForm: React.FC = () => {
 										type="tel"
 										placeholder="Phone Number"
 										{...register("phoneNumber")}
-										className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
+										className="w-full px-6 py-5 rounded-none border-b border-black/20 bg-transparent text-black placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
 									/>
 									{errors.phoneNumber && (
 										<p className="text-red-500 text-sm mt-2 font-mono">
@@ -128,7 +128,7 @@ const ContactForm: React.FC = () => {
 									placeholder="Message"
 									rows={6}
 									{...register("message")}
-									className="w-full px-6 py-5 rounded-none border-b border-white/20 bg-transparent text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors resize-none"
+									className="w-full px-6 py-5 rounded-none border-b border-black/20 bg-transparent text-black placeholder-gray-400 focus:outline-none focus:border-accent transition-colors resize-none"
 								/>
 								{errors.message && (
 									<p className="text-red-500 text-sm mt-2 font-mono">
@@ -139,7 +139,7 @@ const ContactForm: React.FC = () => {
 							<button
 								type="submit"
 								disabled={contactMutation.isPending}
-								className="bg-accent text-black px-12 py-6 font-black uppercase tracking-widest hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
+								className="bg-accent text-black px-12 py-6 font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
 							>
 								{contactMutation.isPending ? "Sending..." : "Send Message"}
 							</button>
@@ -148,7 +148,7 @@ const ContactForm: React.FC = () => {
 
 					{/* Image Side with Overlay */}
 					<div className="w-full lg:w-1/2">
-						<div className="relative rounded-none overflow-hidden border border-white/10 w-full lg:aspect-auto lg:h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+						<div className="relative rounded-none overflow-hidden border border-black/10 w-full lg:aspect-auto lg:h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
 							<img
 								src={trailingImg}
 								alt="Contact Us"
@@ -156,7 +156,7 @@ const ContactForm: React.FC = () => {
 							/>
 
 							{/* Overlay Content */}
-							<div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-10 md:p-16 text-white">
+							<div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-10 md:p-16 text-white">
 								<div className="space-y-8 mb-12">
 									{/* Email */}
 									<div className="flex items-center gap-6 group">

@@ -9,6 +9,7 @@ import { Briefcase, User, Users, Zap } from "lucide-react";
 import type React from "react";
 import { useRef } from "react";
 import { fadeIn, staggerContainer } from "@/lib/animations";
+import servicesBg from "@/assets/services_bg.png";
 
 const services = [
 	{
@@ -85,6 +86,8 @@ const ServiceCard = ({
 		<motion.div
 			ref={ref}
 			variants={fadeIn("up", index * 0.1)}
+			whileHover={{ y: -10, scale: 1.02 }}
+			whileTap={{ scale: 0.98 }}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
 			style={{
@@ -92,7 +95,7 @@ const ServiceCard = ({
 				rotateY,
 				transformStyle: "preserve-3d",
 			}}
-			className={`group relative bg-[#0A0A0A] border border-white/10 p-6 md:p-10 lg:p-12
+			className={`group relative bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-10 lg:p-12
         transition-colors duration-500 cursor-pointer overflow-hidden
         hover:border-accent/50 perspective-[1000px]`}
 		>
@@ -117,7 +120,7 @@ const ServiceCard = ({
 
 			{/* Description */}
 			<p
-				className="text-gray-500 group-hover:text-gray-400 transition-colors duration-300 text-sm md:text-lg"
+				className="text-gray-300 group-hover:text-white transition-colors duration-300 text-sm md:text-lg"
 				style={{ transform: "translateZ(40px)" }}
 			>
 				{service.description}
@@ -146,17 +149,30 @@ const Services: React.FC = () => {
 		<section
 			ref={containerRef}
 			id="services"
-			className="relative w-full py-20 md:py-40 bg-black overflow-hidden perspective-[1000px]"
+			className="relative w-full py-20 md:py-40 bg-white overflow-hidden perspective-[1000px]"
 		>
+			{/* Background Image */}
+			<div className="absolute inset-0 z-0">
+				<img
+					src={servicesBg}
+					alt=""
+					className="w-full h-full object-cover opacity-60"
+				/>
+				<div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/80" />
+				
+				{/* Blending Gradient */}
+				<div className="absolute inset-0 bg-linear-to-b" />
+			</div>
+
 			{/* Stronger Gradient Background */}
 			<motion.div
 				style={{ y: yBg }}
-				className="absolute inset-0 bg-accent-gradient pointer-events-none"
+				className="absolute inset-0 bg-accent-gradient pointer-events-none opacity-20"
 			/>
 
 			{/* Subtle background pattern */}
 			<div
-				className="absolute inset-0 opacity-[0.03]"
+				className="absolute inset-0 opacity-[0.05]"
 				style={{
 					backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
 					backgroundSize: "40px 40px",

@@ -4,7 +4,7 @@ import ContactHero from "@/components/sections/contact-hero";
 
 const Contact: React.FC = () => {
 	return (
-		<div className="bg-black">
+		<div className="bg-white">
 			<ContactHero />
 			<ContactForm />
 		</div>

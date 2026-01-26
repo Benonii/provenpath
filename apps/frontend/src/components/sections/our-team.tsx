@@ -40,7 +40,7 @@ const OurTeam: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="py-32 bg-black relative overflow-hidden"
+			className="py-32 bg-white relative overflow-hidden"
 		>
 			{/* Subtle grid pattern background */}
 			<motion.div
@@ -69,7 +69,7 @@ const OurTeam: FC = () => {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: false }}
 						transition={{ duration: 0.8 }}
-						className="text-[clamp(3rem,5vw,5rem)] font-black text-white uppercase tracking-tighter"
+						className="text-[clamp(3rem,5vw,5rem)] font-black text-black uppercase tracking-tighter"
 					>
 						Our Team
 					</motion.h2>
@@ -93,7 +93,7 @@ const OurTeam: FC = () => {
 								<motion.div
 									whileHover={{ scale: 1.02, y: -5 }}
 									transition={{ duration: 0.3 }}
-									className="w-full max-w-[340px] md:max-w-[500px] aspect-500/560 rounded-none overflow-hidden border border-white/10 group relative"
+									className="w-full max-w-[340px] md:max-w-[500px] aspect-500/560 rounded-none overflow-hidden border border-black/10 group relative"
 								>
 									<img
 										src={member.image}
@@ -101,7 +101,7 @@ const OurTeam: FC = () => {
 										className="w-full h-full object-cover transition-all duration-500"
 									/>
 									{/* Gradient Overlay */}
-									<div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
+									<div className="absolute inset-0 bg-linear-to-t from-white/80 via-transparent to-transparent opacity-60" />
 									
 									{/* Yellow overlay line on hover */}
 									<div className="absolute bottom-0 left-0 w-full h-1 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
@@ -114,13 +114,13 @@ const OurTeam: FC = () => {
 								className="w-full md:w-1/2"
 							>
 								<div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
-									<h3 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white mb-6 uppercase tracking-tight leading-none">
+									<h3 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-black mb-6 uppercase tracking-tight leading-none">
 										{member.name}
 									</h3>
 									<p className="text-accent mb-8 font-bold tracking-widest uppercase text-sm md:text-base">
 										{member.role}
 									</p>
-									<p className="text-[#B0B0B0] text-[clamp(1.1rem,1.5vw,1.4rem)] leading-relaxed font-light">
+									<p className="text-[#444444] text-[clamp(1.1rem,1.5vw,1.4rem)] leading-relaxed font-light">
 										{member.description}
 									</p>
 								</div>

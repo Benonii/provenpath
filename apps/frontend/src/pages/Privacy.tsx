@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Privacy: React.FC = () => {
 	return (
-		<div className="bg-black text-white min-h-screen">
+		<div className="bg-white text-black min-h-screen">
 			{/* Hero Section */}
 			<section className="relative py-32 px-4 overflow-hidden">
 				<div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -24,7 +24,7 @@ const Privacy: React.FC = () => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.1 }}
-						className="text-[clamp(3rem,8vw,6rem)] font-black text-white tracking-tighter uppercase leading-none text-center mb-8"
+						className="text-[clamp(3rem,8vw,6rem)] font-black text-black tracking-tighter uppercase leading-none text-center mb-8"
 					>
 						Privacy <span className="text-transparent border-text">Policy</span>
 					</motion.h1>
@@ -32,7 +32,7 @@ const Privacy: React.FC = () => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="text-gray-400 text-center max-w-2xl mx-auto text-lg"
+						className="text-gray-600 text-center max-w-2xl mx-auto text-lg"
 					>
 						Your privacy is important to us. This policy explains how we handle your personal data.
 					</motion.p>
@@ -45,7 +45,7 @@ const Privacy: React.FC = () => {
 					<div className="space-y-12">
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">1. Information We Collect</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									We collect several different types of information for various purposes to provide and improve our Service to you:
 								</p>
@@ -59,7 +59,7 @@ const Privacy: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">2. How We Use Your Information</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>Proven Path uses the collected data for various purposes:</p>
 								<ul className="list-disc pl-6 space-y-2">
 									<li>To provide and maintain our Service</li>
@@ -74,7 +74,7 @@ const Privacy: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">3. Disclosure of Data</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									We may disclose your personal information in the good faith belief that such action is necessary to:
 								</p>
@@ -90,7 +90,7 @@ const Privacy: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">4. Security of Data</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
 								</p>
@@ -99,7 +99,7 @@ const Privacy: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">5. Service Providers</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.
 								</p>
@@ -108,7 +108,7 @@ const Privacy: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">6. Links to Other Sites</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.
 								</p>
@@ -117,7 +117,7 @@ const Privacy: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">7. Changes to This Privacy Policy</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
 								</p>
@@ -129,7 +129,7 @@ const Privacy: React.FC = () => {
 
 			<style>{`
 				.border-text {
-					-webkit-text-stroke: 1px white;
+					-webkit-text-stroke: 1px black;
 				}
 			`}</style>
 		</div>

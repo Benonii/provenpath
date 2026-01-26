@@ -24,11 +24,11 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 	return (
 		<section
 			ref={containerRef}
-			className="py-20 md:py-40 bg-black overflow-hidden"
+			className="py-20 md:py-40 bg-white overflow-hidden"
 		>
 			<div className="container mx-auto px-6 md:px-8">
 				<div
-					className={`relative flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} overflow-hidden border border-white/10`}
+					className={`relative flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} overflow-hidden border border-black/10`}
 				>
 					{/* Background Image for Mobile/Tablet */}
 					<div className="absolute inset-0 z-0 md:hidden">
@@ -37,7 +37,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 							alt="Background"
 							className="w-full h-full object-cover"
 						/>
-						<div className="absolute inset-0 bg-black/80" />
+						<div className="absolute inset-0 bg-black/60" />
 					</div>
 
 					{/* Content Side */}
@@ -65,10 +65,10 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 							<Rocket className="w-8 h-8 md:w-10 md:h-10 text-accent" />
 						</motion.div>
 
-						{/* Heading - LARGE, WHITE WITH YELLOW ACCENT */}
+						{/* Heading - LARGE, BLACK WITH YELLOW ACCENT */}
 						<motion.h2
 							variants={fadeIn("up", 0.1)}
-							className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white leading-tight mb-8 md:mb-12"
+							className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white md:text-black leading-tight mb-8 md:mb-12"
 						>
 							Let's build a better{" "}
 							<span className="text-accent italic font-lato">future</span>{" "}
@@ -85,8 +85,8 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
 									className="w-48 sm:w-auto bg-accent text-black px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-wider text-xs md:text-sm
-                    hover:bg-white transition-all duration-500 
-                    shadow-[0_15px_50px_rgba(219,254,1,0.2)] hover:shadow-[0_20px_60px_rgba(219,254,1,0.4)]"
+                    hover:opacity-90 transition-all duration-500 
+                    shadow-[0_15px_50px_rgba(0,210,255,0.2)] hover:shadow-[0_20px_60px_rgba(0,210,255,0.4)]"
 								>
 									Book Consultation
 								</motion.button>
@@ -99,7 +99,7 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 								<Link
 									to="/contact"
 									className="w-48 sm:w-auto px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-wider text-xs md:text-sm
-                    border border-white text-white hover:bg-white hover:text-black
+                    border border-white text-white md:border-black md:text-black hover:bg-accent hover:border-accent
                     transition-all duration-500 inline-flex items-center justify-center"
 								>
 									Contact Us
@@ -128,8 +128,8 @@ const Contact: FC<ContactProps> = ({ reverse = false }) => {
 								className="w-full h-full object-cover"
 							/>
 						</motion.div>
-						{/* Overlay gradient */}
-						<div className="absolute inset-0 bg-linear-to-r from-black/50 to-transparent pointer-events-none" />
+						{/* Subtle overlay gradient for blending */}
+						<div className="absolute inset-0 bg-linear-to-r from-white/20 to-transparent pointer-events-none" />
 					</motion.div>
 				</div>
 			</div>

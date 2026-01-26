@@ -5,7 +5,7 @@ import VideoSeries from "@/components/sections/video-series";
 
 const Library: React.FC = () => {
 	return (
-		<div className="bg-black">
+		<div className="bg-white">
 			<LibraryHero />
 			<VideoSeries />
 			<Contact variant="dark" />

@@ -103,10 +103,10 @@ const VideoSeries: React.FC = () => {
 	const [activeTab, setActiveTab] = useState("Series One");
 
 	return (
-		<section className="py-32 bg-black">
+		<section className="py-32 bg-white">
 			<div className="container mx-auto px-4 md:px-8">
 				{/* Tabs */}
-				<div className="flex justify-center gap-8 md:gap-16 mb-20 border-b border-white/10">
+				<div className="flex justify-center gap-8 md:gap-16 mb-20 border-b border-black/10">
 					{Object.keys(seriesData).map((tab) => (
 						<button
 							type="button"
@@ -115,7 +115,7 @@ const VideoSeries: React.FC = () => {
 							className={`pb-6 text-lg md:text-xl font-bold uppercase tracking-wider transition-all relative ${
 								activeTab === tab
 									? "text-accent"
-									: "text-gray-500 hover:text-white"
+									: "text-gray-400 hover:text-black"
 							}`}
 						>
 							{tab}
@@ -131,7 +131,7 @@ const VideoSeries: React.FC = () => {
 					{seriesData[activeTab].map((video) => (
 						<div
 							key={video.id}
-							className="bg-[#0A0A0A] border border-white/5 flex flex-col md:flex-row items-stretch p-0 group hover:border-accent transition-all duration-300"
+							className="bg-[#f8f8f8] border border-black/5 flex flex-col md:flex-row items-stretch p-0 group hover:border-accent transition-all duration-300"
 						>
 							{/* Thumbnail */}
 							<div className="relative w-full md:w-[400px] aspect-video overflow-hidden shrink-0">
@@ -157,19 +157,19 @@ const VideoSeries: React.FC = () => {
 							{/* Content */}
 							<div className="grow p-8 md:p-10 flex flex-col justify-center">
 								<div className="flex items-start justify-between gap-4 mb-4">
-									<h3 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight group-hover:text-accent transition-colors">
+									<h3 className="text-2xl md:text-3xl font-bold text-black uppercase tracking-tight group-hover:text-accent transition-colors">
 										{video.title}
 									</h3>
-									<span className="text-gray-600 font-mono text-sm">0{video.id}</span>
+									<span className="text-gray-400 font-mono text-sm">0{video.id}</span>
 								</div>
 								
-								<p className="text-[#B0B0B0] text-base md:text-lg leading-relaxed mb-8 font-light max-w-3xl">
+								<p className="text-[#444444] text-base md:text-lg leading-relaxed mb-8 font-light max-w-3xl">
 									{video.description}
 								</p>
 								
 								<button
 									type="button"
-									className="text-white font-bold uppercase tracking-widest text-sm border-b border-accent pb-1 self-start hover:text-accent transition-colors"
+									className="text-black font-bold uppercase tracking-widest text-sm border-b border-accent pb-1 self-start hover:text-accent transition-colors"
 									onClick={() => toast.info("video content coming soon")}
 								>
 									Watch Episode

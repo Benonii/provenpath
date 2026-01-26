@@ -19,7 +19,7 @@ const Library: FC = () => {
 	return (
 		<section
 			ref={containerRef}
-			className="min-h-screen flex items-center py-12 md:py-20 bg-black overflow-hidden relative"
+			className="min-h-screen flex items-center py-12 md:py-20 bg-white overflow-hidden relative"
 		>
 			{/* Cool Gradient Background - Brought back from previous version with dark theme */}
 			<motion.div
@@ -49,14 +49,14 @@ const Library: FC = () => {
 					<div className="overflow-hidden">
 						<motion.h2
 							variants={fadeIn("up", 0.2)}
-							className="text-[clamp(2rem,5vw,4rem)] font-black text-white mb-4 md:mb-6 uppercase tracking-tight leading-[0.9]"
+							className="text-[clamp(2rem,5vw,4rem)] font-black text-black mb-4 md:mb-6 uppercase tracking-tight leading-[0.9]"
 						>
 							Our Best Video
 						</motion.h2>
 					</div>
 					<motion.p
 						variants={fadeIn("up", 0.3)}
-						className="text-gray-400 text-base md:text-lg max-w-2xl leading-relaxed font-light"
+						className="text-gray-600 text-base md:text-lg max-w-2xl leading-relaxed font-light"
 					>
 						Explore our collection of educational videos and social media
 						content designed to empower and inspire the next generation.
@@ -64,12 +64,12 @@ const Library: FC = () => {
 				</motion.div>
 
 				{/* Featured Video Card - SHARP EDGES */}
-				<motion.div
+					<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: false, amount: 0.2 }}
 					transition={{ duration: 0.8 }}
-					className="relative max-w-6xl mx-auto flex flex-col sm:block sm:aspect-video md:aspect-21/9 overflow-hidden group cursor-pointer bg-zinc-900/30 border border-white/10 hover:border-accent transition-colors duration-500"
+					className="relative max-w-6xl mx-auto flex flex-col sm:block sm:aspect-video md:aspect-21/9 overflow-hidden group cursor-pointer bg-zinc-100/30 border border-black/10 hover:border-accent transition-colors duration-500"
 				>
 					{/* Video Thumbnail / Background Image */}
 					<div className="relative aspect-video sm:absolute sm:inset-0 sm:aspect-auto overflow-hidden">
@@ -96,8 +96,8 @@ const Library: FC = () => {
 								</div>
 							</div>
 						</button>
-						{/* Desktop Overlay - Dark gradient on the left */}
-						<div className="hidden sm:block absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent z-10" />
+						{/* Desktop Overlay - Light gradient on the left */}
+						<div className="hidden sm:block absolute inset-0 bg-linear-to-r from-white via-white/80 to-transparent z-10" />
 					</div>
 
 					{/* Content */}
@@ -106,10 +106,10 @@ const Library: FC = () => {
 							<span className="text-accent text-xs font-black tracking-[0.25em] uppercase mb-6 block">
 								LATEST EPISODE
 							</span>
-							<h3 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 leading-[0.9] uppercase tracking-tight">
+							<h3 className="text-2xl md:text-4xl lg:text-5xl font-black text-black mb-4 md:mb-6 leading-[0.9] uppercase tracking-tight">
 								The Future of Digital Learning
 							</h3>
-							<p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-6 md:mb-8 line-clamp-2 md:line-clamp-3 font-light">
+							<p className="text-gray-600 text-sm md:text-lg leading-relaxed mb-6 md:mb-8 line-clamp-2 md:line-clamp-3 font-light">
 								Discover the transformative power of digital education through
 								our carefully curated video series. From emerging technologies
 								to essential life skills, our content bridges the gap between
@@ -157,8 +157,8 @@ const Library: FC = () => {
 				>
 					<Link
 						to="/library"
-						className="group flex items-center gap-4 px-6 md:px-12 py-4 md:py-6 border-2 border-white text-white font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center
-              hover:bg-accent hover:text-black hover:border-accent transition-all duration-300"
+						className="group flex items-center gap-4 px-6 md:px-12 py-4 md:py-6 border-2 border-black text-black font-black uppercase tracking-widest text-xs md:text-sm w-fit md:w-fit justify-center
+              hover:bg-black hover:text-white hover:border-black transition-all duration-300"
 					>
 						View Other Episodes
 						<ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

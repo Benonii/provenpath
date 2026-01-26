@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Terms: React.FC = () => {
 	return (
-		<div className="bg-black text-white min-h-screen">
+		<div className="bg-white text-black min-h-screen">
 			{/* Hero Section */}
 			<section className="relative py-32 px-4 overflow-hidden">
 				<div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -24,7 +24,7 @@ const Terms: React.FC = () => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.1 }}
-						className="text-[clamp(3rem,8vw,6rem)] font-black text-white tracking-tighter uppercase leading-none text-center mb-8"
+						className="text-[clamp(3rem,8vw,6rem)] font-black text-black tracking-tighter uppercase leading-none text-center mb-8"
 					>
 						Terms & <span className="text-transparent border-text">Conditions</span>
 					</motion.h1>
@@ -32,7 +32,7 @@ const Terms: React.FC = () => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="text-gray-400 text-center max-w-2xl mx-auto text-lg"
+						className="text-gray-600 text-center max-w-2xl mx-auto text-lg"
 					>
 						Please read these terms and conditions carefully before using our services.
 					</motion.p>
@@ -45,7 +45,7 @@ const Terms: React.FC = () => {
 					<div className="space-y-12">
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">1. Introduction</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									Welcome to Proven Path. These terms and conditions outline the rules and regulations for the use of Proven Path's Website and Services.
 								</p>
@@ -57,7 +57,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">2. Intellectual Property Rights</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									Other than the content you own, under these Terms, Proven Path and/or its licensors own all the intellectual property rights and materials contained in this Website.
 								</p>
@@ -69,7 +69,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">3. Restrictions</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>You are specifically restricted from all of the following:</p>
 								<ul className="list-disc pl-6 space-y-2">
 									<li>Publishing any Website material in any other media;</li>
@@ -84,7 +84,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">4. Your Content</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									In these Website Standard Terms and Conditions, "Your Content" shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant Proven Path a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.
 								</p>
@@ -96,7 +96,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">5. No warranties</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									This Website is provided "as is," with all faults, and Proven Path expresses no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising you.
 								</p>
@@ -105,7 +105,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">6. Limitation of liability</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									In no event shall Proven Path, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract. Proven Path, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.
 								</p>
@@ -114,7 +114,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">7. Indemnification</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									You hereby indemnify to the fullest extent Proven Path from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the provisions of these Terms.
 								</p>
@@ -123,7 +123,7 @@ const Terms: React.FC = () => {
 
 						<section>
 							<h2 className="text-2xl font-bold text-accent mb-6 uppercase tracking-wider">8. Governing Law & Jurisdiction</h2>
-							<div className="prose prose-invert max-w-none text-gray-300 space-y-4">
+							<div className="prose max-w-none text-gray-700 space-y-4">
 								<p>
 									These Terms will be governed by and interpreted in accordance with the laws of the State of Kenya, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Kenya for the resolution of any disputes.
 								</p>
@@ -135,7 +135,7 @@ const Terms: React.FC = () => {
 
 			<style>{`
 				.border-text {
-					-webkit-text-stroke: 1px white;
+					-webkit-text-stroke: 1px black;
 				}
 			`}</style>
 		</div>

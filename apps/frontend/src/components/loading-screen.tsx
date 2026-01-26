@@ -24,7 +24,7 @@ const LoadingScreen = ({ isVisible }: { isVisible: boolean }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#000000",
+        backgroundColor: "#ffffff",
         transition: "opacity 500ms",
         opacity: isVisible ? 1 : 0,
       }}
@@ -58,12 +58,12 @@ const LoadingScreen = ({ isVisible }: { isVisible: boolean }) => {
           }}
         >
           <span
-            className="text-3xl md:text-4xl font-black tracking-tighter leading-none uppercase text-white"
+            className="text-3xl md:text-4xl font-black tracking-tighter leading-none uppercase text-black"
             style={{
               fontFamily: "Euclid Circular B, sans-serif",
               fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
               fontWeight: 900,
-              color: "#ffffff",
+              color: "#000000",
             }}
           >
             PROVEN PATH
