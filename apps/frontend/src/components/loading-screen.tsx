@@ -32,14 +32,31 @@ const LoadingScreen = ({ isVisible }: { isVisible: boolean }) => {
         isVisible ? "" : "pointer-events-none"
       }`}
     >
-      <div className="relative flex flex-col items-center gap-6">
+      <div
+        className="relative flex flex-col items-center gap-6"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "1.5rem",
+          position: "relative",
+        }}
+      >
         <img
           src={logoAnimation}
           alt="Loading..."
           className="w-32 h-32 object-contain"
           style={{ width: "8rem", height: "8rem" }}
         />
-        <div className="flex flex-col items-center text-center animate-text-pulse">
+        <div
+          className="flex flex-col items-center text-center animate-text-pulse"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <span
             className="text-3xl md:text-4xl font-black tracking-tighter leading-none uppercase text-white"
             style={{
@@ -54,6 +71,7 @@ const LoadingScreen = ({ isVisible }: { isVisible: boolean }) => {
           <span
             className="text-lg md:text-xl font-medium tracking-wide leading-none mt-2 text-accent"
             style={{
+              marginTop: "0.5rem",
               fontFamily: "Euclid Circular B, sans-serif",
               fontSize: "clamp(1.125rem, 3vw, 1.25rem)",
               fontWeight: 500,
