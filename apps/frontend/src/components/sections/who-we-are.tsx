@@ -80,7 +80,7 @@ const WhoWeAre: React.FC = () => {
 			<div className="container mx-auto px-4 md:px-8 mb-32">
 				<div className="flex flex-col md:flex-row items-start gap-12 md:gap-24">
 					{/* Left Side - Heading */}
-					<div className="w-full md:w-1/3 sticky top-32">
+					<div className="w-full md:w-1/3 md:sticky md:top-32">
 						<span className="text-[#DBFE01] font-bold tracking-[0.3em] text-xs uppercase block mb-4">
 							WHO WE ARE
 						</span>
