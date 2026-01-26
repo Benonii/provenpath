@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Menu } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
 import Logo from "@/components/logo";
 import { Sheet, SheetClose, SheetContent } from "@/components/ui/sheet";
 
@@ -15,6 +16,7 @@ const navItems: NavItem[] = [
 	{ path: "/about", label: "About Us" },
 	{ path: "/library", label: "Library" },
 	{ path: "/#services", label: "Services" },
+	{ path: "#", label: "Influential's Path" },
 	{ path: "/contact", label: "Contact" },
 ];
 
@@ -123,7 +125,12 @@ const Header: React.FC = () => {
 												<Link
 													to={item.path}
 													hash={item.hash}
-													onClick={() => {
+													onClick={(e) => {
+														if (item.label === "Influential's Path") {
+															e.preventDefault();
+															toast.info("Coming Soon!");
+															return;
+														}
 														if (item.label !== "Services") {
 															window.scrollTo(0, 0);
 														}

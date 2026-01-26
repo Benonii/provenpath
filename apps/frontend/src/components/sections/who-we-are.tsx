@@ -100,6 +100,9 @@ const WhoWeAre: React.FC = () => {
 							platform designed and delivered by distinguished professionals on
 							various societal topics.
 						</p>
+						<p className="text-accent font-bold mt-4 uppercase tracking-widest text-sm">
+							Available via In-Person & Virtual Programs
+						</p>
 						<p className="text-[#666666] text-lg mt-8 leading-relaxed">
 							Proven-path was founded by two visionaries who envisioned that
 							equipping the young generation will save them from wallowing in

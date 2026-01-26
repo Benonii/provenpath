@@ -82,6 +82,10 @@ const AboutUs: FC = () => {
 								learning platform designed and delivered by distinguished
 								professionals on various societal topics.
 							</p>
+							<p className="text-sm md:text-lg font-bold tracking-widest text-white/60">
+								Available through <span className="text-white">in-person</span>{" "}
+								and <span className="text-white">virtual programs</span>.
+							</p>
 						</motion.div>
 
 						{/* CTA Button */}
