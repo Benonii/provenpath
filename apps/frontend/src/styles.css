@@ -661,3 +661,27 @@ html.lenis body {
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1.5s infinite ease-in-out;
+}
+
+@keyframes text-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.animate-text-pulse {
+  animation: text-pulse 2s ease-in-out infinite;
+}

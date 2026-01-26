@@ -45,7 +45,7 @@ const OurTeam: FC = () => {
 			{/* Subtle grid pattern background */}
 			<motion.div
 				style={{ opacity: opacityBg, y: yBg }}
-				className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-full max-w-6xl opacity-[0.07] pointer-events-none"
+				className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-full max-w-6xl opacity-[0.01] pointer-events-none"
 			>
 				<div
 					className="w-full h-full"
@@ -113,7 +113,7 @@ const OurTeam: FC = () => {
 								variants={fadeIn(member.reverse ? "left" : "right", 0.2)}
 								className="w-full md:w-1/2"
 							>
-								<div className="max-w-xl text-center md:text-left">
+								<div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
 									<h3 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white mb-6 uppercase tracking-tight leading-none">
 										{member.name}
 									</h3>

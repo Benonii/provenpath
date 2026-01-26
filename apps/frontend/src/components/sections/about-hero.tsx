@@ -5,7 +5,7 @@ import aboutHeroVideo from "@/assets/about-hero.mp4";
 
 const AboutHero: React.FC = () => {
 	return (
-		<div className="relative h-[140vw] md:h-screen w-full overflow-hidden">
+		<div className="relative h-screen w-full overflow-hidden">
 			{/* Video Background */}
 			<video
 				autoPlay

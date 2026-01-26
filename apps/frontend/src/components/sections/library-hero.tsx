@@ -3,7 +3,7 @@ import libraryHeroVideo from "@/assets/library-hero.mp4";
 
 const LibraryHero: React.FC = () => {
 	return (
-		<div className="relative h-[140vw] md:h-screen w-full overflow-hidden">
+		<div className="relative h-screen w-full overflow-hidden">
 			{/* Video Background */}
 			<video
 				autoPlay

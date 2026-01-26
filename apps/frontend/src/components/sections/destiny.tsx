@@ -60,10 +60,11 @@ const Destiny: FC = () => {
 		// Set initial text state (outline)
 		gsap.set(textRef.current, {
 			color: "transparent",
-			webkitTextStroke: "1px #DBFE01",
+			WebkitTextStroke: "1px #DBFE01",
 		});
 
-		// Set initial state for words (hidden, blurred, slightly down)
+		// Ensure everything is visible but in its starting state
+		gsap.set([path1, path2], { opacity: 1 });
 		gsap.set(wordsRef.current, {
 			opacity: 0,
 			filter: "blur(10px)",
@@ -78,7 +79,7 @@ const Destiny: FC = () => {
 			scrollTrigger: {
 				trigger: sectionRef.current,
 				start: "top 60%", // Start when the section is more visible
-				toggleActions: "play pause resume pause",
+				toggleActions: "restart reset restart reset",
 			},
 		});
 
@@ -93,8 +94,12 @@ const Destiny: FC = () => {
 			},
 		)
 			// Animate text fill during the gap between paths
-			.to(
+			.fromTo(
 				textRef.current,
+				{
+					color: "transparent",
+					WebkitTextStroke: "1px #DBFE01",
+				},
 				{
 					color: "#DBFE01",
 					duration: 1,
@@ -112,25 +117,39 @@ const Destiny: FC = () => {
 				},
 				"-=0.5",
 			)
-			.to(starRef.current, {
-				fill: "#DBFE01",
-				duration: 0.5,
-				ease: "power2.out",
-			});
+			.fromTo(
+				starRef.current,
+				{
+					fill: "transparent",
+				},
+				{
+					fill: "#DBFE01",
+					duration: 0.5,
+					ease: "power2.out",
+				},
+			);
 		// Separate animation for words to make them persistent (no yoyo)
-		gsap.to(wordsRef.current, {
-			opacity: 1,
-			filter: "blur(0px)",
-			y: 0,
-			duration: 0.8,
-			stagger: 0.15,
-			ease: "power2.out",
-			scrollTrigger: {
-				trigger: wordsContainerRef.current,
-				start: "top 75%", // Trigger when the words container is more visible
-				toggleActions: "play pause resume pause",
+		gsap.fromTo(
+			wordsRef.current,
+			{
+				opacity: 0,
+				filter: "blur(10px)",
+				y: 20,
 			},
-		});
+			{
+				opacity: 1,
+				filter: "blur(0px)",
+				y: 0,
+				duration: 0.8,
+				stagger: 0.15,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: wordsContainerRef.current,
+					start: "top 75%", // Trigger when the words container is more visible
+					toggleActions: "restart reset restart reset",
+				},
+			},
+		);
 
 		return () => {
 			ScrollTrigger.getAll().forEach((trigger) => {
@@ -192,6 +211,7 @@ const Destiny: FC = () => {
 						fill="none"
 						strokeLinecap="round"
 						strokeLinejoin="round"
+						className="opacity-0"
 					/>
 
 					{/* --- BOTTOM RIGHT PATH --- */}
@@ -222,6 +242,7 @@ const Destiny: FC = () => {
 						fill="none"
 						strokeLinecap="round"
 						strokeLinejoin="round"
+						className="opacity-0"
 					/>
 
 					{/* STAR at end of path 2 */}
@@ -249,7 +270,11 @@ const Destiny: FC = () => {
 				<div className="relative z-10 text-center py-16">
 					<h2 className="sb-hero text-white mb-6">
 						walk to your{" "}
-						<span ref={textRef} className="text-[#DBFE01]">
+						<span
+							ref={textRef}
+							className="text-transparent"
+							style={{ WebkitTextStroke: "1px #DBFE01" }}
+						>
 							destiny
 						</span>
 					</h2>
@@ -262,7 +287,7 @@ const Destiny: FC = () => {
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
+						viewport={{ once: false }}
 						transition={{ duration: 0.6, delay: 0.2 }}
 						className="mt-12 flex justify-center"
 					>
@@ -294,7 +319,7 @@ const Destiny: FC = () => {
 							ref={(el) => {
 								if (el) wordsRef.current[i] = el;
 							}}
-							className="text-white font-bold text-lg md:text-4xl! mb-1 tracking-wide sb-hero"
+							className="text-white font-bold text-lg md:text-4xl! mb-1 tracking-wide sb-hero opacity-0"
 							style={{ marginLeft: `${i * 1}rem` }}
 						>
 							{word}
