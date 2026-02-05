@@ -1,85 +1,203 @@
-import React from 'react'
-import { User, Users, Zap, Briefcase } from 'lucide-react'
-import { motion } from 'framer-motion'
-import servicesBg from '@/assets/services_bg.png'
-import { fadeIn, staggerContainer } from '@/lib/animations'
+import {
+	motion,
+	useMotionValue,
+	useScroll,
+	useSpring,
+	useTransform,
+} from "framer-motion";
+import { Briefcase, User, Users, Zap } from "lucide-react";
+import type React from "react";
+import { useRef } from "react";
+import { fadeIn, staggerContainer } from "@/lib/animations";
 
 const services = [
-  {
-    icon: User,
-    title: 'Personal development',
-    description: 'Unlock your potential and build lasting habits.',
-  },
-  {
-    icon: Users,
-    title: 'Family challenges',
-    description: 'Strengthen relationships and communication.',
-  },
-  {
-    icon: Zap,
-    title: 'Life Skills',
-    description: 'Align your priorities for fulfillment.',
-  },
-  {
-    icon: Briefcase,
-    title: 'Business development',
-    description: 'Scale your venture with proven frameworks.',
-  },
-]
+	{
+		icon: User,
+		title: "Personal Development",
+		description:
+			"Unlock your potential and build lasting habits that transform your life trajectory.",
+		size: "large",
+	},
+	{
+		icon: Users,
+		title: "Family Challenges",
+		description:
+			"Strengthen relationships and improve communication within your family unit.",
+		size: "normal",
+	},
+	{
+		icon: Zap,
+		title: "Life Skills",
+		description:
+			"Align your priorities for fulfillment and master essential life competencies.",
+		size: "normal",
+	},
+	{
+		icon: Briefcase,
+		title: "Business Development",
+		description:
+			"Scale your venture with proven frameworks and strategic guidance from experts.",
+		size: "large",
+	},
+];
+
+const ServiceCard = ({
+	service,
+	index,
+}: {
+	service: (typeof services)[0];
+	index: number;
+}) => {
+	const ref = useRef<HTMLDivElement>(null);
+	const x = useMotionValue(0);
+	const y = useMotionValue(0);
+
+	const mouseXSpring = useSpring(x);
+	const mouseYSpring = useSpring(y);
+
+	const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["25deg", "-25deg"]);
+	const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-25deg", "25deg"]);
+
+	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+		if (!ref.current) return;
+
+		const rect = ref.current.getBoundingClientRect();
+
+		const width = rect.width;
+		const height = rect.height;
+
+		const mouseX = e.clientX - rect.left;
+		const mouseY = e.clientY - rect.top;
+
+		const xPct = mouseX / width - 0.5;
+		const yPct = mouseY / height - 0.5;
+
+		x.set(xPct);
+		y.set(yPct);
+	};
+
+	const handleMouseLeave = () => {
+		x.set(0);
+		y.set(0);
+	};
+
+	return (
+		<motion.div
+			ref={ref}
+			variants={fadeIn("up", index * 0.1)}
+			onMouseMove={handleMouseMove}
+			onMouseLeave={handleMouseLeave}
+			style={{
+				rotateX,
+				rotateY,
+				transformStyle: "preserve-3d",
+			}}
+			className={`group relative bg-[#0A0A0A] border border-white/10 p-6 md:p-10 lg:p-12
+        transition-colors duration-500 cursor-pointer overflow-hidden
+        hover:border-accent/50 perspective-[1000px]`}
+		>
+			{/* Yellow top border on hover */}
+			<div
+				className="absolute top-0 left-0 right-0 h-[3px] bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+				style={{ transform: "translateZ(30px)" }}
+			/>
+
+			{/* Icon */}
+			<div className="mb-6" style={{ transform: "translateZ(60px)" }}>
+				<service.icon className="w-8 h-8 text-white/60 group-hover:text-accent transition-colors duration-300" />
+			</div>
+
+			{/* Title */}
+			<h3
+				className="text-lg md:text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-accent transition-colors duration-300"
+				style={{ transform: "translateZ(50px)" }}
+			>
+				{service.title}
+			</h3>
+
+			{/* Description */}
+			<p
+				className="text-gray-500 group-hover:text-gray-400 transition-colors duration-300 text-sm md:text-lg"
+				style={{ transform: "translateZ(40px)" }}
+			>
+				{service.description}
+			</p>
+
+			{/* Hover glow effect */}
+			<div
+				className="absolute -bottom-20 -right-20 w-60 h-60 bg-accent/0 group-hover:bg-accent/5 rounded-full blur-3xl transition-all duration-500 pointer-events-none"
+				style={{ transform: "translateZ(-20px)" }}
+			/>
+		</motion.div>
+	);
+};
 
 const Services: React.FC = () => {
-  return (
-    <section id="services" className="relative w-full flex flex-col items-center justify-center py-32 md:py-48 px-4 md:px-6 overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${servicesBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+	const containerRef = useRef<HTMLElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start end", "end start"],
+	});
 
-      {/* Content */}
-      <motion.div 
-        variants={staggerContainer(0.1, 0.2)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className="relative z-10 w-full max-w-6xl"
-      >
-        <motion.h2 
-          variants={fadeIn('down', 0)}
-          className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center mb-10 md:mb-12 tracking-wider"
-        >
-          SERVICES
-        </motion.h2>
+	const yBg = useTransform(scrollYProgress, [0, 1], ["-10%", "30%"]);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {services.map((service, index) => (
-            <motion.div 
-              key={index}
-              variants={fadeIn('up', index * 0.1)}
-              whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
-              className="group relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-300"
-            >
-              <div className="mb-4">
-                <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
-              </div>
-              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-2">
-                {service.title}
-              </h3>
-              <p className="text-white/70 text-sm md:text-base">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </section>
-  )
-}
+	return (
+		// biome-ignore lint: Static ID required for hash navigation
+		<section
+			ref={containerRef}
+			id="services"
+			className="relative w-full py-20 md:py-40 bg-black overflow-hidden perspective-[1000px]"
+		>
+			{/* Stronger Gradient Background */}
+			<motion.div
+				style={{ y: yBg }}
+				className="absolute inset-0 bg-accent-gradient pointer-events-none"
+			/>
 
-export default Services
+			{/* Subtle background pattern */}
+			<div
+				className="absolute inset-0 opacity-[0.03]"
+				style={{
+					backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+					backgroundSize: "40px 40px",
+				}}
+			/>
+
+			{/* Content */}
+			<motion.div
+				variants={staggerContainer(0.1, 0.2)}
+				initial="hidden"
+				whileInView="show"
+				viewport={{ once: false, amount: 0.15 }}
+				className="relative z-10 container mx-auto px-6 md:px-8"
+			>
+				{/* Section Header */}
+				<div className="text-center mb-16 md:mb-20">
+					<motion.span
+						variants={fadeIn("down", 0)}
+						className="text-accent font-black tracking-[0.3em] text-sm uppercase block mb-6"
+					>
+						WHAT WE OFFER
+					</motion.span>
+					<div className="overflow-hidden">
+						<motion.h2
+							variants={fadeIn("up", 0.1)}
+							className="text-[clamp(2.5rem,6vw,5rem)] font-black text-white tracking-tight uppercase leading-[0.9]"
+						>
+							SERVICES
+						</motion.h2>
+					</div>
+				</div>
+
+				{/* Bento Grid - SHARP CORNERS */}
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+					{services.map((service, index) => (
+						<ServiceCard key={service.title} service={service} index={index} />
+					))}
+				</div>
+			</motion.div>
+		</section>
+	);
+};
+
+export default Services;
